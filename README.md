@@ -1,4 +1,4 @@
-<h1 align="center">Hello, welcome to my github pages</h1>
+<h1 align="center">Hello, welcome to my github page!</h1>
 
 <a href="https://github.com/noxzym"><img src="https://user-images.githubusercontent.com/67855694/175751941-1b411115-ee4a-4ed0-ab5c-120345fd5756.png" alt="Prinz Eugen Azurlane" /></a>
 
