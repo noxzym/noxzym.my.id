@@ -1,0 +1,19 @@
+::-webkit-scrollbar-track {
+    @apply h-1 w-1 bg-transparent;
+}
+
+::-webkit-scrollbar {
+    @apply h-1 w-1 bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply rounded-md bg-[#222831] shadow-none dark:bg-[#DDDDDD];
+}
+
+::-webkit-scrollbar-thumb:hover {
+    @apply bg-[#222831] bg-opacity-75 shadow-none dark:bg-[#DDDDDD];
+}
+
+.transition-on-theme-change {
+    transition: all 0.4s ease-in-out;
+}

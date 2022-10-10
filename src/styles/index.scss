@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        @apply bg-[#DDDDDD] transition-colors duration-300 ease-in-out dark:bg-[#111111];
+    }
+}
+
+@font-face {
+    font-family: "alfa-slab-one";
+    src: url("../../public/assets/fonts/AlfaSlabOne-Regular.ttf");
+
+    font-family: "segoe";
+    src: url("../../public/assets/fonts/Segoe.ttf");
+
+    font-family: "segoe-bold";
+    src: url("../../public/assets/fonts/Segoe-Bold.ttf");
+}
+
+@import "./global";
+@import "./editor";
