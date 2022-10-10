@@ -1,4 +1,4 @@
-import TextEditor from "@/components/editor";
+import { TextEditor } from "@/components/editor";
 import { LazyLoading } from "@/components/LazyLoading";
 import { getAllDocs } from "@/utils/api/firebase";
 import { Session } from "next-auth";
