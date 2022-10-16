@@ -1,7 +1,6 @@
-import { Popover, Transition } from "@headlessui/react";
+import { Menu, Transition } from "@headlessui/react";
 import { useTheme } from "next-themes";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import { Dispatch, Fragment, SetStateAction, useEffect, useState } from "react";
 import { LazyLoading } from "./LazyLoading";
 
@@ -13,20 +12,20 @@ function GetNavigationPath(): Record<string, string>[] {
         },
         {
             name: "blog",
-            path: "/blog"
+            path: "/#"
         },
         {
             name: "about",
-            path: "/about"
+            path: "/#aboutMe"
         },
         {
             name: "contact",
-            path: "/contact"
+            path: "/#contact"
         }
     ];
 }
 
-function GetNavigationElement(pathname: string) {
+function GetNavigationElement(pathname?: string) {
     return GetNavigationPath().map((item, i) => (
         <div
             key={i}
@@ -34,9 +33,9 @@ function GetNavigationElement(pathname: string) {
         >
             <Link href={item.path} className="cursor-pointer" rel="noreferrer">
                 <a
-                    className={`transition-on-theme-change w-full rounded py-2 hover:bg-[#B1B1B1] dark:hover:bg-[#171717] lg:w-auto lg:rounded-none lg:border-b-2 lg:px-4 hover:lg:border-[#222831] hover:lg:bg-transparent dark:hover:lg:border-[#DDDDDD] dark:hover:lg:bg-transparent ${
+                    className={`transition-on-theme-change w-full rounded py-2 hover:bg-[#C7C7C7] dark:hover:bg-[#171717] lg:w-auto lg:rounded-none lg:border-b-2 lg:px-4 hover:lg:border-[#222831] hover:lg:bg-transparent dark:hover:lg:border-[#DDDDDD] dark:hover:lg:bg-transparent ${
                         pathname === item.path
-                            ? "bg-[#B1B1B1] dark:bg-[#171717] lg:border-[#222831] lg:bg-transparent dark:lg:border-[#DDDDDD] dark:lg:bg-transparent"
+                            ? "bg-[#C7C7C7] dark:bg-[#171717] lg:border-[#222831] lg:bg-transparent dark:lg:border-[#DDDDDD] dark:lg:bg-transparent"
                             : "lg:border-transparent"
                     }`}
                 >
@@ -48,50 +47,52 @@ function GetNavigationElement(pathname: string) {
 }
 
 // prettier-ignore
-function MobileNavbar({ pathname, themeIcon }: { pathname: string; themeIcon: (boolean | JSX.Element)[] }) {
+function MobileNavbar({ themeIcon }: { themeIcon: (boolean | JSX.Element)[] }) {
     return (
         <>
             <nav className="absolute z-10 my-[5%] flex w-full flex-row items-center justify-between px-[5%] lg:hidden">
                 <div className="flex flex-row items-center justify-center gap-x-2">
                     <div>
-                        <Popover>
-                            {() => (
-                                <>
-                                    <Popover.Button>
-                                        <svg
-                                            className="h-10 w-10 stroke-[#222831] stroke-[6] dark:stroke-[#DDDDDD]"
-                                            viewBox="0 0 48 48"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            aria-labelledby="hamburgerIconTitle"
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                        >
-                                            <path d="M7.95 11.95h32m-32 12h32m-32 12h32" />
-                                        </svg>
-                                    </Popover.Button>
-                                    <Transition
-                                        as={Fragment}
-                                        enter="transition ease-out duration-200"
-                                        enterFrom="opacity-0 translate-y-0"
-                                        enterTo="opacity-100 translate-y-1"
-                                        leave="transition ease-in duration-150"
-                                        leaveFrom="opacity-100 translate-y-1"
-                                        leaveTo="opacity-0 translate-y-0"
+                        <Menu>
+                            <Menu.Button>
+                                <svg
+                                    className="h-10 w-10 stroke-[#222831] stroke-[6] dark:stroke-[#DDDDDD]"
+                                    viewBox="0 0 48 48"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    aria-labelledby="hamburgerIconTitle"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                >
+                                    <path d="M7.95 11.95h32m-32 12h32m-32 12h32" />
+                                </svg>
+                            </Menu.Button>
+                            <Transition
+                                as={Fragment}
+                                enter="transition ease-out duration-200"
+                                enterFrom="opacity-0 translate-y-0"
+                                enterTo="opacity-100 translate-y-1"
+                                leave="transition ease-in duration-150"
+                                leaveFrom="opacity-100 translate-y-1"
+                                leaveTo="opacity-0 translate-y-0"
+                            >
+                                <div className="absolute left-0 right-0 z-10 w-screen">
+                                    <Menu.Items
+                                        unmount
+                                        className="mx-[3%] rounded-xl border-2 border-[#C7C7C7] bg-[#DDDDDD] shadow-md dark:border-[#171717] dark:bg-[#111111] dark:shadow-none"
                                     >
-                                        <Popover.Panel
-                                            unmount
-                                            className="absolute left-0 right-0 z-10 w-screen"
-                                        >
-                                            <div className="mx-[3%] rounded-xl border-2 border-[#222831] bg-[#C7C7C7] shadow dark:border-[#171717] dark:bg-[#111111]">
-                                                <div className="flex flex-col items-center justify-center py-2">
-                                                    {GetNavigationElement(pathname)}
-                                                </div>
-                                            </div>
-                                        </Popover.Panel>
-                                    </Transition>
-                                </>
-                            )}
-                        </Popover>
+                                            <div className="flex flex-col items-center justify-center py-2">
+                                                {GetNavigationElement().map(
+                                                    (item, i) => (
+                                                        <Menu.Item key={i}>
+                                                            {item}
+                                                        </Menu.Item>
+                                                    )
+                                                )}
+                                        </div>
+                                    </Menu.Items>
+                                </div>
+                            </Transition>
+                        </Menu>
                     </div>
                     <Link href="/">
                         <svg
@@ -120,7 +121,7 @@ function MobileNavbar({ pathname, themeIcon }: { pathname: string; themeIcon: (b
 }
 
 // prettier-ignore
-function DesktopNavbar({ pathname, themeIcon }: { pathname: string; themeIcon: (boolean | JSX.Element)[] }) {
+function DesktopNavbar({ themeIcon }: { themeIcon: (boolean | JSX.Element)[] }) {
     return (
         <nav className="absolute top-7 z-10 hidden w-full flex-row items-center justify-between px-[15%] lg:flex">
             <div className="flex flex-row items-center justify-center gap-x-3">
@@ -146,7 +147,7 @@ function DesktopNavbar({ pathname, themeIcon }: { pathname: string; themeIcon: (
                 </Link>
             </div>
             <div className="relative flex flex-row items-center justify-center gap-x-2 font-segoe text-xl font-semibold">
-                {GetNavigationElement(pathname)}
+                {GetNavigationElement()}
             </div>
         </nav>
     );
@@ -196,7 +197,6 @@ function renderThemeChange(
 }
 
 export default function MyNavbar() {
-    const router = useRouter();
     const { systemTheme, theme, setTheme } = useTheme();
     const currentTheme = theme === "system" ? systemTheme : theme;
     const [themeIcon, setThemeIcon] = useState([
@@ -233,14 +233,8 @@ export default function MyNavbar() {
 
     return (
         <>
-            <MobileNavbar
-                pathname={router.asPath.split(/(?=\/)/)[0]}
-                themeIcon={themeIcon}
-            />
-            <DesktopNavbar
-                pathname={router.asPath.split(/(?=\/)/)[0]}
-                themeIcon={themeIcon}
-            />
+            <MobileNavbar themeIcon={themeIcon} />
+            <DesktopNavbar themeIcon={themeIcon} />
         </>
     );
 }
