@@ -1,30 +1,9 @@
-import Head from "next/head";
-import { useRouter } from "next/router";
 import Picture from "@/public/assets/images/noxzym-without-text.png";
+import Head from "next/head";
 
 export default function MyHead() {
-    const router = useRouter();
-
     function GetTitle() {
-        let title = "Noxzym - ";
-        const splittedPath = router.asPath.split(/(?=\/)/);
-        switch (splittedPath[0]) {
-            case "/":
-                return title.concat("Home");
-            case "/blog":
-                if (splittedPath.length > 1) {
-                    return title.concat(
-                        decodeURIComponent(
-                            splittedPath.slice(2).join(" ").replace(/\//g, "")
-                        )
-                    );
-                }
-                return title.concat("Blog");
-            case "/about":
-                return title.concat("About");
-            case "/contact":
-                return title.concat("Contact");
-        }
+        return "Noxzym";
     }
 
     function GetDescription() {
