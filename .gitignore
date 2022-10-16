@@ -98,3 +98,6 @@ dist
 
 # TernJS port file
 .tern-port
+
+public/sitemap.xml
+publix/robots.txt
