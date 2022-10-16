@@ -1,6 +1,5 @@
 import MyHead from "@/components/MyHead";
 import MyNavbar from "@/components/MyNavbar";
-import { SessionProvider } from "next-auth/react";
 import { ThemeProvider } from "next-themes";
 import { AppProps } from "next/app";
 import NextNProgress from "nextjs-progressbar";
@@ -13,9 +12,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
             <ThemeProvider enableSystem attribute="class">
                 <MyNavbar />
                 <NextNProgress />
-                <SessionProvider>
-                    <Component {...pageProps} />
-                </SessionProvider>
+                <Component {...pageProps} />
             </ThemeProvider>
         </>
     );
