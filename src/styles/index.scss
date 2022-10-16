@@ -17,7 +17,12 @@
 
     font-family: "segoe-bold";
     src: url("../../public/assets/fonts/Segoe-Bold.ttf");
+
+    font-family: "garet";
+    src: url("../../public/assets/fonts/Garet-Book.ttf");
+
+    font-family: "garet-bold";
+    src: url("../../public/assets/fonts/Garet-Heavy.ttf");
 }
 
 @import "./global";
-@import "./editor";
