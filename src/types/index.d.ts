@@ -1,23 +1,54 @@
-import type { DefaultUser } from "next-auth";
-
-declare module "next-auth" {
-    interface Session {
-        user?: DefaultUser & {
-            id: string;
+export interface IDiscordProfile {
+    success: boolean;
+    data: {
+        spotify: {
+            track_id: string;
+            timestamps: {
+                start: number;
+                end: number;
+            };
+            song: string;
+            artist: string;
+            album_art_url: string;
+            album: string;
         };
-    }
-}
-
-export interface IArticleComponent {
-    meta: {
-        slug: string;
-        author: string;
-        title: string;
-        description: string;
-        date: number;
-        thumbnail: string;
-        authorImage: string;
-        readingTime: string;
+        listening_to_spotify: boolean;
+        kv: {};
+        discord_user: {
+            username: string;
+            public_flags: number;
+            id: string;
+            discriminator: string;
+            bot: false;
+            avatar: string;
+        };
+        discord_status: string;
+        activities: [
+            {
+                type: number;
+                timestamps: {
+                    start: number;
+                    end: number;
+                };
+                sync_id: string;
+                state: string;
+                session_id: string;
+                party: {
+                    id: string;
+                };
+                name: string;
+                id: string;
+                flags: number;
+                details: string;
+                created_at: number;
+                assets: {
+                    large_text: string;
+                    large_image: string;
+                };
+            }
+        ];
+        active_on_discord_web: boolean;
+        active_on_discord_mobile: boolean;
+        active_on_discord_desktop: boolean;
     };
-    content: string;
 }
