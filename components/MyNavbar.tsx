@@ -160,6 +160,7 @@ function SVGIcon(
 ) {
     return toTheme === "dark" ? (
         <button
+            aria-label="Switch Theme Button"
             onClick={() => renderThemeChange("light", setTheme, setThemeIcon)}
         >
             <svg
@@ -174,6 +175,7 @@ function SVGIcon(
         </button>
     ) : (
         <button
+            aria-label="Switch Theme Button"
             onClick={() => renderThemeChange("dark", setTheme, setThemeIcon)}
         >
             <svg

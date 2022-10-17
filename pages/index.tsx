@@ -61,7 +61,13 @@ function getIcon() {
     ]
         .sort((a, b) => a[0].toString().localeCompare(b[0].toString()))
         .map(([href, svg]: [href: string, svg: JSX.Element], i) => (
-            <a key={i} href={href} target="_blank" rel="noreferrer">
+            <a
+                key={i}
+                href={href}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`Visit My ${href.toUpperCase()} Account`}
+            >
                 {svg}
             </a>
         ));

@@ -11,18 +11,23 @@
 @font-face {
     font-family: "alfa-slab-one";
     src: url("../../public/assets/fonts/AlfaSlabOne-Regular.ttf");
+    font-display: swap;
 
     font-family: "segoe";
     src: url("../../public/assets/fonts/Segoe.ttf");
+    font-display: swap;
 
     font-family: "segoe-bold";
     src: url("../../public/assets/fonts/Segoe-Bold.ttf");
+    font-display: swap;
 
     font-family: "garet";
     src: url("../../public/assets/fonts/Garet-Book.ttf");
+    font-display: swap;
 
     font-family: "garet-bold";
     src: url("../../public/assets/fonts/Garet-Heavy.ttf");
+    font-display: swap;
 }
 
 @import "./global";
