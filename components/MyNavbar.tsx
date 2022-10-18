@@ -35,7 +35,7 @@ function GetNavigationElement(pathname?: string) {
                 <a
                     className={`w-full rounded py-2 lg:w-auto lg:px-4`.concat(
                         item.name === "blog"
-                            ? " rounded-full bg-[#222831] text-[#DDDDDD] dark:bg-[#DDDDDD] dark:text-[#222831]"
+                            ? " rounded-full bg-[#222831] text-[#DDDDDD] dark:bg-[#DDDDDD] dark:text-[#111111]"
                             : " hover:bg-[#C7C7C7] dark:hover:bg-[#171717] lg:rounded-none hover:lg:border-b-2 hover:lg:border-[#222831] hover:lg:bg-transparent dark:hover:lg:border-[#DDDDDD] dark:hover:lg:bg-transparent"
                     )}
                 >
