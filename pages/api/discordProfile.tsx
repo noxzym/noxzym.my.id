@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
-export default async function MyDiscordProfile(
+export default async function discordProfile(
     _: NextApiRequest,
     res: NextApiResponse
 ) {
