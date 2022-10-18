@@ -16,7 +16,7 @@ function GetNavigationPath(): Record<string, string>[] {
         },
         {
             name: "about",
-            path: "/#aboutMe"
+            path: "/#about"
         },
         {
             name: "contact",
@@ -54,7 +54,7 @@ function MobileNavbar({ themeIcon }: { themeIcon: (boolean | JSX.Element)[] }) {
                 <div className="flex flex-row items-center justify-center gap-x-2">
                     <div>
                         <Menu>
-                            <Menu.Button>
+                            <Menu.Button aria-label="Menu Button">
                                 <svg
                                     className="h-10 w-10 stroke-[#222831] stroke-[6] dark:stroke-[#DDDDDD]"
                                     viewBox="0 0 48 48"
