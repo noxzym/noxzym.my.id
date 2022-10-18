@@ -1,4 +1,4 @@
-export interface IDiscordProfile {
+export interface ILanyard {
     success: boolean;
     data: {
         spotify: {
@@ -13,7 +13,7 @@ export interface IDiscordProfile {
             album: string;
         };
         listening_to_spotify: boolean;
-        kv: {};
+        kv: Record<string, string>;
         discord_user: {
             username: string;
             public_flags: number;
