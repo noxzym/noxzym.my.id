@@ -253,7 +253,7 @@ export const About = function () {
                         My name is Orchitiadi Ismaulana Putra, 18 years old
                         student of{" "}
                         <a
-                            className="font-bold text-[#DA0037] dark:text-[#EEB76B]"
+                            className="font-bold text-[#810417] dark:text-[#EEB76B]"
                             href="https://gunadarma.ac.id/"
                             target="_blank"
                             rel="noreferrer"
@@ -262,7 +262,7 @@ export const About = function () {
                         </a>{" "}
                         at the{" "}
                         <a
-                            className="font-bold text-[#DA0037] dark:text-[#EEB76B]"
+                            className="font-bold text-[#810417] dark:text-[#EEB76B]"
                             href="http://fti.gunadarma.ac.id/"
                             target="_blank"
                             rel="noreferrer"
@@ -274,7 +274,7 @@ export const About = function () {
                         have small experience in a few programming languages,
                         such as{" "}
                         <a
-                            className="font-bold text-[#DA0037] dark:text-[#EEB76B]"
+                            className="font-bold text-[#810417] dark:text-[#EEB76B]"
                             href="https://www.javascript.com/"
                             target="_blank"
                             rel="noreferrer"
@@ -283,7 +283,7 @@ export const About = function () {
                         </a>
                         ,{" "}
                         <a
-                            className="font-bold text-[#DA0037] dark:text-[#EEB76B]"
+                            className="font-bold text-[#810417] dark:text-[#EEB76B]"
                             href="https://www.typescriptlang.org/"
                             target="_blank"
                             rel="noreferrer"
@@ -292,7 +292,7 @@ export const About = function () {
                         </a>
                         ,{" "}
                         <a
-                            className="font-bold text-[#DA0037] dark:text-[#EEB76B]"
+                            className="font-bold text-[#810417] dark:text-[#EEB76B]"
                             href="https://www.java.com/"
                             target="_blank"
                             rel="noreferrer"
@@ -301,7 +301,7 @@ export const About = function () {
                         </a>
                         ,{" "}
                         <a
-                            className="font-bold text-[#DA0037] dark:text-[#EEB76B]"
+                            className="font-bold text-[#810417] dark:text-[#EEB76B]"
                             href="https://kotlinlang.org/"
                             target="_blank"
                             rel="noreferrer"
@@ -310,7 +310,7 @@ export const About = function () {
                         </a>
                         , and{" "}
                         <a
-                            className="font-bold text-[#DA0037] dark:text-[#EEB76B]"
+                            className="font-bold text-[#810417] dark:text-[#EEB76B]"
                             href="https://www.python.org/"
                             target="_blank"
                             rel="noreferrer"
@@ -320,7 +320,7 @@ export const About = function () {
                         . I am also have experience in web development. I use
                         framework of{" "}
                         <a
-                            className="font-bold text-[#DA0037] dark:text-[#EEB76B]"
+                            className="font-bold text-[#810417] dark:text-[#EEB76B]"
                             href="https://reactjs.org/"
                             target="_blank"
                             rel="noreferrer"
@@ -329,7 +329,7 @@ export const About = function () {
                         </a>{" "}
                         for my web development called{" "}
                         <a
-                            className="font-bold text-[#DA0037] dark:text-[#EEB76B]"
+                            className="font-bold text-[#810417] dark:text-[#EEB76B]"
                             href="https://nextjs.org/"
                             target="_blank"
                             rel="noreferrer"
@@ -338,7 +338,7 @@ export const About = function () {
                         </a>{" "}
                         and use styling framework called{" "}
                         <a
-                            className="font-bold text-[#DA0037] dark:text-[#EEB76B]"
+                            className="font-bold text-[#810417] dark:text-[#EEB76B]"
                             href="https://tailwindcss.com/"
                             target="_blank"
                             rel="noreferrer"
