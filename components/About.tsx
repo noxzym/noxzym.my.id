@@ -239,7 +239,10 @@ const databases = [
 
 export const About = function () {
     return (
-        <>
+        <section
+            id="about"
+            className="w-full py-5 px-[5%] text-[#222831] dark:text-[#DDDDDD] lg:px-[15%]"
+        >
             <div className="font-garet-bold text-3xl xl:text-5xl">About Me</div>
             <div className="flex w-full flex-col">
                 <AboutComp>
@@ -382,6 +385,6 @@ export const About = function () {
                     <div className="flex flex-wrap gap-3">{databases}</div>
                 </AboutComp>
             </div>
-        </>
+        </section>
     );
 };
