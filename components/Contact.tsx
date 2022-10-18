@@ -1,27 +1,27 @@
-import { IDiscordProfile } from "@/types";
+import { ILanyard } from "@/types";
 import { useEffect, useState } from "react";
 import { ContactCard } from "./ContactCard";
 
 export const Contact = function () {
-    const [discordProfile, setDiscordProfile] = useState<IDiscordProfile>();
+    const [lanyardData, setLanyardData] = useState<ILanyard>();
     const [running, setRunning] = useState(false);
     useEffect(() => {
         if (!running) {
             setRunning(true);
-            fetch("/api/MyDiscordProfile")
+            fetch("/api/discordProfile")
                 .then(res => res.json())
                 .then(data => {
-                    setDiscordProfile(data);
+                    setLanyardData(data);
                     setRunning(true);
                 })
                 .catch(() => null);
         }
-    }, [discordProfile, running]);
+    }, [lanyardData, running]);
     const contacts = [
         {
             name:
-                discordProfile && discordProfile.data
-                    ? `${discordProfile.data.discord_user.username}#${discordProfile.data.discord_user.discriminator}`
+                lanyardData && lanyardData.data
+                    ? `${lanyardData.data.discord_user.username}#${lanyardData.data.discord_user.discriminator}`
                     : null,
             href: "discord",
             icon: (
@@ -35,7 +35,10 @@ export const Contact = function () {
             )
         },
         {
-            name: "noxzym",
+            name:
+                lanyardData && lanyardData.data
+                    ? lanyardData.data.kv.github
+                    : null,
             href: "github",
             icon: (
                 <svg
@@ -48,7 +51,10 @@ export const Contact = function () {
             )
         },
         {
-            name: "noxzym",
+            name:
+                lanyardData && lanyardData.data
+                    ? lanyardData.data.kv.spotify
+                    : null,
             href: "spotify",
             icon: (
                 <svg
@@ -61,7 +67,10 @@ export const Contact = function () {
             )
         },
         {
-            name: "orchit07",
+            name:
+                lanyardData && lanyardData.data
+                    ? lanyardData.data.kv.instagram
+                    : null,
             href: "instagram",
             icon: (
                 <svg
@@ -74,7 +83,10 @@ export const Contact = function () {
             )
         },
         {
-            name: "orchit07",
+            name:
+                lanyardData && lanyardData.data
+                    ? lanyardData.data.kv.twitter
+                    : null,
             href: "twitter",
             icon: (
                 <svg
@@ -88,7 +100,10 @@ export const Contact = function () {
         }
     ];
     return (
-        <>
+        <section
+            id="contact"
+            className="mb-5 w-full py-5 px-[5%] text-[#222831] dark:text-[#DDDDDD] lg:px-[15%]"
+        >
             <div className="mb-3 font-garet-bold text-3xl xl:text-5xl">
                 Contact
             </div>
@@ -105,6 +120,6 @@ export const Contact = function () {
                         </ContactCard>
                     ))}
             </div>
-        </>
+        </section>
     );
 };
