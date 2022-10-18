@@ -11,16 +11,16 @@ function GetNavigationPath(): Record<string, string>[] {
             path: "/"
         },
         {
-            name: "blog",
-            path: "/#"
-        },
-        {
             name: "about",
             path: "/#about"
         },
         {
             name: "contact",
             path: "/#contact"
+        },
+        {
+            name: "blog",
+            path: "/#"
         }
     ];
 }
@@ -33,11 +33,11 @@ function GetNavigationElement(pathname?: string) {
         >
             <Link href={item.path} className="cursor-pointer" rel="noreferrer">
                 <a
-                    className={`transition-on-theme-change w-full rounded py-2 hover:bg-[#C7C7C7] dark:hover:bg-[#171717] lg:w-auto lg:rounded-none lg:border-b-2 lg:px-4 hover:lg:border-[#222831] hover:lg:bg-transparent dark:hover:lg:border-[#DDDDDD] dark:hover:lg:bg-transparent ${
-                        pathname === item.path
-                            ? "bg-[#C7C7C7] dark:bg-[#171717] lg:border-[#222831] lg:bg-transparent dark:lg:border-[#DDDDDD] dark:lg:bg-transparent"
-                            : "lg:border-transparent"
-                    }`}
+                    className={`w-full rounded py-2 lg:w-auto lg:px-4`.concat(
+                        item.name === "blog"
+                            ? " rounded-full bg-[#222831] text-[#DDDDDD] dark:bg-[#DDDDDD] dark:text-[#222831]"
+                            : " hover:bg-[#C7C7C7] dark:hover:bg-[#171717] lg:rounded-none hover:lg:border-b-2 hover:lg:border-[#222831] hover:lg:bg-transparent dark:hover:lg:border-[#DDDDDD] dark:hover:lg:bg-transparent"
+                    )}
                 >
                     {item.name}
                 </a>
