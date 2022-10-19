@@ -25,11 +25,15 @@ export default function MyHead() {
                 sizes="16x16"
                 href={Picture.src}
             />
+            <meta name="keywords" content="orchit, noxzym, maakoo, orchit07" />
+            <meta name="robots" content="index, follow" />
+            {/* Open Graph */}
             <meta property="og:title" content={GetTitle()} />
             <meta property="og:description" content={GetDescription()} />
             <meta property="og:type" content="website" />
             <meta property="og:url" content="https://noxzym.my.id" />
             <meta property="og:image" content={Picture.src} />
+            {/* Twitter  */}
             <meta name="twitter:card" content="summary_large_image" />
             <meta name="twitter:site" content="@/noxzym" />
             <meta name="twitter:creator" content="@/noxzym" />
