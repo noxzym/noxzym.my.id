@@ -374,13 +374,13 @@ export const About = function () {
                 </AboutComp>
                 <AboutComp className="lg:flex-row lg:items-center lg:justify-between">
                     <div className="mb-1 font-segoe text-xl font-bold xl:text-2xl">
-                        frameworks
+                        Frameworks
                     </div>
                     <div className="flex flex-wrap gap-3">{frameworks}</div>
                 </AboutComp>
                 <AboutComp className="lg:flex-row lg:items-center lg:justify-between">
                     <div className="mb-1 font-segoe text-xl font-bold xl:text-2xl">
-                        databases
+                        Databases
                     </div>
                     <div className="flex flex-wrap gap-3">{databases}</div>
                 </AboutComp>
