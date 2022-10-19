@@ -1,28 +1,28 @@
 import { ILanyard } from "@/types";
-import { useEffect, useState } from "react";
+import useSWR from "swr";
 import { ContactCard } from "./ContactCard";
 
 export const Contact = function () {
-    const [lanyardData, setLanyardData] = useState<ILanyard>();
-    const [running, setRunning] = useState(false);
-    useEffect(() => {
-        if (!running) {
-            setRunning(true);
-            fetch("/api/discordProfile")
-                .then(res => res.json())
-                .then(data => {
-                    setLanyardData(data);
-                    setRunning(true);
-                })
-                .catch(() => null);
-        }
-    }, [lanyardData, running]);
+    function useSocialMediaAccount(): {
+        account: ILanyard | undefined;
+        isLoading: boolean;
+        isError: unknown | undefined;
+    } {
+        const { data, error } = useSWR("/api/discordProfile", args =>
+            fetch(args).then(res => res.json())
+        );
+        return {
+            account: data,
+            isLoading: !error && !data,
+            isError: error
+        };
+    }
+    const { account } = useSocialMediaAccount();
     const contacts = [
         {
-            name:
-                lanyardData && lanyardData.data
-                    ? `${lanyardData.data.discord_user.username}#${lanyardData.data.discord_user.discriminator}`
-                    : null,
+            name: account?.data
+                ? `${account.data.discord_user.username}#${account.data.discord_user.discriminator}`
+                : null,
             href: "discord",
             icon: (
                 <svg
@@ -35,10 +35,7 @@ export const Contact = function () {
             )
         },
         {
-            name:
-                lanyardData && lanyardData.data
-                    ? lanyardData.data.kv.github
-                    : null,
+            name: account?.data ? account.data.kv.github : null,
             href: "github",
             icon: (
                 <svg
@@ -51,10 +48,7 @@ export const Contact = function () {
             )
         },
         {
-            name:
-                lanyardData && lanyardData.data
-                    ? lanyardData.data.kv.spotify
-                    : null,
+            name: account?.data ? account.data.kv.spotify : null,
             href: "spotify",
             icon: (
                 <svg
@@ -67,10 +61,7 @@ export const Contact = function () {
             )
         },
         {
-            name:
-                lanyardData && lanyardData.data
-                    ? lanyardData.data.kv.instagram
-                    : null,
+            name: account?.data ? account.data.kv.instagram : null,
             href: "instagram",
             icon: (
                 <svg
@@ -83,10 +74,7 @@ export const Contact = function () {
             )
         },
         {
-            name:
-                lanyardData && lanyardData.data
-                    ? lanyardData.data.kv.twitter
-                    : null,
+            name: account?.data ? account.data.kv.twitter : null,
             href: "twitter",
             icon: (
                 <svg
