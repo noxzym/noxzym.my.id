@@ -43,7 +43,7 @@
     "prettierIgnore": {},
     "devDependencies": {
         "@types/node": "^17.0.23",
-        "@types/react": "^18.0.22",
+        "@types/react": "^18.0.23",
         "@typescript-eslint/eslint-plugin": "^5.41.0",
         "@typescript-eslint/parser": "^5.41.0",
         "autoprefixer": "^10.4.12",
