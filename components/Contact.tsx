@@ -91,11 +91,18 @@ export const Contact = function () {
         <section
             id="contact"
             className="mb-5 w-full py-5 px-[5%] text-[#222831] dark:text-[#DDDDDD] lg:px-[15%]"
+            data-scroll-section
         >
-            <div className="mb-3 font-garet-bold text-3xl xl:text-5xl">
+            <div
+                className="mb-3 font-garet-bold text-3xl xl:text-5xl"
+                data-scroll
+            >
                 Contact
             </div>
-            <div className="flex w-full grid-cols-3 flex-col items-center gap-2 align-middle lg:grid">
+            <div
+                className="flex w-full grid-cols-3 flex-col items-center gap-2 align-middle lg:grid"
+                data-scroll
+            >
                 {contacts
                     .sort((a, b) => a.href.localeCompare(b.href))
                     .map((contact, index) => (
@@ -103,6 +110,7 @@ export const Contact = function () {
                             key={index}
                             name={contact.name}
                             href={contact.href}
+                            data-scroll
                         >
                             {contact.icon}
                         </ContactCard>

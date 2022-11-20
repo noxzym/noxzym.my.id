@@ -10,14 +10,14 @@ function GetNavigationPath(): Record<string, string>[] {
             name: "home",
             path: "/"
         },
-        {
-            name: "about",
-            path: "/#about"
-        },
-        {
-            name: "contact",
-            path: "/#contact"
-        },
+        // {
+        //     name: "about",
+        //     path: "/#about"
+        // },
+        // {
+        //     name: "contact",
+        //     path: "/#contact"
+        // },
         {
             name: "blog",
             path: "/#"
@@ -38,7 +38,6 @@ function GetNavigationElement(pathname?: string) {
                         ? " rounded-full bg-[#222831] text-[#DDDDDD] dark:bg-[#DDDDDD] dark:text-[#111111]"
                         : " hover:bg-[#C7C7C7] dark:hover:bg-[#171717] lg:rounded-none hover:lg:border-b-2 hover:lg:border-[#222831] hover:lg:bg-transparent dark:hover:lg:border-[#DDDDDD] dark:hover:lg:bg-transparent"
                 )}
-                rel="noreferrer"
             >
                 {item.name}
             </Link>
@@ -50,8 +49,14 @@ function GetNavigationElement(pathname?: string) {
 function MobileNavbar({ themeIcon }: { themeIcon: (boolean | JSX.Element)[] }) {
     return (
         <>
-            <nav className="absolute z-10 my-[5%] flex w-full flex-row items-center justify-between px-[5%] lg:hidden">
-                <div className="flex flex-row items-center justify-center gap-x-2">
+            <nav
+                className="absolute z-10 my-[5%] flex w-full flex-row items-center justify-between px-[5%] lg:hidden"
+                data-scroll-section
+            >
+                <div
+                    className="flex flex-row items-center justify-center gap-x-2"
+                    data-scroll
+                >
                     <div>
                         <Menu>
                             <Menu.Button aria-label="Menu Button">
@@ -80,14 +85,14 @@ function MobileNavbar({ themeIcon }: { themeIcon: (boolean | JSX.Element)[] }) {
                                         unmount
                                         className="mx-[3%] rounded-xl border-2 border-[#C7C7C7] bg-[#DDDDDD] shadow-md dark:border-[#171717] dark:bg-[#111111] dark:shadow-none"
                                     >
-                                            <div className="flex flex-col items-center justify-center py-2">
-                                                {GetNavigationElement().map(
-                                                    (item, i) => (
-                                                        <Menu.Item key={i}>
-                                                            {item}
-                                                        </Menu.Item>
-                                                    )
-                                                )}
+                                        <div className="flex flex-col items-center justify-center py-2">
+                                            {GetNavigationElement().map(
+                                                (item, i) => (
+                                                    <Menu.Item key={i}>
+                                                        {item}
+                                                    </Menu.Item>
+                                                )
+                                            )}
                                         </div>
                                     </Menu.Items>
                                 </div>
@@ -123,8 +128,14 @@ function MobileNavbar({ themeIcon }: { themeIcon: (boolean | JSX.Element)[] }) {
 // prettier-ignore
 function DesktopNavbar({ themeIcon }: { themeIcon: (boolean | JSX.Element)[] }) {
     return (
-        <nav className="absolute top-7 z-10 hidden w-full flex-row items-center justify-between px-[15%] lg:flex">
-            <div className="flex flex-row items-center justify-center gap-x-3">
+        <nav
+            className="absolute top-7 z-10 hidden w-full flex-row items-center justify-between px-[15%] lg:flex"
+            data-scroll-section
+        >
+            <div
+                className="flex flex-row items-center justify-center gap-x-3"
+                data-scroll
+            >
                 {themeIcon[1]}
                 <Link href="/">
                     <svg
@@ -146,7 +157,10 @@ function DesktopNavbar({ themeIcon }: { themeIcon: (boolean | JSX.Element)[] }) 
                     </svg>
                 </Link>
             </div>
-            <div className="relative flex flex-row items-center justify-center gap-x-2 font-segoe text-xl font-semibold">
+            <div
+                className="relative flex flex-row items-center justify-center gap-x-2 font-segoe text-xl font-semibold"
+                data-scroll
+            >
                 {GetNavigationElement()}
             </div>
         </nav>
