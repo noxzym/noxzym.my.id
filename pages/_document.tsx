@@ -3,7 +3,7 @@ import { Head, Html, Main, NextScript } from "next/document";
 export default function MyDocument() {
     return (
         <Html
-            className="relative overflow-x-hidden overflow-y-scroll scroll-smooth"
+            className="relative overflow-x-hidden overflow-y-scroll"
             lang="en"
         >
             <Head />
