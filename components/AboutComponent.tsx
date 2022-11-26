@@ -1,4 +1,4 @@
-export const AboutComp = function ({
+export const AboutComponent = function ({
     children,
     className
 }: {

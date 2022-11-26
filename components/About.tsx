@@ -1,5 +1,5 @@
-import { AboutComp } from "./AboutComp";
-import { ExperienceCard } from "./ExperienceCard";
+import { AboutComponent } from "./AboutComponent";
+import { ExperienceCard } from "./Card/ExperienceCard";
 
 const experiences = [
     {
@@ -241,14 +241,11 @@ export const About = function () {
     return (
         <section
             id="about"
-            className="w-full py-5 px-[5%] text-[#222831] dark:text-[#DDDDDD] lg:px-[15%]"
-            data-scroll-section
+            className="w-full py-5 text-[#222831] dark:text-[#DDDDDD]"
         >
-            <div className="font-garet-bold text-3xl xl:text-5xl" data-scroll>
-                About Me
-            </div>
-            <div className="flex w-full flex-col" data-scroll>
-                <AboutComp data-scroll>
+            <div className="font-garet-bold text-3xl xl:text-5xl">About Me</div>
+            <div className="flex w-full flex-col">
+                <AboutComponent>
                     <div className="mb-1 font-segoe text-xl font-bold xl:text-2xl">
                         Biography
                     </div>
@@ -350,8 +347,8 @@ export const About = function () {
                         </a>
                         .
                     </div>
-                </AboutComp>
-                <AboutComp data-scroll>
+                </AboutComponent>
+                <AboutComponent>
                     <div className="mb-1 font-segoe text-xl font-bold xl:text-2xl">
                         Experiences
                     </div>
@@ -368,34 +365,25 @@ export const About = function () {
                                 </ExperienceCard>
                             ))}
                     </div>
-                </AboutComp>
-                <AboutComp
-                    className="lg:flex-row lg:items-center lg:justify-between"
-                    data-scroll
-                >
+                </AboutComponent>
+                <AboutComponent className="lg:flex-row lg:items-center lg:justify-between">
                     <div className="mb-1 font-segoe text-xl font-bold xl:text-2xl">
                         Programming Languages
                     </div>
                     <div className="flex flex-wrap gap-3">{languages}</div>
-                </AboutComp>
-                <AboutComp
-                    className="lg:flex-row lg:items-center lg:justify-between"
-                    data-scroll
-                >
+                </AboutComponent>
+                <AboutComponent className="lg:flex-row lg:items-center lg:justify-between">
                     <div className="mb-1 font-segoe text-xl font-bold xl:text-2xl">
                         Frameworks
                     </div>
                     <div className="flex flex-wrap gap-3">{frameworks}</div>
-                </AboutComp>
-                <AboutComp
-                    className="lg:flex-row lg:items-center lg:justify-between"
-                    data-scroll
-                >
+                </AboutComponent>
+                <AboutComponent className="lg:flex-row lg:items-center lg:justify-between">
                     <div className="mb-1 font-segoe text-xl font-bold xl:text-2xl">
                         Databases
                     </div>
                     <div className="flex flex-wrap gap-3">{databases}</div>
-                </AboutComp>
+                </AboutComponent>
             </div>
         </section>
     );

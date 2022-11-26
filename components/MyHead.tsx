@@ -25,7 +25,10 @@ export default function MyHead() {
                 sizes="16x16"
                 href={Picture.src}
             />
-            <meta name="keywords" content="orchit, noxzym, maakoo, orchit07" />
+            <meta
+                name="keywords"
+                content="orchit, noxzym, maakoo, orchit07, orchitiadi, gunadarma"
+            />
             <meta name="robots" content="index, follow" />
             {/* Open Graph */}
             <meta property="og:title" content={GetTitle()} />

@@ -1,6 +1,6 @@
 import { ILanyard } from "@/types";
 import useSWR from "swr";
-import { ContactCard } from "./ContactCard";
+import { ContactCard } from "./Card/ContactCard";
 
 export const Contact = function () {
     function useSocialMediaAccount(): {
@@ -8,7 +8,7 @@ export const Contact = function () {
         isLoading: boolean;
         isError: unknown | undefined;
     } {
-        const { data, error } = useSWR("/api/discordProfile", args =>
+        const { data, error } = useSWR("/api/lanyard", args =>
             fetch(args).then(res => res.json())
         );
         return {
@@ -90,19 +90,12 @@ export const Contact = function () {
     return (
         <section
             id="contact"
-            className="mb-5 w-full py-5 px-[5%] text-[#222831] dark:text-[#DDDDDD] lg:px-[15%]"
-            data-scroll-section
+            className="mb-5 w-full py-5 text-[#222831] dark:text-[#DDDDDD]"
         >
-            <div
-                className="mb-3 font-garet-bold text-3xl xl:text-5xl"
-                data-scroll
-            >
+            <div className="mb-3 font-garet-bold text-3xl xl:text-5xl">
                 Contact
             </div>
-            <div
-                className="flex w-full grid-cols-3 flex-col items-center gap-2 align-middle lg:grid"
-                data-scroll
-            >
+            <div className="flex w-full grid-cols-3 flex-col items-center gap-2 align-middle lg:grid">
                 {contacts
                     .sort((a, b) => a.href.localeCompare(b.href))
                     .map((contact, index) => (

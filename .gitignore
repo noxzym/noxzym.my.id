@@ -100,4 +100,5 @@ dist
 .tern-port
 
 public/sitemap.xml
-publix/robots.txt
+public/robots.txt
+./contentlayer

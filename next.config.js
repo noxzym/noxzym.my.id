@@ -1,9 +1,9 @@
-/**
- * @type {import('next').NextConfig}
- **/
-module.exports = {
+const { withContentlayer } = require("next-contentlayer");
+
+/** @type {import('next').NextConfig} */
+module.exports = withContentlayer({
     reactStrictMode: true,
-    images: { domains: ["cdn.discordapp.com"] },
+    swcMinify: true,
     async redirects() {
         return [
             {
@@ -34,4 +34,4 @@ module.exports = {
             }
         ];
     }
-};
+});

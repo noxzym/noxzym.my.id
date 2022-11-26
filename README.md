@@ -4,6 +4,9 @@
 
 <h3 align="center">A weebs who simping to shipgirl ⚓</h3>
 
+## Activity
+[![Discord Presence](https://lanyard.cnrad.dev/api/243728573624614912?hideDiscrim=true)](https://discord.com/users/243728573624614912)
+
 ## Programming Statistics
 <details>
   <summary>GitHub</summary>

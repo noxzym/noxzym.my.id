@@ -1,29 +1,35 @@
 {
     "compilerOptions": {
         "target": "ES2022",
-        "module": "ESNext",
-        "moduleResolution": "node",
-        "lib": ["dom", "dom.iterable"],
-        "strict": false,
-        "esModuleInterop": true,
-        "skipLibCheck": true,
-        "resolveJsonModule": true,
+        "lib": ["dom", "dom.iterable", "ESNext"],
         "allowJs": true,
+        "skipLibCheck": true,
+        "strict": false,
         "forceConsistentCasingInFileNames": true,
         "noEmit": true,
-        "incremental": true,
+        "esModuleInterop": true,
+        "module": "ESNext",
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
         "isolatedModules": true,
         "jsx": "preserve",
+        "incremental": true,
         "baseUrl": ".",
         "paths": {
             "@/components/*": ["components/*"],
-            "@/types": ["src/types/index.d.ts"],
+            "@/types": ["types/index.d.ts"],
+            "@/utils/*": ["utils/*"],
+            "@/styles/*": ["styles/*"],
             "@/public/*": ["public/*"],
-            "@/utils/*": ["src/utils/*"],
-            "@/extensions/*": ["src/extensions/*"]
+            "contentlayer/generated": ["./.contentlayer/generated"]
         },
         "typeRoots": ["src/types"]
     },
-    "exclude": ["node_modules"],
-    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
+    "include": [
+        "next-env.d.ts",
+        "**/*.ts",
+        "**/*.tsx",
+        ".contentlayer/generated"
+    ],
+    "exclude": ["node_modules"]
 }

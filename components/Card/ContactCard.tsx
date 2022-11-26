@@ -1,4 +1,4 @@
-import { LazyLoading } from "./LazyLoading";
+import { LazyLoading } from "../LazyLoading";
 
 export const ContactCard = function ({
     name,
