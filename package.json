@@ -40,7 +40,7 @@
     },
     "dependencies": {
         "@headlessui/react": "^1.7.7",
-        "@headlessui/tailwindcss": "^0.1.1",
+        "@headlessui/tailwindcss": "^0.1.2",
         "@lexical/react": "^0.7.1",
         "@tailwindcss/forms": "^0.5.3",
         "@tailwindcss/typography": "^0.5.8",
