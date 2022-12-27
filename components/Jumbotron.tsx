@@ -6,35 +6,35 @@ const GetIcon = function () {
             "discord",
             () => <SiDiscord
                 key={0}
-                className="h-10 w-10 fill-[#222831] dark:fill-[#DDDDDD]"
+                className="h-10 w-10 fill-[#222831] dark:fill-[#DDDDDD] hover:scale-110 transition-transform ease-in-out"
             />
         ],
         [
             "github",
             () => <SiGithub
                 key={1}
-                className="h-10 w-10 fill-[#222831] dark:fill-[#DDDDDD]"
+                className="h-10 w-10 fill-[#222831] dark:fill-[#DDDDDD] hover:scale-110 transition-transform ease-in-out"
             />
         ],
         [
             "spotify",
             () => <SiSpotify
                 key={2}
-                className="h-10 w-10 fill-[#222831] dark:fill-[#DDDDDD]"
+                className="h-10 w-10 fill-[#222831] dark:fill-[#DDDDDD] hover:scale-110 transition-transform ease-in-out"
             />
         ],
         [
             "instagram",
             () => <SiInstagram
                 key={3}
-                className="h-10 w-10 fill-[#222831] dark:fill-[#DDDDDD]"
+                className="h-10 w-10 fill-[#222831] dark:fill-[#DDDDDD] hover:scale-110 transition-transform ease-in-out"
             />
         ],
         [
             "twitter",
             () => <SiTwitter
                 key={4}
-                className="h-10 w-10 fill-[#222831] dark:fill-[#DDDDDD]"
+                className="h-10 w-10 fill-[#222831] dark:fill-[#DDDDDD] hover:scale-110 transition-transform ease-in-out"
             />
         ]
     ];
