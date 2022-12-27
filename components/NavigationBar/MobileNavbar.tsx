@@ -10,54 +10,52 @@ export const MobileNavbar = function ({
 }) {
     return (
         <nav className="absolute right-0 top-5 z-10 flex w-full flex-row items-center justify-between px-[5%] lg:hidden">
-            <div className="flex flex-row items-center justify-center gap-x-2">
-                <div>
-                    <Menu>
-                        <Menu.Button aria-label="Menu Button">
-                            <svg
-                                className="h-10 w-10 stroke-[#222831] stroke-[6] dark:stroke-[#DDDDDD]"
-                                viewBox="0 0 48 48"
-                                xmlns="http://www.w3.org/2000/svg"
-                                aria-labelledby="hamburgerIconTitle"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                            >
-                                <path d="M7.95 11.95h32m-32 12h32m-32 12h32" />
-                            </svg>
-                        </Menu.Button>
-                        <Transition
-                            as={Fragment}
-                            enter="transition ease-out duration-200"
-                            enterFrom="opacity-0 translate-y-0"
-                            enterTo="opacity-100 translate-y-1"
-                            leave="transition ease-in duration-150"
-                            leaveFrom="opacity-100 translate-y-1"
-                            leaveTo="opacity-0 translate-y-0"
+            <div className="flex flex-row items-center justify-center">
+                <Menu as="div" className="flex" >
+                    <Menu.Button aria-label="Menu Button">
+                        <svg
+                            className="h-10 w-10 stroke-[#222831] stroke-[6] dark:stroke-[#DDDDDD]"
+                            viewBox="0 0 48 48"
+                            xmlns="http://www.w3.org/2000/svg"
+                            aria-labelledby="hamburgerIconTitle"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                         >
-                            <div className="absolute left-0 right-0 z-10 w-screen">
-                                <Menu.Items
-                                    unmount
-                                    className="mx-[3%] rounded-xl border-2 border-[#C7C7C7] bg-[#DDDDDD] shadow-md dark:border-[#171717] dark:bg-[#111111] dark:shadow-none"
-                                >
-                                    <div className="flex flex-col items-center justify-center py-2">
-                                        {GetNavigationElement().map(
-                                            (item, i) => (
-                                                <Menu.Item key={i}>
-                                                    {item}
-                                                </Menu.Item>
-                                            )
-                                        )}
-                                    </div>
-                                </Menu.Items>
-                            </div>
-                        </Transition>
-                    </Menu>
-                </div>
+                            <path d="M7.95 11.95h32m-32 12h32m-32 12h32" />
+                        </svg>
+                    </Menu.Button>
+                    <Transition
+                        as={Fragment}
+                        enter="transition ease-out duration-200"
+                        enterFrom="opacity-0 translate-y-0"
+                        enterTo="opacity-100 translate-y-1"
+                        leave="transition ease-in duration-150"
+                        leaveFrom="opacity-100 translate-y-1"
+                        leaveTo="opacity-0 translate-y-0"
+                    >
+                        <div className="absolute left-0 right-0 z-10 w-screen">
+                            <Menu.Items
+                                unmount
+                                className="mx-[3%] rounded-xl border-2 border-[#C7C7C7] bg-[#DDDDDD] shadow-md dark:border-[#171717] dark:bg-[#111111] dark:shadow-none"
+                            >
+                                <div className="flex flex-col items-center justify-center py-2">
+                                    {GetNavigationElement().map(
+                                        (item, i) => (
+                                            <Menu.Item key={i}>
+                                                {item}
+                                            </Menu.Item>
+                                        )
+                                    )}
+                                </div>
+                            </Menu.Items>
+                        </div>
+                    </Transition>
+                </Menu>
                 <Link href="/">
                     <svg
                         viewBox="0 0 810 810"
                         xmlns="http://www.w3.org/2000/svg"
-                        className="h-9 w-9 cursor-pointer"
+                        className="h-9 w-9 cursor-pointer rounded-md"
                     >
                         <path
                             className="transition-on-theme-change fill-[#222831] dark:fill-[#DDDDDD]"
