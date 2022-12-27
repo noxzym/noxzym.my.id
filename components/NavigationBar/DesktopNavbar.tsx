@@ -9,7 +9,6 @@ export const DesktopNavbar = function ({
     return (
         <nav className="absolute right-0 top-10 z-10 hidden w-full flex-row items-center justify-between px-[15%] lg:flex">
             <div className="flex flex-row items-center justify-center gap-x-3">
-                {themeIcon[1]}
                 <Link href="/">
                     <svg
                         viewBox="0 0 810 810"
@@ -29,6 +28,7 @@ export const DesktopNavbar = function ({
                         />
                     </svg>
                 </Link>
+                {themeIcon[1]}
             </div>
             <div className="relative flex flex-row items-center justify-center gap-x-2 font-segoe text-xl font-semibold">
                 {GetNavigationElement()}
