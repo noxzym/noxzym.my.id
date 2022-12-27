@@ -9,7 +9,7 @@ export const DesktopNavbar = function ({
     return (
         <nav className="absolute right-0 top-10 z-10 hidden w-full flex-row items-center justify-between px-[15%] lg:flex">
             <div className="flex flex-row items-center justify-center gap-x-3">
-                <Link href="/">
+                <Link href="/" aria-label="Home">
                     <svg
                         viewBox="0 0 810 810"
                         xmlns="http://www.w3.org/2000/svg"
