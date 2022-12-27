@@ -10,27 +10,18 @@ function SVGIcon(
     setTheme: (theme: string) => void,
     setThemeIcon: Dispatch<SetStateAction<(boolean | JSX.Element)[]>>
 ) {
-    return toTheme === "dark" ? (
-        <button
-            aria-label="Switch Theme Button"
-            className="rotate-[360deg] transition-transform duration-500"
+    return <>
+        <HiSun
+            aria-label="Light Theme"
+            className={`cursor-pointer h-10 w-10 fill-[#DDDDDD] hover:rotate-[360deg] transition-transform duration-500 ${toTheme === "dark" ? "" : "hidden"}`}
             onClick={() => renderThemeChange("light", setTheme, setThemeIcon)}
-        >
-            <HiSun
-                className="h-10 w-10 fill-[#DDDDDD]"
-            />
-        </button>
-    ) : (
-        <button
-            aria-label="Switch Theme Button"
-            className="rotate-[360deg] transition-transform duration-500"
+        />
+        <HiMoon
+            aria-label="Dark Theme"
+            className={`cursor-pointer h-10 w-10 fill-[#222831] hover:rotate-[360deg] transition-transform duration-500 ${toTheme === "light" ? "" : "hidden"}`}
             onClick={() => renderThemeChange("dark", setTheme, setThemeIcon)}
-        >
-            <HiMoon
-                className="h-10 w-10 fill-[#222831]"
-            />
-        </button>
-    );
+        />
+    </>
 }
 
 function renderThemeChange(
