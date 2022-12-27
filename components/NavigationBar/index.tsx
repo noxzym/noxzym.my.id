@@ -13,12 +13,12 @@ function SVGIcon(
     return <>
         <HiSun
             aria-label="Light Theme"
-            className={`cursor-pointer h-10 w-10 fill-[#DDDDDD] hover:rotate-[360deg] transition-transform duration-500 ${toTheme === "dark" ? "" : "hidden"}`}
+            className={`cursor-pointer h-10 w-10 fill-[#DDDDDD] rotate-[360deg] transition-transform duration-500 ${toTheme === "dark" ? "" : "hidden"}`}
             onClick={() => renderThemeChange("light", setTheme, setThemeIcon)}
         />
         <HiMoon
             aria-label="Dark Theme"
-            className={`cursor-pointer h-10 w-10 fill-[#222831] hover:rotate-[360deg] transition-transform duration-500 ${toTheme === "light" ? "" : "hidden"}`}
+            className={`cursor-pointer h-10 w-10 fill-[#222831] rotate-[360deg] transition-transform duration-500 ${toTheme === "light" ? "" : "hidden"}`}
             onClick={() => renderThemeChange("dark", setTheme, setThemeIcon)}
         />
     </>
