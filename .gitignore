@@ -101,4 +101,4 @@ dist
 
 public/sitemap.xml
 public/robots.txt
-.contentlayer
+./contentlayer
