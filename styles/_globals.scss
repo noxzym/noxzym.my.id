@@ -19,8 +19,23 @@
 }
 
 #nprogress {
+    @apply pointer-events-none;
     .bar {
+        @apply fixed top-0 left-0 z-50 w-full;
         background: #fb2576 !important;
         height: 4px !important;
+    }
+    .peg {
+        @apply absolute right-0 block h-full w-[100px];
+        box-shadow: 0 0 10px #fb2576, 0 0 5px #fb2576 !important;
+        opacity: 1 !important;
+        transform: rotate(3deg) translate(0px, -4px) !important;
+    }
+}
+
+.nprogress-custom-parent {
+    @apply relative overflow-hidden;
+    .bar {
+        @apply absolute;
     }
 }
