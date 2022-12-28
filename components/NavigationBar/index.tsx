@@ -1,3 +1,4 @@
+import { Transition } from "@headlessui/react";
 import { useTheme } from "next-themes";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { HiMoon, HiSun } from "react-icons/hi";
@@ -11,17 +12,30 @@ function SVGIcon(
     setThemeIcon: Dispatch<SetStateAction<(boolean | JSX.Element)[]>>
 ) {
     return <>
-        <HiSun
-            aria-label="Light Theme"
-            className={`cursor-pointer h-10 w-10 fill-[#DDDDDD] rotate-[360deg] transition-transform duration-500 ${toTheme === "dark" ? "" : "hidden"}`}
-            onClick={() => renderThemeChange("light", setTheme, setThemeIcon)}
-        />
-        <HiMoon
-            aria-label="Dark Theme"
-            className={`cursor-pointer h-10 w-10 fill-[#222831] rotate-[360deg] transition-transform duration-500 ${toTheme === "light" ? "" : "hidden"}`}
-            onClick={() => renderThemeChange("dark", setTheme, setThemeIcon)}
-        />
-    </>
+        <Transition
+            show={toTheme === "dark"}
+            enter="transition-transform duration-500"
+            enterTo="rotate-90"
+            leaveTo="hidden"
+        >
+            <HiSun
+                aria-label="Light Theme"
+                className="cursor-pointer h-10 w-10 fill-[#DDDDDD]"
+                onClick={() => renderThemeChange("light", setTheme, setThemeIcon)}
+            />
+        </Transition>
+        <Transition
+            show={toTheme === "light"}
+            enter="transition-transform duration-500"
+            enterTo="rotate-[360deg]"
+            leaveTo="hidden"
+        >
+            <HiMoon
+                aria-label="Dark Theme"
+                className="cursor-pointer h-10 w-10 fill-[#222831]"
+                onClick={() => renderThemeChange("dark", setTheme, setThemeIcon)}
+            />
+        </Transition></>
 }
 
 function renderThemeChange(
