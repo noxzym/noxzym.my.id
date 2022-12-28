@@ -15,7 +15,7 @@ export const Blog = function ({
     return (
         <section className="relative flex w-full py-24 landscape:h-auto landscape:py-32 landscape:lg:py-32">
             <div className="flex w-full flex-col gap-5">
-                <div className="font-segoe text-5xl font-extrabold">Blog.</div>
+                <div className="font-poppins text-5xl font-extrabold">Blog.</div>
                 <div className="relative w-full">
                     <input
                         aria-label="Search articles"

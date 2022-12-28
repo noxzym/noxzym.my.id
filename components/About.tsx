@@ -160,7 +160,7 @@ const databases = [
 export const About = function () {
     return (
         <>
-            <div className="font-garet-bold text-3xl xl:text-5xl">About Me</div>
+            <div className="font-poppins font-bold text-3xl xl:text-5xl">about</div>
             <div className="flex w-full flex-col">
                 <AboutComponent>
                     <div className="mb-1 font-segoe text-xl font-bold xl:text-2xl">

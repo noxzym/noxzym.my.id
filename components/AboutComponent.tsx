@@ -6,8 +6,8 @@ export const AboutComponent = function ({
     className?: string;
 }) {
     return (
-        <div className="my-3 w-full border-l-2 border-[#222831] dark:border-[#DDDDDD]">
-            <div className={`flex w-full flex-col py-1 pl-3 ${className}`}>
+        <div className="my-3 w-full border-[#222831] dark:border-[#DDDDDD]">
+            <div className={`flex w-full flex-col py-1 ${className}`}>
                 {children}
             </div>
         </div>

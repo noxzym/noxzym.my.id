@@ -74,10 +74,10 @@ export const Jumbotron = function () {
                 />
             </svg>
             <div className="jusitfy-center my-3 flex flex-col items-center gap-5 text-center text-[#222831] dark:text-[#DDDDDD] lg:mb-0">
-                <div className="font-segoe text-3xl font-extrabold lg:text-5xl">
+                <div className="font-poppins font-extrabold text-3xl lg:text-5xl">
                     noxzym
                 </div>
-                <div className="font-segoe text-xl font-bold lg:text-3xl">
+                <div className="font-segoe font-semibold text-xl lg:text-3xl">
                     Build anything for improve my skills
                 </div>
             </div>

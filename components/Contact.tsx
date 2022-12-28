@@ -70,8 +70,8 @@ export const Contact = function () {
     ];
     return (
         <>
-            <div className="mb-3 font-garet-bold text-3xl xl:text-5xl">
-                Contact
+            <div className="mb-3 font-poppins font-extrabold text-3xl xl:text-5xl">
+                contact
             </div>
             <div className="flex w-full grid-cols-3 flex-col items-center gap-2 align-middle lg:grid">
                 {contacts

@@ -9,8 +9,9 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                segoe: ["segoe", "sans-serif"],
-                "segoe-bold": ["segoe-bold", "sans-serif"],
+                poppins: ["poppins"],
+                segoe: ["segoe"],
+                "segoe-bold": ["segoe-bold"],
                 garet: ["garet"],
                 "garet-bold": ["garet-bold"]
             },

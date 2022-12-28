@@ -35,7 +35,7 @@ export const ArticleList = function ({
             {displayArticles.map((post, index) => (
                 <Link href={`blog/${post.slug}`} key={index}>
                     <div className="flex w-full flex-col gap-2">
-                        <div className="font-segoe text-2xl font-extrabold">
+                        <div className="font-segoe text-2xl font-bold">
                             {post.title}
                         </div>
                         <div className="flex w-full flex-wrap gap-3">
