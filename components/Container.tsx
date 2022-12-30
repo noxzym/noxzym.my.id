@@ -1,4 +1,4 @@
-import { Transition } from "@headlessui/react";
+import { motion } from "framer-motion";
 import { NaviagationBar } from "./NavigationBar";
 
 export const Container = function ({
@@ -9,16 +9,22 @@ export const Container = function ({
     className?: string;
 }) {
     return (
-        <Transition
-            appear
-            show
-            enter="transition-opacity duration-700"
-            enterFrom="opacity-0"
-        >
-            <div className={`w-full px-[5%] lg:px-[15%] ${className}`}>
-                <NaviagationBar />
+        <div className={`w-full px-[5%] lg:px-[15%]`}>
+            <NaviagationBar />
+            <motion.main
+                className={`w-full ${className}`}
+                initial="hidden"
+                animate="enter"
+                exit="exit"
+                variants={{
+                    hidden: { opacity: 0, x: -200 },
+                    enter: { opacity: 1, x: 0 },
+                    exit: { opacity: 0, x: 0 },
+                }}
+                transition={{ duration: 0.5 }}
+            >
                 {children}
-            </div>
-        </Transition>
+            </motion.main>
+        </div>
     );
 };
