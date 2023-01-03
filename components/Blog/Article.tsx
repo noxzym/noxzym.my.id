@@ -60,22 +60,26 @@ export const Article = function ({ post }: InferGetStaticPropsType<typeof getSta
     }, [post.markdown]);
 
     return (
-        <><div className="flex w-full flex-col items-center justify-center gap-1">
-            <div className="text-center font-poppins text-4xl font-bold text-[#222831] dark:text-[#DDDDDD] ">
-                {post.title}
+        <>
+            <div className="flex w-full flex-col items-center justify-center gap-1">
+                <div className="text-center font-poppins text-4xl font-bold text-[#222831] dark:text-[#DDDDDD] ">
+                    {post.title}
+                </div>
+                <div className="flex flex-row gap-1">
+                    <div className="text-center text-sm font-bold text-[#222831] dark:text-[#DDDDDD] ">
+                        {parseDate(post.date)}
+                    </div>
+                    <div className="text-center text-sm font-bold text-[#222831] dark:text-[#DDDDDD] ">
+                        •
+                    </div>
+                    <div className="text-center text-sm font-bold text-[#222831] dark:text-[#DDDDDD] ">
+                        {post.readingTime}
+                    </div>
+                </div>
             </div>
-            <div className="flex flex-row gap-1">
-                <div className="text-center text-sm font-bold text-[#222831] dark:text-[#DDDDDD] ">
-                    {parseDate(post.date)}
-                </div>
-                <div className="text-center text-sm font-bold text-[#222831] dark:text-[#DDDDDD] ">
-                    •
-                </div>
-                <div className="text-center text-sm font-bold text-[#222831] dark:text-[#DDDDDD] ">
-                    {post.readingTime}
-                </div>
-            </div>
-        </div><hr className="border-t-2 mt-5 border-[#222831] dark:border-[#DDDDDD] rounded-md" /><div className="prose max-w-full dark:prose-dark">{content}</div></>
+            <hr className="mt-5 border-[#222831] dark:border-[#DDDDDD] rounded-md" />
+            <div className="prose max-w-full dark:prose-dark">{content}</div>
+        </>
 
     )
 }   
