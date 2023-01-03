@@ -32,7 +32,7 @@ export const ArticleList = function ({
 
     return (
         <div className="flex w-full flex-col gap-7">
-            {displayArticles.map((post, index) => (
+            {displayArticles.length ? displayArticles.map((post, index) => (
                 <Link href={`blog/${post.slug}`} key={index}>
                     <div className="flex w-full flex-col gap-2">
                         <div className="font-segoe text-2xl font-bold">
@@ -58,7 +58,11 @@ export const ArticleList = function ({
                         <div className="font-segoe text-sm">{post.description}</div>
                     </div>
                 </Link>
-            ))}
+            )) : (
+                <div className="font-segoe text-2xl font-bold">
+                    No articles found.
+                </div>
+            )}
         </div>
     );
 };

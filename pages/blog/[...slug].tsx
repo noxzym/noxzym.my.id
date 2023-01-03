@@ -1,5 +1,6 @@
 import { Article } from "@/components/Blog/Article";
 import { Container } from "@/components/Container";
+import { IArticle } from "@/types";
 import { InferGetStaticPropsType } from "next";
 import { getPublishedArticles } from "src/notion";
 
@@ -24,6 +25,7 @@ export const getStaticProps = async ({ params }) => {
         props: {
             post
         },
+        notFound: !post,
         revalidate: 60
     };
 };
