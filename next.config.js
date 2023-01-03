@@ -1,7 +1,5 @@
-const { withContentlayer } = require("next-contentlayer");
-
 /** @type {import('next').NextConfig} */
-module.exports = withContentlayer({
+module.exports = {
     reactStrictMode: true,
     swcMinify: true,
     async redirects() {
@@ -34,4 +32,4 @@ module.exports = withContentlayer({
             }
         ];
     }
-});
+};

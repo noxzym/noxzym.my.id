@@ -55,7 +55,7 @@ export const ArticleList = function ({
                                     </button>
                                 ))}
                         </div>
-                        <div className="font-segoe text-sm">{post.summary}</div>
+                        <div className="font-segoe text-sm">{post.description}</div>
                     </div>
                 </Link>
             ))}
