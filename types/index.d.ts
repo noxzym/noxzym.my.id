@@ -52,3 +52,15 @@ export interface ILanyard {
         active_on_discord_desktop: boolean;
     };
 }
+
+export interface IArticle {
+    id: string;
+    slug: string;
+    title: string;
+    date: string;
+    tags: string[];
+    description: string;
+    published: boolean;
+    readingTime: string;
+    markdown: string;
+}
