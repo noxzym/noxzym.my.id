@@ -1,27 +1,23 @@
 import { Blog } from "@/components/Blog";
 import { Container } from "@/components/Container";
 import { InferGetStaticPropsType } from "next";
-import { getAllArticles } from "src/notion";
+import { getPublishedArticles } from "src/notion";
 
 export const getStaticProps = async () => {
-    const articles = await getAllArticles();
-    const publishedArticles = articles.filter((x) => x.published);
-    const sortedArticles = publishedArticles.sort(
-        (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-    );
-    const initialDisplayPosts = sortedArticles.slice(0, 10);
+    const articles = await getPublishedArticles();
+    const initialDisplayPosts = articles.slice(0, 10);
     const pagination = {
         currentPage: 1,
-        totalPages: Math.ceil(sortedArticles.length / 10)
+        totalPages: Math.ceil(articles.length / 10)
     };
 
     return {
         props: {
             initialDisplayPosts,
-            posts: sortedArticles,
+            posts: articles,
             pagination
         },
-        revalidate: 10
+        revalidate: 60
     };
 };
 

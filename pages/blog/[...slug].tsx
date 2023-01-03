@@ -1,38 +1,30 @@
 import { Article } from "@/components/Blog/Article";
 import { Container } from "@/components/Container";
 import { InferGetStaticPropsType } from "next";
-import { getAllArticles } from "src/notion";
+import { getPublishedArticles } from "src/notion";
 
 export const getStaticPaths = async () => {
-    const articles = await getAllArticles();
-    const publishedArticles = articles.filter(x => x.published);
-    const sortedArticles = publishedArticles.sort(
-        (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-    );
-    const posts = sortedArticles.filter(x => x.published);
-    const paths = posts.map(post => ({
+    const articles = await getPublishedArticles();
+    const paths = articles.map(post => ({
         params: { slug: post.slug.split("/") }
     }));
 
     return {
         paths,
-        fallback: false
+        fallback: "blocking"
     };
 };
 
 export const getStaticProps = async ({ params }) => {
     const slug = (params.slug as string[]).join("/");
-    const articles = await getAllArticles();
-    const publishedArticles = articles.filter(x => x.published);
-    const sortedArticles = publishedArticles.sort(
-        (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-    );
-    const post = sortedArticles.find(x => x.slug === slug);
+    const articles = await getPublishedArticles();
+    const post = articles.find(x => x.slug === slug);
 
     return {
         props: {
             post
-        }
+        },
+        revalidate: 60
     };
 };
 
