@@ -1,3 +1,4 @@
+import { IArticle } from "@/types";
 import { Client } from "@notionhq/client";
 import { isFullPage } from "@notionhq/client/build/src/helpers";
 import { NotionToMarkdown } from "notion-to-md";
@@ -26,42 +27,59 @@ export const getAllArticles = async () => {
         );
         const markdown = notionToMarkdown.toMarkdownString(markdownedPage);
         if (isFullPage(article)) {
-            return {
-                id: article.id,
-                slug:
-                    article.properties.Name.type === "title"
-                        ? article.properties.Name.title[0].plain_text
-                              .split(" ")
-                              .join("-")
-                              .toLowerCase()
-                        : "",
-                title:
-                    article.properties.Name.type === "title"
-                        ? article.properties.Name.title[0].plain_text
-                        : "",
-                date:
-                    article.properties.Created.type === "created_time"
-                        ? article.properties.Created.created_time
-                        : "",
-                tags:
-                    article.properties.Tags.type === "multi_select"
-                        ? article.properties.Tags.multi_select.map(
-                              tag => tag.name
-                          )
-                        : [],
-                description:
-                    article.properties.Description.type === "rich_text"
-                        ? article.properties.Description.rich_text[0].plain_text
-                        : "",
-                published:
-                    article.properties.Published.type === "checkbox"
-                        ? article.properties.Published.checkbox
-                        : false,
-                readingTime: readingTime(markdown).text,
-                markdown
-            };
+            const metadata = {} as IArticle;
+
+            const propertiesValues = Object.values(article.properties);
+            for (const propertiesValue of propertiesValues) {
+                switch (propertiesValue.type) {
+                    case "title":
+                        if (propertiesValue.title.length) {
+                            metadata.title =
+                                propertiesValue.title[0].plain_text;
+                        }
+                        break;
+
+                    case "rich_text":
+                        if (propertiesValue.rich_text.length) {
+                            metadata.description =
+                                propertiesValue.rich_text[0].plain_text;
+                        }
+                        break;
+
+                    case "multi_select":
+                        metadata.tags = propertiesValue.multi_select.map(
+                            tag => tag.name
+                        );
+                        break;
+
+                    case "checkbox":
+                        metadata.published = propertiesValue.checkbox;
+                        break;
+
+                    case "created_time":
+                        metadata.date = propertiesValue.created_time;
+                        break;
+                }
+            }
+
+            if (metadata.title && metadata.description && metadata.date) {
+                return {
+                    id: article.id,
+                    slug: metadata.title.split(" ").join("-").toLowerCase(),
+                    readingTime: readingTime(markdown).text,
+                    markdown,
+                    ...metadata
+                };
+            }
         }
     });
-
     return Promise.all(articles);
+};
+
+export const getPublishedArticles = async () => {
+    const articles = await getAllArticles();
+    const publishedArticles = articles.filter(Boolean).filter(x => x.published);
+    return publishedArticles.sort(
+        (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+    );
 };
