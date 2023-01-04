@@ -15,148 +15,80 @@ module.exports = {
                 garet: ["garet"],
                 "garet-bold": ["garet-bold"]
             },
-            spacing: {
-                "9/16": "56.25%",
-                0.75: "0.1875rem",
-                "content-sm": "calc(100vh - 4.5rem)",
-                content: "calc(100vh - 4rem)"
-            },
-            lineHeight: {
-                11: "2.75rem",
-                12: "3rem",
-                13: "3.25rem",
-                14: "3.5rem"
-            },
-            letterSpacing: {
-                tightest: "-.075em"
-            },
-            fontSize: {
-                "8.5xl": "7rem"
-            },
-            typography: theme => ({
+            typography: {
                 DEFAULT: {
                     css: {
-                        color: theme("colors.gray.700"),
-                        a: {
-                            color: theme("colors.gray.700"),
-                            "&:hover": {
-                                color: theme("colors.gray.700")
-                            },
-                            code: { color: theme("colors.primary.400") }
-                        },
-                        h1: {
-                            fontWeight: "700",
-                            letterSpacing: theme("letterSpacing.tight"),
-                            color: theme("colors.gray.900")
-                        },
-                        h2: {
-                            fontWeight: "700",
-                            letterSpacing: theme("letterSpacing.tight"),
-                            color: theme("colors.gray.900")
-                        },
-                        h3: {
-                            fontWeight: "600",
-                            color: theme("colors.gray.900")
-                        },
-                        "h4,h5,h6": {
-                            color: theme("colors.gray.900")
-                        },
-                        code: {
-                            color: theme("colors.green.500"),
-                            backgroundColor: theme("colors.gray.100"),
-                            paddingLeft: "4px",
-                            paddingRight: "4px",
-                            paddingTop: "2px",
-                            paddingBottom: "2px",
-                            borderRadius: "0.25rem"
-                        },
-                        "code:before": {
-                            content: "none"
-                        },
-                        "code:after": {
-                            content: "none"
-                        },
-                        hr: { borderColor: theme("colors.gray.200") },
-                        "ol li:before": {
-                            fontWeight: "600",
-                            color: theme("colors.gray.500")
-                        },
-                        "ul li:before": {
-                            backgroundColor: theme("colors.gray.500")
-                        },
-                        "ul li > :last-child": {
-                            margin: 0
-                        },
-                        "ul li > :first-child": {
-                            margin: 0
-                        },
-                        strong: { color: theme("colors.gray.600") },
-                        blockquote: {
-                            color: theme("colors.gray.900"),
-                            borderLeftColor: "#C7C7C7"
-                        }
+                        "--tw-prose-body": "#222831",
+                        "--tw-prose-headings": "#222831",
+                        "--tw-prose-lead": "#222831",
+                        "--tw-prose-links": "#222831",
+                        "--tw-prose-bold": "#222831",
+                        "--tw-prose-counters": "#222831",
+                        "--tw-prose-bullets": "#222831",
+                        "--tw-prose-hr": "#222831",
+                        "--tw-prose-quotes": "#222831",
+                        "--tw-prose-quote-borders": "#222831",
+                        "--tw-prose-captions": "#222831",
+                        "--tw-prose-code": "#222831",
+                        "--tw-prose-pre-code": "#222831",
+                        "--tw-prose-pre-bg": "#222831",
+                        "--tw-prose-th-borders": "#222831",
+                        "--tw-prose-td-borders": "#222831",
+                        "--tw-prose-invert-body": "#222831",
+                        "--tw-prose-invert-headings": "#222831",
+                        "--tw-prose-invert-lead": "#222831",
+                        "--tw-prose-invert-links": "#222831",
+                        "--tw-prose-invert-bold": "#222831",
+                        "--tw-prose-invert-counters": "#222831",
+                        "--tw-prose-invert-bullets": "#222831",
+                        "--tw-prose-invert-hr": "#222831",
+                        "--tw-prose-invert-quotes": "#222831",
+                        "--tw-prose-invert-quote-borders": "#222831",
+                        "--tw-prose-invert-captions": "#222831",
+                        "--tw-prose-invert-code": "#222831",
+                        "--tw-prose-invert-pre-code": "#222831",
+                        "--tw-prose-invert-pre-bg": "rgb(0 0 0 / 50%)",
+                        "--tw-prose-invert-th-borders": "#222831",
+                        "--tw-prose-invert-td-borders": "#222831"
                     }
                 },
                 dark: {
                     css: {
-                        color: theme("colors.gray.300"),
-                        a: {
-                            color: theme("colors.gray.300"),
-                            "&:hover": {
-                                color: theme("colors.gray.300")
-                            },
-                            code: { color: theme("colors.primary.400") }
-                        },
-                        h1: {
-                            fontWeight: "700",
-                            letterSpacing: theme("letterSpacing.tight"),
-                            color: theme("colors.gray.100")
-                        },
-                        h2: {
-                            fontWeight: "700",
-                            letterSpacing: theme("letterSpacing.tight"),
-                            color: theme("colors.gray.100")
-                        },
-                        h3: {
-                            fontWeight: "600",
-                            color: theme("colors.gray.100")
-                        },
-                        "h4,h5,h6": {
-                            color: theme("colors.gray.100")
-                        },
-                        code: {
-                            backgroundColor: theme("colors.gray.800")
-                        },
-                        hr: { borderColor: theme("colors.gray.700") },
-                        "ol li:before": {
-                            fontWeight: "600",
-                            color: theme("colors.gray.400")
-                        },
-                        "ul li:before": {
-                            backgroundColor: theme("colors.gray.400")
-                        },
-                        "ul li > :last-child": {
-                            margin: 0
-                        },
-                        "ul li > :first-child": {
-                            margin: 0
-                        },
-                        strong: { color: theme("colors.gray.100") },
-                        thead: {
-                            color: theme("colors.gray.100")
-                        },
-                        tbody: {
-                            tr: {
-                                borderBottomColor: theme("colors.gray.700")
-                            }
-                        },
-                        blockquote: {
-                            color: theme("colors.gray.100"),
-                            borderLeftColor: "#333333"
-                        }
+                        "--tw-prose-body": "#DDDDDD",
+                        "--tw-prose-headings": "#DDDDDD",
+                        "--tw-prose-lead": "#DDDDDD",
+                        "--tw-prose-links": "#DDDDDD",
+                        "--tw-prose-bold": "#DDDDDD",
+                        "--tw-prose-counters": "#DDDDDD",
+                        "--tw-prose-bullets": "#DDDDDD",
+                        "--tw-prose-hr": "#DDDDDD",
+                        "--tw-prose-quotes": "#DDDDDD",
+                        "--tw-prose-quote-borders": "#DDDDDD",
+                        "--tw-prose-captions": "#DDDDDD",
+                        "--tw-prose-code": "#DDDDDD",
+                        "--tw-prose-pre-code": "#DDDDDD",
+                        "--tw-prose-pre-bg": "#DDDDDD",
+                        "--tw-prose-th-borders": "#DDDDDD",
+                        "--tw-prose-td-borders": "#DDDDDD",
+                        "--tw-prose-invert-body": "#DDDDDD",
+                        "--tw-prose-invert-headings": "#DDDDDD",
+                        "--tw-prose-invert-lead": "#DDDDDD",
+                        "--tw-prose-invert-links": "#DDDDDD",
+                        "--tw-prose-invert-bold": "#DDDDDD",
+                        "--tw-prose-invert-counters": "#DDDDDD",
+                        "--tw-prose-invert-bullets": "#DDDDDD",
+                        "--tw-prose-invert-hr": "#DDDDDD",
+                        "--tw-prose-invert-quotes": "#DDDDDD",
+                        "--tw-prose-invert-quote-borders": "#DDDDDD",
+                        "--tw-prose-invert-captions": "#DDDDDD",
+                        "--tw-prose-invert-code": "#DDDDDD",
+                        "--tw-prose-invert-pre-code": "#DDDDDD",
+                        "--tw-prose-invert-pre-bg": "rgb(0 0 0 / 50%)",
+                        "--tw-prose-invert-th-borders": "#DDDDDD",
+                        "--tw-prose-invert-td-borders": "#DDDDDD"
                     }
                 }
-            })
+            }
         }
     },
     plugins: [
