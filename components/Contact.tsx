@@ -1,5 +1,11 @@
 import { ILanyard } from "@/types";
-import { SiDiscord, SiGithub, SiInstagram, SiSpotify, SiTwitter } from "react-icons/si";
+import {
+    SiDiscord,
+    SiGithub,
+    SiInstagram,
+    SiSpotify,
+    SiTwitter
+} from "react-icons/si";
 import useSWR from "swr";
 import { ContactCard } from "./Card/ContactCard";
 
@@ -26,51 +32,41 @@ export const Contact = function () {
                 : null,
             href: "discord",
             icon: (
-                <SiDiscord
-                    className="h-10 w-10 fill-[#222831] dark:fill-[#DDDDDD]"
-                />
+                <SiDiscord className="h-10 w-10 fill-[#222831] dark:fill-[#DDDDDD]" />
             )
         },
         {
             name: account?.data ? account.data.kv.github : null,
             href: "github",
             icon: (
-                <SiGithub
-                    className="h-10 w-10 fill-[#222831] dark:fill-[#DDDDDD]"
-                />
+                <SiGithub className="h-10 w-10 fill-[#222831] dark:fill-[#DDDDDD]" />
             )
         },
         {
             name: account?.data ? account.data.kv.spotify : null,
             href: "spotify",
             icon: (
-                <SiSpotify
-                    className="h-10 w-10 fill-[#222831] dark:fill-[#DDDDDD]"
-                />
+                <SiSpotify className="h-10 w-10 fill-[#222831] dark:fill-[#DDDDDD]" />
             )
         },
         {
             name: account?.data ? account.data.kv.instagram : null,
             href: "instagram",
             icon: (
-                <SiInstagram
-                    className="h-10 w-10 fill-[#222831] dark:fill-[#DDDDDD]"
-                />
+                <SiInstagram className="h-10 w-10 fill-[#222831] dark:fill-[#DDDDDD]" />
             )
         },
         {
             name: account?.data ? account.data.kv.twitter : null,
             href: "twitter",
             icon: (
-                <SiTwitter
-                    className="h-10 w-10 fill-[#222831] dark:fill-[#DDDDDD]"
-                />
+                <SiTwitter className="h-10 w-10 fill-[#222831] dark:fill-[#DDDDDD]" />
             )
         }
     ];
     return (
         <>
-            <div className="mb-3 font-poppins font-extrabold text-3xl xl:text-5xl">
+            <div className="mb-3 font-poppins text-3xl font-extrabold xl:text-5xl">
                 contact
             </div>
             <div className="flex w-full grid-cols-3 flex-col items-center gap-2 align-middle lg:grid">

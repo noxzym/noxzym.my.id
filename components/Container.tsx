@@ -19,7 +19,7 @@ export const Container = function ({
                 variants={{
                     hidden: { opacity: 0, x: -200 },
                     enter: { opacity: 1, x: 0 },
-                    exit: { opacity: 0, x: 0 },
+                    exit: { opacity: 0, x: 0 }
                 }}
                 transition={{ duration: 0.5 }}
             >

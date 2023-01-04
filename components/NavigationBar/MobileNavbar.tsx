@@ -11,7 +11,7 @@ export const MobileNavbar = function ({
     return (
         <nav className="absolute right-0 top-5 z-10 flex w-full flex-row items-center justify-between px-[5%] lg:hidden">
             <div className="flex flex-row items-center justify-center">
-                <Menu as="div" className="flex" >
+                <Menu as="div" className="flex">
                     <Menu.Button aria-label="Menu Button">
                         <svg
                             className="h-10 w-10 stroke-[#222831] stroke-[6] dark:stroke-[#DDDDDD]"
@@ -39,13 +39,9 @@ export const MobileNavbar = function ({
                                 className="mx-[3%] rounded-xl border-2 border-[#C7C7C7] bg-[#DDDDDD] shadow-md dark:border-[#171717] dark:bg-[#111111] dark:shadow-none"
                             >
                                 <div className="flex flex-col items-center justify-center py-2">
-                                    {GetNavigationElement().map(
-                                        (item, i) => (
-                                            <Menu.Item key={i}>
-                                                {item}
-                                            </Menu.Item>
-                                        )
-                                    )}
+                                    {GetNavigationElement().map((item, i) => (
+                                        <Menu.Item key={i}>{item}</Menu.Item>
+                                    ))}
                                 </div>
                             </Menu.Items>
                         </div>

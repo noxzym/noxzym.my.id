@@ -33,7 +33,9 @@ const parseDate = function (datestring: string) {
     return `${month} ${day}, ${year} ${hours}:${minutes}`;
 };
 
-export const Article = function ({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
+export const Article = function ({
+    post
+}: InferGetStaticPropsType<typeof getStaticProps>) {
     const [content, setContent] = useState(
         <LazyLoading
             key={0}
@@ -53,9 +55,7 @@ export const Article = function ({ post }: InferGetStaticPropsType<typeof getSta
                     ]
                 }
             });
-            setContent(
-                <MDXRemote {...serializeMarkdown} lazy />
-            );
+            setContent(<MDXRemote {...serializeMarkdown} lazy />);
         }
     }, [post.markdown]);
 
@@ -77,9 +77,8 @@ export const Article = function ({ post }: InferGetStaticPropsType<typeof getSta
                     </div>
                 </div>
             </div>
-            <hr className="mt-5 border-[#222831] dark:border-[#DDDDDD] rounded-md" />
+            <hr className="mt-5 rounded-md border-[#222831] dark:border-[#DDDDDD]" />
             <div className="prose max-w-full dark:prose-dark">{content}</div>
         </>
-
-    )
-}   
+    );
+};

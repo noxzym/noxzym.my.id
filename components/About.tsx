@@ -1,4 +1,16 @@
-import { SiBootstrap, SiExpress, SiJava, SiJavascript, SiKotlin, SiMongodb, SiNextdotjs, SiPython, SiReact, SiTailwindcss, SiTypescript } from "react-icons/si";
+import {
+    SiBootstrap,
+    SiExpress,
+    SiJava,
+    SiJavascript,
+    SiKotlin,
+    SiMongodb,
+    SiNextdotjs,
+    SiPython,
+    SiReact,
+    SiTailwindcss,
+    SiTypescript
+} from "react-icons/si";
 import { AboutComponent } from "./AboutComponent";
 import { ExperienceCard } from "./Card/ExperienceCard";
 
@@ -16,7 +28,7 @@ const experiences = [
                 key={1}
                 className="h-5 w-5 rounded fill-[#222831] dark:fill-[#DDDDDD]"
                 title="MongoDB"
-            />,
+            />
         ]
     },
     {
@@ -27,7 +39,7 @@ const experiences = [
                 key={0}
                 className="h-5 w-5 rounded fill-[#222831] dark:fill-[#DDDDDD]"
                 title="Javascript"
-            />,
+            />
         ]
     },
     {
@@ -38,7 +50,7 @@ const experiences = [
                 key={0}
                 className="h-5 w-5 rounded fill-[#222831] dark:fill-[#DDDDDD]"
                 title="Typescript"
-            />,
+            />
         ]
     },
     {
@@ -99,11 +111,13 @@ const languages = [
     <SiJavascript
         key={0}
         className="h-12 w-12 rounded-md fill-[#222831] dark:fill-[#DDDDDD]"
-        title="Javascript" />,
+        title="Javascript"
+    />,
     <SiTypescript
         key={1}
         className="h-12 w-12 rounded-md fill-[#222831] dark:fill-[#DDDDDD]"
-        title="Typescript" />,
+        title="Typescript"
+    />,
     <SiJava
         key={2}
         className="h-12 w-12 rounded-md fill-[#222831] dark:fill-[#DDDDDD]"
@@ -160,7 +174,9 @@ const databases = [
 export const About = function () {
     return (
         <>
-            <div className="font-poppins font-bold text-3xl xl:text-5xl">about</div>
+            <div className="font-poppins text-3xl font-bold xl:text-5xl">
+                about
+            </div>
             <div className="flex w-full flex-col">
                 <AboutComponent>
                     <div className="mb-1 font-segoe text-xl font-bold xl:text-2xl">

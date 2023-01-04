@@ -1,57 +1,77 @@
-import { SiDiscord, SiGithub, SiInstagram, SiSpotify, SiTwitter } from "react-icons/si";
+import {
+    SiDiscord,
+    SiGithub,
+    SiInstagram,
+    SiSpotify,
+    SiTwitter
+} from "react-icons/si";
 
 const GetIcon = function () {
     const icons = [
         [
             "discord",
-            () => <SiDiscord
-                key={0}
-                className="h-10 w-10 fill-[#222831] dark:fill-[#DDDDDD] hover:scale-110 transition-transform ease-in-out"
-            />
+            () => (
+                <SiDiscord
+                    key={0}
+                    className="h-10 w-10 fill-[#222831] transition-transform ease-in-out hover:scale-110 dark:fill-[#DDDDDD]"
+                />
+            )
         ],
         [
             "github",
-            () => <SiGithub
-                key={1}
-                className="h-10 w-10 fill-[#222831] dark:fill-[#DDDDDD] hover:scale-110 transition-transform ease-in-out"
-            />
+            () => (
+                <SiGithub
+                    key={1}
+                    className="h-10 w-10 fill-[#222831] transition-transform ease-in-out hover:scale-110 dark:fill-[#DDDDDD]"
+                />
+            )
         ],
         [
             "spotify",
-            () => <SiSpotify
-                key={2}
-                className="h-10 w-10 fill-[#222831] dark:fill-[#DDDDDD] hover:scale-110 transition-transform ease-in-out"
-            />
+            () => (
+                <SiSpotify
+                    key={2}
+                    className="h-10 w-10 fill-[#222831] transition-transform ease-in-out hover:scale-110 dark:fill-[#DDDDDD]"
+                />
+            )
         ],
         [
             "instagram",
-            () => <SiInstagram
-                key={3}
-                className="h-10 w-10 fill-[#222831] dark:fill-[#DDDDDD] hover:scale-110 transition-transform ease-in-out"
-            />
+            () => (
+                <SiInstagram
+                    key={3}
+                    className="h-10 w-10 fill-[#222831] transition-transform ease-in-out hover:scale-110 dark:fill-[#DDDDDD]"
+                />
+            )
         ],
         [
             "twitter",
-            () => <SiTwitter
-                key={4}
-                className="h-10 w-10 fill-[#222831] dark:fill-[#DDDDDD] hover:scale-110 transition-transform ease-in-out"
-            />
+            () => (
+                <SiTwitter
+                    key={4}
+                    className="h-10 w-10 fill-[#222831] transition-transform ease-in-out hover:scale-110 dark:fill-[#DDDDDD]"
+                />
+            )
         ]
     ];
-    return <>
-        {icons.sort((a, b) => a[0].toString().localeCompare(b[0].toString())).map(([href, Svg]: [string, () => JSX.Element], i) => (
-            <a
-                key={i}
-                href={href}
-                target="_blank"
-                rel="noreferrer"
-                aria-label={`Visit My ${href.toUpperCase()} Account`}
-            >
-                <Svg />
-            </a>
-        ))}
-    </>
-}
+    return (
+        <>
+            {icons
+                .sort((a, b) => a[0].toString().localeCompare(b[0].toString()))
+                .map(([href, Svg]: [string, () => JSX.Element], i) => (
+                    <a
+                        key={i}
+                        href={href}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label={`Visit My ${href.toUpperCase()} Account`}
+                    >
+                        <Svg />
+                    </a>
+                ))}
+        </>
+    );
+};
 
 export const Jumbotron = function () {
     return (
@@ -74,10 +94,10 @@ export const Jumbotron = function () {
                 />
             </svg>
             <div className="jusitfy-center my-3 flex flex-col items-center gap-5 text-center text-[#222831] dark:text-[#DDDDDD] lg:mb-0">
-                <div className="font-poppins font-extrabold text-3xl lg:text-5xl">
+                <div className="font-poppins text-3xl font-extrabold lg:text-5xl">
                     noxzym
                 </div>
-                <div className="font-segoe font-semibold text-xl lg:text-3xl">
+                <div className="font-segoe text-xl font-semibold lg:text-3xl">
                     Build anything for improve my skills
                 </div>
             </div>

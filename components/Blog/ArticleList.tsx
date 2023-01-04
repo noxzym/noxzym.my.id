@@ -32,33 +32,37 @@ export const ArticleList = function ({
 
     return (
         <div className="flex w-full flex-col gap-7">
-            {displayArticles.length ? displayArticles.map((post, index) => (
-                <Link href={`blog/${post.slug}`} key={index}>
-                    <div className="flex w-full flex-col gap-2">
-                        <div className="font-segoe text-2xl font-bold">
-                            {post.title}
-                        </div>
-                        <div className="flex w-full flex-wrap gap-3">
-                            {post.tags
-                                .sort((a, b) => a.length - b.length)
-                                .map((tag, indexTag) => (
-                                    <button
-                                        key={indexTag}
-                                        onClick={e => handleClick(e)}
-                                    >
-                                        <div
-                                            id={tag}
-                                            className="rounded-md bg-[#C4C4C4] py-1 px-2 font-segoe text-xs font-semibold hover:bg-[#ABABAB] dark:bg-[#2B2B2B] hover:dark:bg-[#454545]"
+            {displayArticles.length ? (
+                displayArticles.map((post, index) => (
+                    <Link href={`blog/${post.slug}`} key={index}>
+                        <div className="flex w-full flex-col gap-2">
+                            <div className="font-segoe text-2xl font-bold">
+                                {post.title}
+                            </div>
+                            <div className="flex w-full flex-wrap gap-3">
+                                {post.tags
+                                    .sort((a, b) => a.length - b.length)
+                                    .map((tag, indexTag) => (
+                                        <button
+                                            key={indexTag}
+                                            onClick={e => handleClick(e)}
                                         >
-                                            {tag}
-                                        </div>
-                                    </button>
-                                ))}
+                                            <div
+                                                id={tag}
+                                                className="rounded-md bg-[#C4C4C4] py-1 px-2 font-segoe text-xs font-semibold hover:bg-[#ABABAB] dark:bg-[#2B2B2B] hover:dark:bg-[#454545]"
+                                            >
+                                                {tag}
+                                            </div>
+                                        </button>
+                                    ))}
+                            </div>
+                            <div className="font-segoe text-sm">
+                                {post.description}
+                            </div>
                         </div>
-                        <div className="font-segoe text-sm">{post.description}</div>
-                    </div>
-                </Link>
-            )) : (
+                    </Link>
+                ))
+            ) : (
                 <div className="font-segoe text-2xl font-bold">
                     No articles found.
                 </div>
