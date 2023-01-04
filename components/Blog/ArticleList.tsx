@@ -1,6 +1,7 @@
 import { InferGetStaticPropsType } from "next";
 import Link from "next/link";
 import { getStaticProps } from "pages/blog";
+import { motion } from "framer-motion";
 import React, { Dispatch, SetStateAction } from "react";
 
 export const ArticleList = function ({
@@ -34,38 +35,51 @@ export const ArticleList = function ({
         <div className="flex w-full flex-col gap-7">
             {displayArticles.length ? (
                 displayArticles.map((post, index) => (
-                    <Link href={`blog/${post.slug}`} key={index}>
-                        <div className="flex w-full flex-col gap-2">
-                            <div className="font-segoe text-2xl font-bold">
-                                {post.title}
-                            </div>
-                            <div className="flex w-full flex-wrap gap-3">
-                                {post.tags
-                                    .sort((a, b) => a.length - b.length)
-                                    .map((tag, indexTag) => (
-                                        <button
-                                            key={indexTag}
-                                            onClick={e => handleClick(e)}
-                                        >
-                                            <div
-                                                id={tag}
-                                                className="rounded-md bg-[#C4C4C4] py-1 px-2 font-segoe text-xs font-semibold hover:bg-[#ABABAB] dark:bg-[#2B2B2B] hover:dark:bg-[#454545]"
+                    <motion.div
+                        key={index}
+                        initial={{ scale: 0.8, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        transition={{ duration: 0.6, delay: index / 10 }}
+                    >
+                        <Link href={`blog/${post.slug}`}>
+                            <div className="flex w-full flex-col gap-2">
+                                <div className="font-segoe text-2xl font-bold">
+                                    {post.title}
+                                </div>
+                                <div className="flex w-full flex-wrap gap-3">
+                                    {post.tags
+                                        .sort((a, b) => a.length - b.length)
+                                        .map((tag, indexTag) => (
+                                            <button
+                                                key={indexTag}
+                                                onClick={e => handleClick(e)}
                                             >
-                                                {tag}
-                                            </div>
-                                        </button>
-                                    ))}
+                                                <div
+                                                    id={tag}
+                                                    className="rounded-md bg-[#C4C4C4] py-1 px-2 font-segoe text-xs font-semibold hover:bg-[#ABABAB] dark:bg-[#2B2B2B] hover:dark:bg-[#454545]"
+                                                >
+                                                    {tag}
+                                                </div>
+                                            </button>
+                                        ))}
+                                </div>
+                                <div className="font-segoe text-sm">
+                                    {post.description}
+                                </div>
                             </div>
-                            <div className="font-segoe text-sm">
-                                {post.description}
-                            </div>
-                        </div>
-                    </Link>
+                        </Link>
+                    </motion.div>
                 ))
             ) : (
-                <div className="font-segoe text-2xl font-bold">
-                    No articles found.
-                </div>
+                <motion.div
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ duration: 0.6 }}
+                >
+                    <div className="font-segoe text-2xl font-bold">
+                        No articles found.
+                    </div>
+                </motion.div>
             )}
         </div>
     );
