@@ -1,11 +1,9 @@
 export const ExperienceCard = function ({
     children,
-    className,
     title,
     position
 }: {
     children: JSX.Element[] | JSX.Element;
-    className?: string;
     title: string;
     position: string;
 }) {
