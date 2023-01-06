@@ -55,30 +55,24 @@ export const Article = function ({
                     ]
                 }
             });
-            setContent(<MDXRemote {...serializeMarkdown} lazy />);
+            setContent(
+                <>
+                    <div className="flex w-full flex-col items-center justify-center gap-1">
+                        <div className="text-center font-poppins text-4xl font-bold text-[#222831] dark:text-[#DDDDDD] ">
+                            {post.title}
+                        </div>
+                        <div className="text-center text-sm font-bold text-[#222831] dark:text-[#DDDDDD] ">
+                            {parseDate(post.date)} &bull; {post.readingTime}
+                        </div>
+                    </div>
+                    <hr className="mt-5 rounded-md border-[#222831] dark:border-[#DDDDDD]" />
+                    <div className="prose max-w-full dark:prose-dark">
+                        <MDXRemote {...serializeMarkdown} lazy />
+                    </div>
+                </>
+            );
         }
-    }, [post.markdown]);
+    }, [post.date, post]);
 
-    return (
-        <>
-            <div className="flex w-full flex-col items-center justify-center gap-1">
-                <div className="text-center font-poppins text-4xl font-bold text-[#222831] dark:text-[#DDDDDD] ">
-                    {post.title}
-                </div>
-                <div className="flex flex-row gap-1">
-                    <div className="text-center text-sm font-bold text-[#222831] dark:text-[#DDDDDD] ">
-                        {parseDate(post.date)}
-                    </div>
-                    <div className="text-center text-sm font-bold text-[#222831] dark:text-[#DDDDDD] ">
-                        •
-                    </div>
-                    <div className="text-center text-sm font-bold text-[#222831] dark:text-[#DDDDDD] ">
-                        {post.readingTime}
-                    </div>
-                </div>
-            </div>
-            <hr className="mt-5 rounded-md border-[#222831] dark:border-[#DDDDDD]" />
-            <div className="prose max-w-full dark:prose-dark">{content}</div>
-        </>
-    );
+    return content;
 };
