@@ -1,6 +1,5 @@
 import { Article } from "@/components/Blog/Article";
 import { Container } from "@/components/Container";
-import { IArticle } from "@/types";
 import { InferGetStaticPropsType } from "next";
 import { getPublishedArticles } from "src/notion";
 
