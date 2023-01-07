@@ -1,6 +1,6 @@
 import { IArticle } from "@/types";
 import { Client } from "@notionhq/client";
-import { isFullPage } from "@notionhq/client/build/src/helpers";
+import { isFullBlock, isFullPage } from "@notionhq/client/build/src/helpers";
 import { NotionToMarkdown } from "notion-to-md";
 import readingTime from "reading-time";
 
@@ -10,7 +10,22 @@ const notionClient = new Client({
 
 const notionToMarkdown = new NotionToMarkdown({
     notionClient
-});
+})
+    .setCustomTransformer("paragraph", block => {
+        if (isFullBlock(block) && block.type === "paragraph") {
+            if (
+                block.paragraph.rich_text.filter(x =>
+                    x.plain_text.includes("\n")
+                ).length
+            ) {
+                const texts = block.paragraph.rich_text.map(x =>
+                    x.plain_text.split("\n")
+                );
+                return `<p>${texts[0].map(x => `${x}<br />`).join("")}</p>`;
+            }
+            return block.paragraph.rich_text.map(x => x.plain_text).join("");
+        }
+    })
 
 export const getDatabaseQuery = () => {
     return notionClient.databases.query({

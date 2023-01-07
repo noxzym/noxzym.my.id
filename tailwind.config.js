@@ -18,6 +18,10 @@ module.exports = {
             typography: {
                 DEFAULT: {
                     css: {
+                        h2: {
+                            marginTop: "1.5rem",
+                            marginBottom: ".5rem"
+                        },
                         "--tw-prose-body": "#222831",
                         "--tw-prose-headings": "#222831",
                         "--tw-prose-lead": "#222831",
