@@ -1,6 +1,7 @@
 import { InferGetStaticPropsType } from "next";
 import { MDXRemote } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
+import { NextSeo } from "next-seo";
 import { getStaticProps } from "pages/blog/[...slug]";
 import { useEffect, useState } from "react";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
@@ -74,5 +75,25 @@ export const Article = function ({
         }
     }, [post.date, post]);
 
-    return content;
+    return (
+        <>
+            <NextSeo
+                title={post.title}
+                description={post.description}
+                canonical={`https://noxzym.my.id/blog/${post.slug}`}
+                openGraph={{
+                    type: "website",
+                    url: `https://noxzym.my.id/blog/${post.slug}`,
+                    title: post.title,
+                    siteName: "noxzym.my.id",
+                    description: post.description,
+                    article: {
+                        publishedTime: post.date,
+                        tags: post.tags
+                    }
+                }}
+            />
+            {content}
+        </>
+    );
 };

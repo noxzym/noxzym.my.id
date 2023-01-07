@@ -1,6 +1,7 @@
 import { Blog } from "@/components/Blog";
 import { Container } from "@/components/Container";
 import { InferGetStaticPropsType } from "next";
+import { NextSeo } from "next-seo";
 import { getPublishedArticles } from "src/notion";
 
 export const getStaticProps = async () => {
@@ -27,12 +28,22 @@ export default function BlogPage({
     pagination
 }: InferGetStaticPropsType<typeof getStaticProps>) {
     return (
-        <Container>
-            <Blog
-                posts={posts}
-                initialDisplayPosts={initialDisplayPosts}
-                pagination={pagination}
+        <>
+            <NextSeo
+                title="Blog | Noxzym"
+                canonical="https://noxzym.my.id/blog"
+                openGraph={{
+                    url: "https://noxzym.my.id/blog",
+                    title: "Blog | Noxzym"
+                }}
             />
-        </Container>
+            <Container>
+                <Blog
+                    posts={posts}
+                    initialDisplayPosts={initialDisplayPosts}
+                    pagination={pagination}
+                />
+            </Container>
+        </>
     );
 }
