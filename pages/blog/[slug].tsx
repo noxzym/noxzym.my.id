@@ -1,9 +1,9 @@
 import { getArticles } from "@/src/Notion";
 import { Container, Divider, Typography } from "@mui/material";
 import { GetStaticPropsContext, InferGetStaticPropsType } from "next";
+import { NextSeo } from "next-seo";
 import Image from "next/image";
 import { NotionRenderer } from "react-notion-x";
-import { NextSeo } from "next-seo";
 
 export const getStaticPaths = async () => {
     const notion = await getArticles();
@@ -69,7 +69,10 @@ export default function ArticlePage({
                 </Typography>
                 <div className="flex w-full flex-col">
                     <Divider />
-                    <NotionRenderer recordMap={article.recordMap} />
+                    <NotionRenderer
+                        recordMap={article.recordMap}
+                        className="m-0 w-full p-0 font-sans"
+                    />
                 </div>
             </Container>
             <Divider className="w-0 py-10" />

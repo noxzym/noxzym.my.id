@@ -13,6 +13,7 @@ export const ArticleCard = ({ article }: { article: IArticle }) => {
                 <Image
                     src={article.cover}
                     fill
+                    sizes="270x960"
                     alt="exampleImage"
                     className="rounded object-cover"
                 />

@@ -1,67 +1,33 @@
 import { IArticle } from "@/types";
-import { Client, isFullPage } from "@notionhq/client";
 import { format } from "date-fns";
-import { NotionCompatAPI } from "notion-compat";
+import { NotionAPI } from "notion-client";
 
-const notionClient = new Client({
-    auth: process.env.NEXT_PUBLIC_NOTION_TOKEN
-});
-const notionCompat = new NotionCompatAPI(notionClient);
-
-const getDatabase = () => notionClient.databases.query({
-    database_id: process.env.NEXT_PUBLIC_NOTION_DATABASE_ID
+const notionClient = new NotionAPI({
+    activeUser: process.env.NEXT_PUBLIC_NOTION_ACTIVE_USER,
+    authToken: process.env.NEXT_PUBLIC_NOTION_TOKEN
 });
 
-export const getArticles = async () => Promise.all((await getDatabase()).results.map(async page => {
-    if (isFullPage(page)) {
-        const metadata = {} as IArticle;
-        switch (page.cover.type) {
-            case "external":
-                metadata.cover = page.cover.external.url;
-                break;
+export const getArticles = async () => {
+    const databasePage = await notionClient.getPage(process.env.NEXT_PUBLIC_NOTION_DATABASE_ID);
+    const articleIds = Object.values(databasePage.collection_query)
+        .map(collection => Object.values(collection)[0].collection_group_results.blockIds.map(blockId => [blockId]))[0];
 
-            case "file":
-                metadata.cover = page.cover.file.url;
-                break;
-        }
-        const propertiesValues = Object.values(page.properties);
-        for (const propertiesValue of propertiesValues) {
-            switch (propertiesValue.type) {
-                case "title":
-                    if (propertiesValue.title.length) {
-                        metadata.title =
-                            propertiesValue.title[0].plain_text;
-                    }
-                    break;
-
-                case "rich_text":
-                    if (propertiesValue.rich_text.length) {
-                        metadata.description =
-                            propertiesValue.rich_text[0].plain_text;
-                    }
-                    break;
-
-                case "multi_select":
-                    metadata.tags = propertiesValue.multi_select.map(
-                        tag => tag.name
-                    );
-                    break;
-
-                case "checkbox":
-                    metadata.published = propertiesValue.checkbox;
-                    break;
-
-                case "created_time":
-                    metadata.date = format(new Date(propertiesValue.created_time), "MMM dd, yyyy");
-                    break;
+    return Promise.all(articleIds.map(async articleId => {
+        const articlePage = await notionClient.getBlocks(articleId);
+        const articleMetadata = {} as IArticle;
+        for (const [, { value }] of Object.entries(articlePage.recordMap.block)) {
+            if (value.type === "page") {
+                articleMetadata.id = value.id;
+                articleMetadata.slug = value.properties.title[0][0].toLowerCase().split(" ").join("-");
+                articleMetadata.title = value.properties.title[0][0];
+                articleMetadata.description = value.properties["eW[E"] ? value.properties["eW[E"][0][0] : "";
+                articleMetadata.tags = value.properties["^`\\B"] ? value.properties["^`\\B"][0][0].split(",") : [];
+                articleMetadata.published = !!value.properties["PAP="];
+                articleMetadata.cover = value.format?.page_cover;
+                articleMetadata.date = format(new Date(value.created_time), "MMM dd, yyyy");
             }
         }
-
-        return {
-            id: page.id,
-            slug: metadata.title.split(" ").join("-").toLowerCase(),
-            recordMap: await notionCompat.getPage(page.id),
-            ...metadata
-        }
-    }
-}))
+        const recordMap = await notionClient.getPage(articleMetadata.id);
+        return { recordMap, ...articleMetadata };
+    }));
+}
