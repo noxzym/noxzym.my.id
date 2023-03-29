@@ -1,23 +1,42 @@
+import { NavigationBar } from "@/components/NavigationBar";
 import { ProgressBar } from "@/components/ProgressBar";
+import "@/styles/index.scss";
+import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
 import { Analytics } from "@vercel/analytics/react";
-import { AnimatePresence } from "framer-motion";
 import { DefaultSeo } from "next-seo";
-import { ThemeProvider } from "next-themes";
 import { AppProps } from "next/app";
-import "../styles/index.scss";
+import { Poppins } from "next/font/google";
 
-export default function App({ Component, pageProps }: AppProps) {
+const poppins = Poppins({
+    weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+    subsets: ["latin"]
+});
+
+const theme = createTheme({
+    palette: {
+        background: {
+            default: "#DDDDDD"
+        }
+    }
+});
+
+export default function MyApp({ Component, pageProps }: AppProps) {
     return (
         <>
+            <style jsx global>
+                {`
+                    :root {
+                        --font-poppins: ${poppins.style.fontFamily};
+                    }
+                `}
+            </style>
             <DefaultSeo
-                title="Home | Noxzym"
                 description="noxzym's personal website"
-                canonical="https://noxzym.my.id"
                 additionalLinkTags={[
                     {
                         rel: "icon",
                         type: "image/png",
-                        href: "/assets/images/noxzym-without-text.png",
+                        href: "/assets/noxzym-without-text.png",
                         sizes: "16x16"
                     }
                 ]}
@@ -29,7 +48,7 @@ export default function App({ Component, pageProps }: AppProps) {
                     description: "noxzym's personal website",
                     images: [
                         {
-                            url: "https://noxzym.my.id/assets/images/noxzym-without-text.png",
+                            url: "https://noxzym.my.id/assets/noxzym-without-text.png",
                             width: 512,
                             height: 512,
                             alt: "Noxzym"
@@ -53,13 +72,13 @@ export default function App({ Component, pageProps }: AppProps) {
                     }
                 ]}
             />
-            <ThemeProvider enableSystem attribute="class">
-                <AnimatePresence initial={false}>
-                    <ProgressBar />
-                    <Component {...pageProps} />
-                    <Analytics />
-                </AnimatePresence>
+            <ThemeProvider {...{ theme }}>
+                <CssBaseline />
+                <ProgressBar />
+                <NavigationBar />
+                <Component {...pageProps} />
             </ThemeProvider>
+            <Analytics />
         </>
     );
 }
