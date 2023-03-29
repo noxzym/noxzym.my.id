@@ -1,53 +1,57 @@
 name: Lint code and compile setup script
 
 on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - "**"
+    push:
+        branches:
+            - main
+    pull_request:
+        branches:
+            - "**"
 
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [">=16.6.0 <17.x"]
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b # v3
+    lint:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                node-version: [">=16.6.0 <17.x"]
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b # v3
 
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516 # tag=v3.5.1
-      with:
-        node-version: ${{ matrix.node-version }}
-        check-latest: true
+            - name: Use Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516 # tag=v3.5.1
+              with:
+                  node-version: ${{ matrix.node-version }}
+                  check-latest: true
 
-    - name: Install dependencies
-      run: npm ci
+            - name: Install dependencies
+              run: npm ci
 
-    - name: Lint code
-      run: npm run lint
+            - name: Lint code
+              run: npm run lint
 
-  compile:
-    needs: lint
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [">=16.6.0 <17.x"]
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b # v3
+    compile:
+        needs: lint
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                node-version: [">=16.6.0 <17.x"]
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b # v3
 
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516 # tag=v3.5.1
-        with:
-          node-version: ${{ matrix.node-version }}
-          check-latest: true
+            - name: Use Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516 # tag=v3.5.1
+              with:
+                  node-version: ${{ matrix.node-version }}
+                  check-latest: true
 
-      - name: Install dependencies
-        run: npm ci
+            - name: Install dependencies
+              run: npm ci
 
-      - name: Compile test
-        run: npm run build && rm -rf dist
+            - name: Compile test
+              env:
+                  NEXT_PUBLIC_NOTION_ACTIVE_USER: ${{ secrets.NEXT_PUBLIC_NOTION_ACTIVE_USER }}
+                  NEXT_PUBLIC_NOTION_DATABASE_ID: ${{ secrets.NEXT_PUBLIC_NOTION_DATABASE_ID }}
+                  NEXT_PUBLIC_NOTION_TOKEN: ${{ secrets.NEXT_PUBLIC_NOTION_TOKEN }}
+              run: npm run build && rm -rf .next
