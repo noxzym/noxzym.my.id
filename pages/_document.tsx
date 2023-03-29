@@ -1,8 +1,11 @@
 import { Head, Html, Main, NextScript } from "next/document";
 
-export default function Document() {
+export default function MyDocument() {
     return (
-        <Html className="overflow-x-hidden overflow-y-scroll" lang="en">
+        <Html
+            className="overflow-x-hidden overflow-y-scroll scroll-smooth"
+            lang="en"
+        >
             <Head />
             <body>
                 <Main />
