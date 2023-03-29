@@ -59,6 +59,7 @@ export interface IArticle {
     title: string;
     date: string;
     tags: string[];
+    cover: string;
     description: string;
     published: boolean;
     readingTime: string;
