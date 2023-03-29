@@ -2,30 +2,4 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-    body {
-        @apply bg-[#DDDDDD] transition-colors duration-300 ease-in-out dark:bg-[#111111];
-    }
-}
-
-@font-face {
-    font-family: "segoe";
-    src: url("../public/assets/fonts/Segoe.ttf");
-    font-display: swap;
-
-    font-family: "segoe-bold";
-    src: url("../public/assets/fonts/Segoe-Bold.ttf");
-    font-display: swap;
-
-    font-family: "garet";
-    src: url("../public/assets/fonts/Garet-Book.ttf");
-    font-display: swap;
-
-    font-family: "garet-bold";
-    src: url("../public/assets/fonts/Garet-Heavy.ttf");
-    font-display: swap;
-}
-
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
-
 @import "./globals";
