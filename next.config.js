@@ -2,6 +2,12 @@
 module.exports = {
     reactStrictMode: true,
     swcMinify: true,
+    images: { domains: ["picsum.photos", "cdn.discordapp.com"] },
+    modularizeImports: {
+        "@mui/icons-material/?(((\\w*)?/?)*)": {
+            transform: "@mui/icons-material/{{ matches.[1] }}/{{member}}"
+        }
+    },
     async redirects() {
         return [
             {
@@ -28,6 +34,11 @@ module.exports = {
             {
                 source: "/twitter",
                 destination: "https://twitter.com/noxzym",
+                permanent: true
+            },
+            {
+                source: "/linkedin",
+                destination: "https://www.linkedin.com/in/orchitiadi",
                 permanent: true
             }
         ];
