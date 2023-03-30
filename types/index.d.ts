@@ -1,3 +1,5 @@
+import { ExtendedRecordMap } from "notion-types";
+
 export interface ILanyard {
     success: boolean;
     data: {
@@ -59,8 +61,8 @@ export interface IArticle {
     title: string;
     date: string;
     tags: string[];
+    cover: string;
     description: string;
     published: boolean;
-    readingTime: string;
-    markdown: string;
+    recordMap: ExtendedRecordMap;
 }

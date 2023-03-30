@@ -18,9 +18,10 @@
         "paths": {
             "@/components/*": ["components/*"],
             "@/types": ["types/index.d.ts"],
-            "@/utils/*": ["utils/*"],
             "@/styles/*": ["styles/*"],
-            "@/public/*": ["public/*"]
+            "@/public/*": ["public/*"],
+            "@/hooks/*": ["hooks/*"],
+            "@/src/*": ["src/*"]
         },
         "typeRoots": ["src/types"]
     },

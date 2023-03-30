@@ -1,40 +1,57 @@
-import { LazyLoading } from "../LazyLoading";
+import { ILanyard } from "@/types";
+import { ArrowOutward } from "@mui/icons-material";
+import { Button, Link, Typography } from "@mui/material";
+import {
+    SiDiscord as DiscordIcon,
+    SiGithub as GithubIcon,
+    SiInstagram as InstagramIcon,
+    SiLinkedin as LinkedinIcon,
+    SiSpotify as SpotifyIcon,
+    SiTwitter as TwitterIcon
+} from "react-icons/si";
 
-export const ContactCard = function ({
-    name,
-    href,
-    children
+const icons = {
+    github: <GithubIcon className="h-10 w-10" />,
+    twitter: <TwitterIcon className="h-10 w-10" />,
+    discord: <DiscordIcon className="h-10 w-10" />,
+    spotify: <SpotifyIcon className="h-10 w-10" />,
+    instagram: <InstagramIcon className="h-10 w-10" />,
+    linkedin: <LinkedinIcon className="h-10 w-10" />
+};
+
+export const ContactCard = ({
+    item,
+    SWRLanyard
 }: {
-    name?: string;
-    href: string;
-    children: JSX.Element;
-}) {
+    item: string;
+    SWRLanyard: ILanyard;
+}) => {
     return (
-        <a
-            href={href}
+        <Link
+            href={`/${item}`}
+            variant="button"
             target="_blank"
-            className="w-full rounded-md border-2 border-[#C7C7C7] bg-transparent py-2 px-3 shadow-md hover:bg-[#C7C7C7] dark:border-[#333333] dark:shadow-none dark:hover:bg-[#333333]"
-            rel="noreferrer"
+            rel="noopener"
+            underline="none"
+            color="inherit"
         >
-            <div className="flex items-center justify-between">
-                <div className="flex flex-row items-center gap-3">
-                    {children}
-                    <div className="font-segoe font-bold">
-                        {name ? (
-                            name
-                        ) : (
-                            <LazyLoading className="h-7 w-7 stroke-[#222831] stroke-[4] dark:stroke-[#DDDDDD]" />
-                        )}
-                    </div>
+            <Button
+                color="inherit"
+                startIcon={icons[item] ? icons[item] : icons.discord}
+                sx={{
+                    "& > span": { margin: 0 }
+                }}
+                className="flex w-full items-center gap-5 rounded-md border-none py-2 px-3 normal-case shadow-md"
+            >
+                <div className="flex w-full items-center justify-between">
+                    <Typography className="font-sans text-lg font-semibold">
+                        {SWRLanyard.data.kv[item]
+                            ? SWRLanyard.data.kv[item]
+                            : `${SWRLanyard.data.discord_user.username}#${SWRLanyard.data.discord_user.discriminator}`}
+                    </Typography>
+                    <ArrowOutward className="text-2xl" />
                 </div>
-                <svg
-                    className="h-6 w-6 fill-[#222831] dark:fill-[#DDDDDD]"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                >
-                    <path d="M10 6v2H5v11h11v-5h2v6a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h6zm11-3v8h-2V6.413l-7.793 7.794-1.414-1.414L17.585 5H13V3h8z" />
-                </svg>
-            </div>
-        </a>
+            </Button>
+        </Link>
     );
 };

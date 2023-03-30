@@ -1,8 +1,8 @@
 import { Contact } from "@/components/Contact";
-import { Container } from "@/components/Container";
+import { Divider } from "@mui/material";
 import { NextSeo } from "next-seo";
 
-export default function ContactPage() {
+export default function MyContact() {
     return (
         <>
             <NextSeo
@@ -13,9 +13,8 @@ export default function ContactPage() {
                     title: "Contact | Noxzym"
                 }}
             />
-            <Container className="relative flex w-full flex-col items-center justify-center gap-3 pt-24 pb-10 text-[#222831] dark:text-[#DDDDDD] landscape:pb-8 landscape:pt-16 lg:landscape:pt-32">
-                <Contact />
-            </Container>
+            <Contact />
+            <Divider className="w-0 py-10" />
         </>
     );
 }

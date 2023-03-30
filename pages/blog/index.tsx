@@ -1,32 +1,28 @@
-import { Blog } from "@/components/Blog";
-import { Container } from "@/components/Container";
-import { InferGetStaticPropsType } from "next";
+import { ArticleCard } from "@/components/Card/ArticleCard";
+import { getArticles } from "@/src/Notion";
+import { Clear, Search } from "@mui/icons-material";
+import { Button, Container, Divider, Input, Typography } from "@mui/material";
 import { NextSeo } from "next-seo";
-import { getPublishedArticles } from "src/notion";
+import { InferGetStaticPropsType } from "next/types";
+import { useState } from "react";
 
 export const getStaticProps = async () => {
-    const articles = await getPublishedArticles();
-    const initialDisplayPosts = articles.slice(0, 10);
-    const pagination = {
-        currentPage: 1,
-        totalPages: Math.ceil(articles.length / 10)
-    };
+    const articles = await getArticles();
 
     return {
         props: {
-            initialDisplayPosts,
-            posts: articles,
-            pagination
+            articles
         },
         revalidate: 60
     };
 };
 
 export default function BlogPage({
-    posts,
-    initialDisplayPosts,
-    pagination
+    articles
 }: InferGetStaticPropsType<typeof getStaticProps>) {
+    const [searchState, setSearchState] = useState("");
+    const removeSearchState = () => setSearchState("");
+
     return (
         <>
             <NextSeo
@@ -37,13 +33,46 @@ export default function BlogPage({
                     title: "Blog | Noxzym"
                 }}
             />
-            <Container>
-                <Blog
-                    posts={posts}
-                    initialDisplayPosts={initialDisplayPosts}
-                    pagination={pagination}
+            <Container
+                fixed
+                className="flex flex-col gap-5 px-5 pt-10 md:px-40"
+            >
+                <Typography className="font-sans text-3xl font-semibold">
+                    Blog.
+                </Typography>
+                <Input
+                    disableUnderline
+                    fullWidth
+                    onChange={e => setSearchState(e.target.value)}
+                    placeholder="Search Articles"
+                    startAdornment={<Search />}
+                    endAdornment={
+                        searchState.length ? (
+                            <Button
+                                startIcon={<Clear />}
+                                color="inherit"
+                                sx={{
+                                    "& > span": { margin: 0 }
+                                }}
+                                className="min-w-0 p-0"
+                                onClick={removeSearchState}
+                            />
+                        ) : null
+                    }
+                    value={searchState}
+                    className="gap-3 rounded-lg bg-[#C4C4C4] py-2 px-3 font-semibold"
                 />
+                {articles
+                    .filter(article =>
+                        `${article.title}${article.tags.join("")}`
+                            .toLowerCase()
+                            .includes(searchState.toLowerCase())
+                    )
+                    .map((article, i) => (
+                        <ArticleCard key={i} article={article} />
+                    ))}
             </Container>
+            <Divider className="w-0 py-10" />
         </>
     );
 }
