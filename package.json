@@ -49,7 +49,7 @@
         "framer-motion": "^10.12.8",
         "next": "^13.4.1",
         "next-seo": "^6.0.0",
-        "next-sitemap": "^3.1.55",
+        "next-sitemap": "^4.0.9",
         "notion-client": "^6.16.0",
         "notion-types": "^6.16.0",
         "nprogress": "^0.2.0",
