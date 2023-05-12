@@ -47,7 +47,7 @@
         "@vercel/analytics": "^1.0.1",
         "date-fns": "^2.30.0",
         "framer-motion": "^10.12.10",
-        "next": "^13.4.1",
+        "next": "^13.4.2",
         "next-seo": "^6.0.0",
         "next-sitemap": "^4.0.9",
         "notion-client": "^6.16.0",
@@ -61,7 +61,7 @@
         "swr": "^2.1.5"
     },
     "devDependencies": {
-        "@types/node": "^18.16.7",
+        "@types/node": "^18.16.8",
         "@types/react": "^18.2.6",
         "@types/react-dom": "^18.2.4",
         "@typescript-eslint/eslint-plugin": "^5.59.5",
