@@ -4,3 +4,9 @@
 
 @import "react-notion-x/src/styles.css";
 @import "./globals";
+
+@layer base {
+    body {
+        @apply bg-[#E8E9E9] dark:bg-[#0A0C0C];
+    }
+}
