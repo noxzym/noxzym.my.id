@@ -1,7 +1,7 @@
+import { MyLayout } from "@/components/Layout";
 import { getArticles } from "@/src/Notion";
-import { Container, Divider, Typography } from "@mui/material";
+import { Divider, Typography } from "@mui/material";
 import { GetStaticPropsContext, InferGetStaticPropsType } from "next";
-import { NextSeo } from "next-seo";
 import Image from "next/image";
 import { NotionRenderer } from "react-notion-x";
 
@@ -34,11 +34,11 @@ export default function ArticlePage({
     article
 }: InferGetStaticPropsType<typeof getStaticProps>) {
     return (
-        <>
-            <NextSeo
-                title={`${article.title} | Noxzym`}
-                canonical={`https://noxzym.my.id/blog/${article.slug}`}
-                openGraph={{
+        <MyLayout
+            SEO={{
+                title: article.title,
+                canonical: `https://noxzym.my.id/blog/${article.slug}`,
+                openGraph: {
                     url: `https://noxzym.my.id/blog/${article.slug}`,
                     title: `${article.title} | Noxzym`,
                     article: {
@@ -47,35 +47,34 @@ export default function ArticlePage({
                         modifiedTime: article.date,
                         tags: article.tags
                     }
-                }}
-            />
-            <Container
-                fixed
-                className="flex flex-col gap-5 px-5 pt-10 md:px-40"
-            >
-                <div className="relative aspect-[2/1] h-auto w-full md:aspect-[6/2]">
-                    <Image
-                        src={article.cover}
-                        fill
-                        alt="exampleImage"
-                        className="rounded-xl object-cover"
-                    />
+                }
+            }}
+        >
+            <div className="relative aspect-[2/1] h-auto w-full md:aspect-[6/2]">
+                <Image
+                    src={article.cover}
+                    fill
+                    alt="exampleImage"
+                    className="rounded-xl object-cover"
+                />
+            </div>
+            <div className="flex flex-col gap-5">
+                <div className="flex flex-col gap-3">
+                    <Typography className="font-poppins text-3xl font-bold dark:text-white/90">
+                        {article.title}
+                    </Typography>
+                    <Typography className="font-sans font-medium dark:text-white/50">
+                        {article.description}
+                    </Typography>
                 </div>
-                <Typography className="font-sans text-3xl font-bold">
-                    {article.title}
-                </Typography>
-                <Typography className="font-sans font-medium">
-                    {article.description}
-                </Typography>
-                <div className="flex w-full flex-col">
-                    <Divider />
+                <Divider className="border-black dark:border-white/30" />
+                <div className="flex flex-col">
                     <NotionRenderer
                         recordMap={article.recordMap}
-                        className="m-0 w-full p-0 font-sans"
+                        className="m-0 w-full p-0 font-sans dark:text-white/80"
                     />
                 </div>
-            </Container>
-            <Divider className="w-0 py-10" />
-        </>
+            </div>
+        </MyLayout>
     );
 }

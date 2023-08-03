@@ -1,8 +1,8 @@
 import { ArticleCard } from "@/components/Card/ArticleCard";
+import { MyLayout } from "@/components/Layout";
 import { getArticles } from "@/src/Notion";
 import { Clear, Search } from "@mui/icons-material";
-import { Button, Container, Divider, Input, Typography } from "@mui/material";
-import { NextSeo } from "next-seo";
+import { Button, Input, Typography } from "@mui/material";
 import { InferGetStaticPropsType } from "next/types";
 import { useState } from "react";
 
@@ -24,55 +24,41 @@ export default function BlogPage({
     const removeSearchState = () => setSearchState("");
 
     return (
-        <>
-            <NextSeo
-                title="Blog | Noxzym"
-                canonical="https://noxzym.my.id/blog"
-                openGraph={{
-                    url: "https://noxzym.my.id/blog",
-                    title: "Blog | Noxzym"
-                }}
+        <MyLayout>
+            <Typography className="text-center font-sans text-3xl font-bold dark:text-white/90">
+                My Blog
+            </Typography>
+            <Input
+                disableUnderline
+                fullWidth
+                onChange={e => setSearchState(e.target.value)}
+                placeholder="Search Articles"
+                startAdornment={<Search />}
+                endAdornment={
+                    searchState.length ? (
+                        <Button
+                            startIcon={<Clear />}
+                            color="inherit"
+                            sx={{
+                                "& > span": { margin: 0 }
+                            }}
+                            className="min-w-0 p-0"
+                            onClick={removeSearchState}
+                        />
+                    ) : null
+                }
+                value={searchState}
+                className="gap-3 rounded-lg border-2 border-solid border-white/30 bg-white/50 px-3 py-1 font-semibold dark:text-white/80"
             />
-            <Container
-                fixed
-                className="flex flex-col gap-5 px-5 pt-10 md:px-40"
-            >
-                <Typography className="font-sans text-3xl font-semibold">
-                    Blog.
-                </Typography>
-                <Input
-                    disableUnderline
-                    fullWidth
-                    onChange={e => setSearchState(e.target.value)}
-                    placeholder="Search Articles"
-                    startAdornment={<Search />}
-                    endAdornment={
-                        searchState.length ? (
-                            <Button
-                                startIcon={<Clear />}
-                                color="inherit"
-                                sx={{
-                                    "& > span": { margin: 0 }
-                                }}
-                                className="min-w-0 p-0"
-                                onClick={removeSearchState}
-                            />
-                        ) : null
-                    }
-                    value={searchState}
-                    className="gap-3 rounded-lg bg-[#C4C4C4] py-2 px-3 font-semibold"
-                />
-                {articles
-                    .filter(article =>
-                        `${article.title}${article.tags.join("")}`
-                            .toLowerCase()
-                            .includes(searchState.toLowerCase())
-                    )
-                    .map((article, i) => (
-                        <ArticleCard key={i} article={article} />
-                    ))}
-            </Container>
-            <Divider className="w-0 py-10" />
-        </>
+            {articles
+                .filter(article =>
+                    `${article.title}${article.tags.join("")}`
+                        .toLowerCase()
+                        .includes(searchState.toLowerCase())
+                )
+                .map((article, i) => (
+                    <ArticleCard key={i} article={article} />
+                ))}
+        </MyLayout>
     );
 }
