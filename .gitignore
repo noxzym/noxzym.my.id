@@ -101,3 +101,5 @@ dist
 
 public/sitemap.xml
 public/robots.txt
+public/sw*
+public/workbox*
