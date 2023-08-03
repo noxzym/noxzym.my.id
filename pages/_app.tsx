@@ -10,6 +10,7 @@ import { DefaultSeo } from "next-seo";
 import { ThemeProvider, useTheme } from "next-themes";
 import { AppProps } from "next/app";
 import { Open_Sans, Poppins } from "next/font/google";
+import Head from "next/head";
 
 const openSans = Open_Sans({
     weight: ["300", "400", "600", "700", "800"],
@@ -48,22 +49,16 @@ export default function MyApp({ Component, pageProps }: AppProps) {
                     }
                 `}
             </style>
-            <meta charSet="utf-8" />
-            <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-            <meta name="application-name" content="Noxzym" />
-            <meta name="apple-mobile-web-app-capable" content="yes" />
-            <meta
-                name="apple-mobile-web-app-status-bar-style"
-                content="default"
-            />
-            <meta name="apple-mobile-web-app-title" content="Noxzym" />
-            <meta name="format-detection" content="telephone=no" />
-            <meta name="mobile-web-app-capable" content="yes" />
-            <meta name="theme-color" content="#E8E9E9" />
-            <meta
-                name="viewport"
-                content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
-            />
+            <Head>
+                <meta charSet="utf-8" />
+                <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+                <meta
+                    name="viewport"
+                    content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
+                />
+                <meta name="theme-color" content="#E8E9E9" />
+                <link rel="manifest" href="/manifest.webmanifest" />
+            </Head>
             <DefaultSeo
                 description="noxzym's personal website"
                 additionalLinkTags={[
