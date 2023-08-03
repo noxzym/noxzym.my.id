@@ -1,32 +1,50 @@
-import { NavigationBar } from "@/components/NavigationBar";
 import { ProgressBar } from "@/components/ProgressBar";
 import "@/styles/index.scss";
-import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
+import {
+    CssBaseline,
+    ThemeProvider as MUIThemeProvider,
+    createTheme
+} from "@mui/material";
 import { Analytics } from "@vercel/analytics/react";
 import { DefaultSeo } from "next-seo";
+import { ThemeProvider, useTheme } from "next-themes";
 import { AppProps } from "next/app";
-import { Poppins } from "next/font/google";
+import { Open_Sans, Poppins } from "next/font/google";
 
+const openSans = Open_Sans({
+    weight: ["300", "400", "600", "700", "800"],
+    subsets: ["latin"]
+});
 const poppins = Poppins({
     weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
     subsets: ["latin"]
 });
 
-const theme = createTheme({
-    palette: {
-        background: {
-            default: "#DDDDDD"
-        }
-    }
-});
-
 export default function MyApp({ Component, pageProps }: AppProps) {
+    const { theme } = useTheme();
+
+    const MUITheme = createTheme({
+        palette: {
+            mode: theme === "dark" ? "dark" : "light",
+            background: {
+                default: theme === "dark" ? "#0A0C0C" : "#E8E9E9"
+            }
+        }
+    });
+
     return (
         <>
             <style jsx global>
                 {`
                     :root {
+                        --font-open-sans: ${openSans.style.fontFamily};
                         --font-poppins: ${poppins.style.fontFamily};
+                        overflow-x: hidden;
+                        overflow-y: scroll;
+                        scroll-behavior: smooth;
+                    }
+                    body {
+                        transition: background-color 0.3s ease-in-out;
                     }
                 `}
             </style>
@@ -41,7 +59,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
             <meta name="apple-mobile-web-app-title" content="Noxzym" />
             <meta name="format-detection" content="telephone=no" />
             <meta name="mobile-web-app-capable" content="yes" />
-            <meta name="theme-color" content="#DDDDDD" />
+            <meta name="theme-color" content="#E8E9E9" />
             <meta
                 name="viewport"
                 content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
@@ -52,7 +70,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
                     {
                         rel: "icon",
                         type: "image/png",
-                        href: "/assets/noxzym-without-text.png",
+                        href: "/icons/icon-512x512.png",
                         sizes: "16x16"
                     }
                 ]}
@@ -64,7 +82,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
                     description: "noxzym's personal website",
                     images: [
                         {
-                            url: "https://noxzym.my.id/assets/noxzym-without-text.png",
+                            url: "https://noxzym.my.id/icons/icon-512x512.png",
                             width: 512,
                             height: 512,
                             alt: "Noxzym"
@@ -88,11 +106,14 @@ export default function MyApp({ Component, pageProps }: AppProps) {
                     }
                 ]}
             />
-            <ThemeProvider {...{ theme }}>
-                <CssBaseline />
-                <ProgressBar />
-                <NavigationBar />
-                <Component {...pageProps} />
+            <ThemeProvider attribute="class">
+                <MUIThemeProvider theme={MUITheme}>
+                    <CssBaseline />
+                    <ProgressBar />
+                    <main className="flex min-h-screen flex-col">
+                        <Component {...pageProps} />
+                    </main>
+                </MUIThemeProvider>
             </ThemeProvider>
             <Analytics />
         </>

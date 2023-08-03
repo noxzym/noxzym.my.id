@@ -18,20 +18,20 @@ export const ArticleCard = ({ article }: { article: IArticle }) => {
                     className="rounded object-cover"
                 />
             </Link>
-            <div className="flex w-full flex-col gap-3 md:col-span-2">
+            <div className="flex w-full flex-col gap-3 self-center md:col-span-2">
                 <div className="flex w-full flex-col gap-1">
-                    <Typography className="font-sans text-xs font-semibold text-[#909090]">
-                        {article.date}
-                    </Typography>
                     <Link
                         href={`/blog/${article.slug}`}
                         className="text-inherit no-underline"
                     >
-                        <Typography className="font-sans text-xl font-bold">
+                        <Typography className="font-sans text-xl font-bold dark:text-white/80">
                             {article.title}
                         </Typography>
                     </Link>
-                    <Typography className="font-sans text-sm font-medium">
+                    <Typography className="font-sans text-xs font-semibold text-[#909090] dark:text-white/50">
+                        {article.date}
+                    </Typography>
+                    <Typography className="font-sans text-sm font-medium dark:text-white/50">
                         {article.description}
                     </Typography>
                 </div>

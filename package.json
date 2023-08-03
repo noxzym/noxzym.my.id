@@ -1,6 +1,6 @@
 {
     "name": "noxzym",
-    "version": "1.5.0",
+    "version": "1.6.0",
     "private": true,
     "description": "Just a personal website",
     "homepage": "https://github.com/noxzym/noxzym#readme",
@@ -23,7 +23,10 @@
     "prettier": {
         "arrowParens": "avoid",
         "tabWidth": 4,
-        "trailingComma": "none"
+        "trailingComma": "none",
+        "plugins": [
+            "prettier-plugin-tailwindcss"
+        ]
     },
     "eslintConfig": {
         "parserOptions": {
@@ -39,31 +42,31 @@
         ]
     },
     "dependencies": {
-        "@emotion/react": "^11.11.0",
+        "@emotion/react": "^11.11.1",
         "@emotion/styled": "^11.11.0",
-        "@mui/icons-material": "^5.11.16",
-        "@mui/material": "^5.13.0",
+        "@mui/icons-material": "^5.14.1",
+        "@mui/material": "^5.14.2",
         "@tailwindcss/typography": "^0.5.9",
         "@vercel/analytics": "^1.0.1",
         "date-fns": "^2.30.0",
-        "framer-motion": "^10.12.10",
-        "next": "^13.4.2",
-        "next-seo": "^6.0.0",
-        "next-sitemap": "^4.0.9",
+        "next": "^13.4.12",
+        "next-pwa": "^5.6.0",
+        "next-seo": "^6.1.0",
+        "next-sitemap": "^4.1.8",
+        "next-themes": "^0.2.1",
         "notion-client": "^6.16.0",
         "notion-types": "^6.16.0",
         "nprogress": "^0.2.0",
         "react": "^18.2.0",
         "react-dom": "18.2.0",
-        "react-icons": "^4.8.0",
         "react-notion-x": "^6.16.0",
-        "sass": "^1.62.1",
-        "swr": "^2.1.5"
+        "sass": "^1.64.2",
+        "swr": "^2.2.0"
     },
     "devDependencies": {
-        "@types/node": "^18.16.9",
-        "@types/react": "^18.2.6",
-        "@types/react-dom": "^18.2.4",
+        "@types/node": "^18.17.1",
+        "@types/react": "^18.2.18",
+        "@types/react-dom": "^18.2.7",
         "@typescript-eslint/eslint-plugin": "^5.62.0",
         "@typescript-eslint/parser": "^5.62.0",
         "autoprefixer": "^10.4.14",
@@ -71,15 +74,14 @@
         "eslint-config-next": "^13.4.12",
         "eslint-config-prettier": "^8.9.0",
         "eslint-plugin-prettier": "^4.2.1",
-        "postcss": "^8.4.23",
+        "postcss": "^8.4.27",
         "prettier": "^2.8.8",
         "prettier-plugin-tailwindcss": "^0.2.8",
-        "tailwindcss": "^3.3.2",
+        "tailwindcss": "^3.3.3",
         "typescript": "^5.1.6"
     },
     "engines": {
         "node": ">=16.6.0",
         "npm": ">=7.0.0"
-    },
-    "prettierIgnore": {}
+    }
 }

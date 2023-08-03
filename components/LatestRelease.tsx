@@ -9,7 +9,7 @@ export const LatestRelease = ({
     notion
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
     return (
-        <Container fixed className="flex flex-col gap-5 px-5 pt-10 md:px-40">
+        <Container maxWidth="md" fixed className="flex flex-col gap-5 pt-10">
             <div className="flex w-full items-center justify-between">
                 <Typography className="font-sans text-3xl font-semibold">
                     Latest Release

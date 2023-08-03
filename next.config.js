@@ -1,8 +1,13 @@
-/** @type {import('next').NextConfig} */
-module.exports = {
+const WithPWA = require("next-pwa");
+
+module.exports = WithPWA({
+    dest: "public",
+    register: process.env.NODE_ENV === "production" ? true : false,
+    skipWaiting: true
+})({
     reactStrictMode: true,
     swcMinify: true,
-    images: { domains: ["picsum.photos", "cdn.discordapp.com"] },
+    images: { domains: ["cdn.discordapp.com"] },
     modularizeImports: {
         "@mui/icons-material/?(((\\w*)?/?)*)": {
             transform: "@mui/icons-material/{{ matches.[1] }}/{{member}}"
@@ -43,4 +48,4 @@ module.exports = {
             }
         ];
     }
-};
+});

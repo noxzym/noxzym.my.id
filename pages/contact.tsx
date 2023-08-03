@@ -1,23 +1,24 @@
+import { ContactCard } from "@/components/Card/ContactCard";
+import { MyLayout } from "@/components/Layout";
 import { useLanyard } from "@/hooks/useLanyard";
-import { Button, Container, Skeleton, Typography } from "@mui/material";
-import { ContactCard } from "./Card/ContactCard";
+import { Button, Skeleton, Typography } from "@mui/material";
 
-export const Contact = () => {
+export default function MyContact() {
     const { data: SWRLanyard, isLoading, isError } = useLanyard();
 
     return (
-        <Container fixed className="flex flex-col gap-5 px-5 pt-10 md:px-40">
-            <Typography className="font-sans text-3xl font-semibold">
-                Contacts
+        <MyLayout>
+            <Typography className="text-center font-sans text-3xl font-bold dark:text-white/90">
+                Contact
             </Typography>
-            <div className="grid gap-5">
+            <div className="grid w-full gap-5 self-center md:max-w-md">
                 {isLoading || isError
                     ? new Array(5).fill([]).map((_, i) => (
                           <Button
                               key={i}
                               color="inherit"
                               disabled
-                              className="w-full items-center gap-5 rounded-md border-none py-2 px-3 normal-case shadow-md"
+                              className="w-full items-center gap-5 rounded-md border-none px-3 py-2 normal-case shadow-md"
                           >
                               <Skeleton
                                   variant="circular"
@@ -48,6 +49,6 @@ export const Contact = () => {
                           )
                       )}
             </div>
-        </Container>
+        </MyLayout>
     );
-};
+}
