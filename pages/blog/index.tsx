@@ -48,7 +48,7 @@ export default function BlogPage({
                     ) : null
                 }
                 value={searchState}
-                className="gap-3 rounded-lg border-2 border-solid border-white/30 bg-white/50 px-3 py-1 font-semibold dark:text-white/80"
+                className="gap-3 rounded-lg border-2 border-solid border-black/10 bg-black/5 px-3 py-1 font-semibold text-black/50 dark:border-white/10 dark:bg-white/5 dark:text-white/80"
             />
             {articles
                 .filter(article =>
