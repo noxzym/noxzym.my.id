@@ -45,7 +45,7 @@
         "@emotion/react": "^11.11.1",
         "@emotion/styled": "^11.11.0",
         "@mui/icons-material": "^5.14.3",
-        "@mui/material": "^5.14.3",
+        "@mui/material": "^5.14.4",
         "@tailwindcss/typography": "^0.5.9",
         "@vercel/analytics": "^1.0.1",
         "date-fns": "^2.30.0",
@@ -64,8 +64,8 @@
         "swr": "^2.2.0"
     },
     "devDependencies": {
-        "@types/node": "^18.17.3",
-        "@types/react": "^18.2.18",
+        "@types/node": "^18.17.4",
+        "@types/react": "^18.2.19",
         "@types/react-dom": "^18.2.7",
         "@typescript-eslint/eslint-plugin": "^6.3.0",
         "@typescript-eslint/parser": "^6.3.0",
