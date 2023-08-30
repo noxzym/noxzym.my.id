@@ -13,6 +13,15 @@
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
+  "prettier": {
+    "arrowParens": "avoid",
+    "plugins": [
+      "prettier-plugin-tailwindcss"
+    ],
+    "printWidth": 100,
+    "tabWidth": 4,
+    "trailingComma": "none"
+  },
   "eslintConfig": {
     "extends": [
       "next/core-web-vitals",
