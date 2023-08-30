@@ -1,87 +1,25 @@
 {
-    "name": "noxzym",
-    "version": "1.6.0",
-    "private": true,
-    "description": "Just a personal website",
-    "homepage": "https://github.com/noxzym/noxzym#readme",
-    "bugs": {
-        "url": "https://github.com/noxzym/noxzym/issues"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/noxzym/noxzym.git"
-    },
-    "license": "BSD-3-Clause",
-    "author": "noxzym",
-    "scripts": {
-        "build": "next build",
-        "postbuild": "next-sitemap",
-        "dev": "next dev",
-        "lint": "next lint",
-        "start": "next start"
-    },
-    "prettier": {
-        "arrowParens": "avoid",
-        "tabWidth": 4,
-        "trailingComma": "none",
-        "plugins": [
-            "prettier-plugin-tailwindcss"
-        ]
-    },
-    "eslintConfig": {
-        "parserOptions": {
-            "project": "tsconfig.json"
-        },
-        "plugins": [
-            "prettier"
-        ],
-        "extends": [
-            "next",
-            "next/core-web-vitals",
-            "prettier"
-        ]
-    },
-    "dependencies": {
-        "@emotion/react": "^11.11.1",
-        "@emotion/styled": "^11.11.0",
-        "@mui/icons-material": "^5.14.3",
-        "@mui/material": "^5.14.3",
-        "@tailwindcss/typography": "^0.5.9",
-        "@vercel/analytics": "^1.0.1",
-        "date-fns": "^2.30.0",
-        "next": "^13.4.12",
-        "next-pwa": "^5.6.0",
-        "next-seo": "^6.1.0",
-        "next-sitemap": "^4.1.8",
-        "next-themes": "^0.2.1",
-        "notion-client": "^6.16.0",
-        "notion-types": "^6.16.0",
-        "nprogress": "^0.2.0",
-        "react": "^18.2.0",
-        "react-dom": "18.2.0",
-        "react-notion-x": "^6.16.0",
-        "sass": "^1.64.2",
-        "swr": "^2.2.0"
-    },
-    "devDependencies": {
-        "@types/node": "^18.17.2",
-        "@types/react": "^18.2.18",
-        "@types/react-dom": "^18.2.7",
-        "@typescript-eslint/eslint-plugin": "^6.5.0",
-        "@typescript-eslint/parser": "^6.5.0",
-        "autoprefixer": "^10.4.14",
-        "eslint": "^8.48.0",
-        "eslint-config-next": "^13.4.19",
-        "eslint-config-prettier": "^8.10.0",
-        "eslint-plugin-prettier": "^5.0.0",
-        "postcss": "^8.4.27",
-        "prettier": "^3.0.1",
-        "prettier-plugin-tailwindcss": "^0.4.1",
-        "tailwindcss": "^3.3.3",
-        "typescript": "^5.2.2"
-    },
-    "engines": {
-        "node": ">=16.6.0",
-        "npm": ">=7.0.0"
-    }
+  "name": "noxzym",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@types/node": "20.5.7",
+    "@types/react": "18.2.21",
+    "@types/react-dom": "18.2.7",
+    "autoprefixer": "10.4.15",
+    "eslint": "8.48.0",
+    "eslint-config-next": "13.4.19",
+    "next": "13.4.19",
+    "postcss": "8.4.29",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "tailwindcss": "3.3.3",
+    "typescript": "5.2.2"
+  }
 }
