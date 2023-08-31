@@ -3,15 +3,10 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
-        "dev": "next dev",
         "build": "next build",
-        "start": "next start",
-        "lint": "next lint"
-    },
-    "dependencies": {
-        "next": "13.4.19",
-        "react": "18.2.0",
-        "react-dom": "18.2.0"
+        "dev": "next dev",
+        "lint": "next lint",
+        "start": "next start"
     },
     "prettier": {
         "arrowParens": "avoid",
@@ -23,16 +18,21 @@
         "trailingComma": "none"
     },
     "eslintConfig": {
-        "extends": [
-            "next/core-web-vitals",
-            "prettier"
-        ],
         "parserOptions": {
             "project": "tsconfig.json"
         },
         "plugins": [
             "prettier"
+        ],
+        "extends": [
+            "next/core-web-vitals",
+            "prettier"
         ]
+    },
+    "dependencies": {
+        "next": "13.4.19",
+        "react": "18.2.0",
+        "react-dom": "18.2.0"
     },
     "devDependencies": {
         "@types/node": "20.5.7",
