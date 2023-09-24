@@ -61,6 +61,7 @@ export function Navbar() {
                     <div className="flex flex-row items-center gap-3">
                         {Navigation.map(({ link, name }, i) => (
                             <Button
+                                aria-label={name}
                                 key={i}
                                 variant="ghost"
                                 size="sm"
