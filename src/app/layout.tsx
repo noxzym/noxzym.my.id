@@ -10,43 +10,43 @@ import { Metadata } from "next";
 const icons = [
     {
         url: "/icons/icon-72x72.png",
-        width: 512,
-        height: 512
-    },
-    {
-        url: "/icons/icon-96x96.png",
-        width: 384,
-        height: 384
-    },
-    {
-        url: "/icons/icon-128x128.png",
-        width: 192,
-        height: 192
-    },
-    {
-        url: "/icons/icon-144x144.png",
-        width: 152,
-        height: 152
-    },
-    {
-        url: "/icons/icon-152x152.png",
-        width: 128,
-        height: 128
-    },
-    {
-        url: "/icons/icon-192x192.png",
-        width: 96,
-        height: 96
-    },
-    {
-        url: "/icons/icon-384x384.png",
         width: 72,
         height: 72
     },
     {
+        url: "/icons/icon-96x96.png",
+        width: 96,
+        height: 96
+    },
+    {
+        url: "/icons/icon-128x128.png",
+        width: 129,
+        height: 129
+    },
+    {
+        url: "/icons/icon-144x144.png",
+        width: 144,
+        height: 144
+    },
+    {
+        url: "/icons/icon-152x152.png",
+        width: 152,
+        height: 152
+    },
+    {
+        url: "/icons/icon-192x192.png",
+        width: 192,
+        height: 192
+    },
+    {
+        url: "/icons/icon-384x384.png",
+        width: 384,
+        height: 384
+    },
+    {
         url: "/icons/icon-512x512.png",
-        width: 48,
-        height: 48
+        width: 512,
+        height: 512
     }
 ];
 
@@ -65,6 +65,13 @@ export const metadata: Metadata = {
     icons,
     keywords:
         "noxzym, orchit, orchitiadi, orchitiadi ismaulana putra, orchit07, mahasiswa gunadarma",
+    viewport: {
+        width: "device-width",
+        initialScale: 1,
+        minimumScale: 1,
+        maximumScale: 1,
+        userScalable: false
+    },
     openGraph: {
         type: "website",
         title: {
