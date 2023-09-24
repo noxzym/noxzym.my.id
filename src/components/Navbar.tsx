@@ -82,7 +82,12 @@ export function Navbar() {
                         >
                             <Command className="h-5 w-5 text-black/80 dark:text-white/80" />
                         </Button>
-                        <Button variant="ghost" size="icon" onClick={toggleColorMode}>
+                        <Button
+                            aria-label="theme toggler"
+                            variant="ghost"
+                            size="icon"
+                            onClick={toggleColorMode}
+                        >
                             <Brush className="h-5 w-5 text-black/80 dark:text-white/80" />
                         </Button>
                     </div>
