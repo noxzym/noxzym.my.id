@@ -1,34 +1,36 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center">Hello, welcome to my github page!</h1>
 
-## Getting Started
+<a href="https://github.com/noxzym"><img src="https://user-images.githubusercontent.com/67855694/175751941-1b411115-ee4a-4ed0-ab5c-120345fd5756.png" alt="Prinz Eugen Azurlane" /></a>
 
-First, run the development server:
+<h3 align="center">A weebs who simping to shipgirl ⚓</h3>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## Activity
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+[![Discord Presence](https://lanyard.cnrad.dev/api/243728573624614912?hideDiscrim=true)](https://discord.com/users/243728573624614912)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Programming Statistics
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+<details>
+  <summary>GitHub</summary>
+  <a href="https://github.com/noxzym"><img src="https://github-readme-stats.vercel.app/api?username=noxzym&show_icons=true&count_private=true&include_all_commits=true&count_private=true&theme=react " alt="GitHub Stats" /></a>
+</details>
 
-## Learn More
+<details>
+  <summary>Language</summary>
+  <a href="https://github.com/noxzym"><img src="https://github-readme-stats.vercel.app/api/top-langs/?username=noxzym&show_icons=true&count_private=true&include_all_commits=true&count_private=true&layout=compact&theme=react" alt="Language"/></a>
+</details>
 
-To learn more about Next.js, take a look at the following resources:
-
--   [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
--   [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<div>
+  <a href="https://typescriptlang.org"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" width="30" /></a>
+  <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" width="30" /></a>
+  <a href="https://nodejs.org"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" width="30" /></a>
+  <a href="https://reactjs.org"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" width="30" /></a>
+  <a href="https://nextjs.org"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" width="30" /></a>
+  <a href="https://mongodb.com"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original-wordmark.svg" width="30" /></a>
+  <a href="https://code.visualstudio.com"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" width="30" /></a>
+  <a href="https://java.com"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="30" /></a>
+  <a href="https://kotlinlang.org"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg" width="30" /></a>
+  <a href="https://www.linux.org/"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" width="30" /></a>
+  <a href="https://npmjs.com"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg" width="30" /></a>
+  <a href="https://tailwindcss.com"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" width="30" /></a>
+</div>
