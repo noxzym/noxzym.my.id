@@ -48,7 +48,7 @@ const icons = [
         width: 512,
         height: 512
     }
-];
+].reverse();
 
 export const metadata: Metadata = {
     title: {
@@ -69,8 +69,7 @@ export const metadata: Metadata = {
         width: "device-width",
         initialScale: 1,
         minimumScale: 1,
-        maximumScale: 1,
-        userScalable: false
+        maximumScale: 3
     },
     openGraph: {
         type: "website",
@@ -83,7 +82,7 @@ export const metadata: Metadata = {
         images: icons
     },
     robots: {
-        index: false,
+        index: true,
         follow: true
     }
 };
