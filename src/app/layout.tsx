@@ -72,7 +72,6 @@ export const metadata: Metadata = {
         maximumScale: 3
     },
     openGraph: {
-        type: "website",
         title: {
             template: "Noxzym - %s",
             default: "Noxzym - Home"
