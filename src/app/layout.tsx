@@ -72,6 +72,7 @@ export const metadata: Metadata = {
         maximumScale: 3
     },
     openGraph: {
+        type: "website",
         title: {
             template: "Noxzym - %s",
             default: "Noxzym - Home"
@@ -83,6 +84,9 @@ export const metadata: Metadata = {
     robots: {
         index: true,
         follow: true
+    },
+    other: {
+        "og:type": "link"
     }
 };
 
