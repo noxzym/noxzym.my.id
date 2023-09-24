@@ -9,7 +9,7 @@ export function MyAvatar() {
     return (
         <Avatar className="h-full w-full rounded-lg">
             <AvatarImage
-                src={`https://cdn.discordapp.com/avatars/${data?.data.discord_user.id}/${data?.data.discord_user.avatar}.png?size=4096`}
+                src={`https://cdn.discordapp.com/avatars/${data?.data.discord_user.id}/${data?.data.discord_user.avatar}.png?size=512`}
                 alt="@noxzym"
             />
             <AvatarFallback />
