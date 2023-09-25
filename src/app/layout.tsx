@@ -79,6 +79,7 @@ export const metadata: Metadata = {
         },
         description: "Noxzym's Personal Website",
         siteName: "noxzym.my.id",
+        url: "https://noxzym.my.id",
         images: icons
     },
     robots: {
