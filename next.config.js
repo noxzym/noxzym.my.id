@@ -35,6 +35,11 @@ module.exports = WithPWA({
                 source: "/linkedin",
                 destination: "https://www.linkedin.com/in/orchitiadi",
                 permanent: true
+            },
+            {
+                source: "/email",
+                destination: "mailto:me@noxzym.my.id",
+                permanent: true
             }
         ];
     }
