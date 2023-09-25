@@ -38,7 +38,11 @@ export function Contact() {
                                 asChild
                                 className="group relative flex aspect-square h-auto w-full items-center gap-5 rounded-md px-3 py-2"
                             >
-                                <Link href={`/${item}`} target="_blank" rel="noopener">
+                                <Link
+                                    href={`/${item}`}
+                                    target="_blank"
+                                    rel="external noreferrer noopener"
+                                >
                                     <div className="absolute bottom-0 left-0 flex w-full items-center justify-between p-2 text-black/80 dark:text-white/80">
                                         <p className="text-xs font-medium capitalize">
                                             {ICONS[item][0]}
