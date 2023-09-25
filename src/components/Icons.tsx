@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import { SVGProps, createElement } from "react";
-import { IoBrush, IoClose } from "react-icons/Io5";
+import { IoBrush, IoClose } from "react-icons/io5";
 import { BiHomeAlt2, BiPaperclip, BiUser } from "react-icons/bi";
 import { HiExternalLink, HiOutlineMail } from "react-icons/hi";
 import { PiCommand, PiNewspaperLight } from "react-icons/pi";
