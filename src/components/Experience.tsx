@@ -1,9 +1,9 @@
 "use client";
 
-import { SIMPLE_ICONS, SimpleIcons } from "./SimpleIcons";
+import { ICONS, Icons } from "./Icons";
 import { Button } from "./ui/button";
 
-const EXPERIENCES: { name: string; icon: (keyof typeof SIMPLE_ICONS)[] }[] = [
+const EXPERIENCES: { name: string; icon: (keyof typeof ICONS)[] }[] = [
     {
         name: "Programming Language",
         icon: ["javascript", "typescript", "python"]
@@ -43,10 +43,10 @@ export function Experience() {
                         >
                             <div className="absolute bottom-0 left-0 flex w-full items-end justify-between p-2">
                                 <p className="text-xs font-medium capitalize text-black/80 dark:text-white/80">
-                                    {SIMPLE_ICONS[skill].props.children[0].props.children}
+                                    {ICONS[skill][0]}
                                 </p>
                             </div>
-                            <SimpleIcons
+                            <Icons
                                 key={i}
                                 icon={skill}
                                 className="h-10 w-10 rounded-md fill-black/80 dark:fill-white/80"

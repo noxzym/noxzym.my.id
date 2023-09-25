@@ -1,9 +1,9 @@
 "use client";
 
 import { useLanyard } from "@/hooks/useLanyard";
-import { ExternalLink } from "lucide-react";
+import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { SIMPLE_ICONS, SimpleIcons } from "./SimpleIcons";
+import { ICONS, Icons } from "./Icons";
 import { Button } from "./ui/button";
 import { Skeleton } from "./ui/skeleton";
 
@@ -19,13 +19,19 @@ export function Contact() {
                 {!data || isLoading ? (
                     Array.from(
                         {
-                            length: 6
+                            length: 8
                         },
                         (_, i) => <Skeleton key={i} className="aspect-square h-auto w-full" />
                     )
                 ) : (
                     <>
-                        {[...Object.keys(data.data.kv), "discord"].map((item, i) => (
+                        {(
+                            [
+                                ...Object.keys(data.data.kv),
+                                "discord",
+                                "email"
+                            ] as (keyof typeof ICONS)[]
+                        ).map((item, i) => (
                             <Button
                                 key={i}
                                 variant="outline"
@@ -33,22 +39,29 @@ export function Contact() {
                                 className="group relative flex aspect-square h-auto w-full items-center gap-5 rounded-md px-3 py-2"
                             >
                                 <Link href={`/${item}`} target="_blank" rel="noopener">
-                                    <div className="absolute bottom-0 left-0 flex w-full items-end justify-between p-2">
-                                        <p className="text-xs font-medium capitalize text-black/80 dark:text-white/80">
-                                            {
-                                                SIMPLE_ICONS[item as keyof typeof SIMPLE_ICONS]
-                                                    .props.children[0].props.children
-                                            }
+                                    <div className="absolute bottom-0 left-0 flex w-full items-center justify-between p-2 text-black/80 dark:text-white/80">
+                                        <p className="text-xs font-medium capitalize">
+                                            {ICONS[item][0]}
                                         </p>
-                                        <ExternalLink className="hidden h-3 w-3 stroke-black/80 group-hover:block dark:stroke-white/80" />
+                                        <Icons
+                                            icon="external_link"
+                                            className="hidden h-3 w-3 group-hover:block"
+                                        />
                                     </div>
-                                    <SimpleIcons
+                                    <Icons
                                         icon={
-                                            SIMPLE_ICONS[item as keyof typeof SIMPLE_ICONS]
-                                                ? (item as keyof typeof SIMPLE_ICONS)
-                                                : "discord"
+                                            ICONS[item]
+                                                ? item
+                                                : item === "discord"
+                                                ? "discord"
+                                                : "email"
                                         }
-                                        className="h-10 w-10 rounded-md fill-black/80 dark:fill-white/80"
+                                        className={cn(
+                                            "h-10 w-10 rounded-md",
+                                            item === "email"
+                                                ? "stroke-black/80 dark:stroke-white/80"
+                                                : "fill-black/80 dark:fill-white/80"
+                                        )}
                                     />
                                 </Link>
                             </Button>

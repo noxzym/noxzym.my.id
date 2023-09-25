@@ -2,33 +2,33 @@
 
 import { useScrollPosition } from "@/hooks/useScrollPosition";
 import { cn } from "@/lib/utils";
-import { Brush, Command, Home, Newspaper, Paperclip, User } from "lucide-react";
 import { useTheme } from "next-themes";
 import Link from "next/link";
 import { useState } from "react";
+import { ICONS, Icons } from "./Icons";
 import { Button } from "./ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "./ui/dialog";
 
-const Navigation = [
+const Navigation: { name: string; link: string; icon: keyof typeof ICONS }[] = [
     {
         name: "Home",
         link: "/",
-        icon: <Home size="18px" />
+        icon: "home"
     },
     {
         name: "About Me",
         link: "/#about",
-        icon: <User size="18px" />
+        icon: "user"
     },
     {
         name: "Contact",
         link: "/#contact",
-        icon: <Paperclip size="18px" />
+        icon: "paperclip"
     },
     {
         name: "Blog",
         link: "/blog",
-        icon: <Newspaper size="18px" />
+        icon: "newspaper"
     }
 ];
 
@@ -81,7 +81,10 @@ export function Navbar() {
                             onClick={() => setOpen(true)}
                             className="md:hidden"
                         >
-                            <Command className="h-5 w-5 text-black/80 dark:text-white/80" />
+                            <Icons
+                                icon="command"
+                                className="h-5 w-5 text-black/80 dark:text-white/80"
+                            />
                         </Button>
                         <Button
                             aria-label="theme toggler"
@@ -89,7 +92,10 @@ export function Navbar() {
                             size="icon"
                             onClick={toggleColorMode}
                         >
-                            <Brush className="h-5 w-5 text-black/80 dark:text-white/80" />
+                            <Icons
+                                icon="brush"
+                                className="h-5 w-5 text-black/80 dark:text-white/80"
+                            />
                         </Button>
                     </div>
                 </div>
@@ -110,7 +116,7 @@ export function Navbar() {
                                 className="flex w-full justify-start gap-2 text-black/80 dark:text-white/80"
                             >
                                 <Link href={link}>
-                                    {icon}
+                                    <Icons icon={icon} className="text-lg" />
                                     <p className="text-sm font-bold capitalize">{name}</p>
                                 </Link>
                             </Button>
