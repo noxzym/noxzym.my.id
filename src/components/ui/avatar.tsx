@@ -1,10 +1,10 @@
 "use client";
 
-import * as React from "react";
 import * as AvatarPrimitive from "@radix-ui/react-avatar";
+import * as React from "react";
 
 import { cn } from "@/lib/utils";
-import { Skeleton } from "./skeleton";
+import { DynamicLoader } from "../DynamicLoader";
 
 const Avatar = React.forwardRef<
     React.ElementRef<typeof AvatarPrimitive.Root>,
@@ -35,9 +35,9 @@ const AvatarFallback = React.forwardRef<
     React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Fallback>
 >(({ className, ...props }, ref) => (
     <AvatarPrimitive.Fallback ref={ref} className={cn("h-full w-full", className)} {...props}>
-        <Skeleton className="h-full w-full" />
+        <DynamicLoader className="h-full w-full" />
     </AvatarPrimitive.Fallback>
 ));
 AvatarFallback.displayName = AvatarPrimitive.Fallback.displayName;
 
-export { Avatar, AvatarImage, AvatarFallback };
+export { Avatar, AvatarFallback, AvatarImage };

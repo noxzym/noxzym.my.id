@@ -3,9 +3,9 @@
 import { useLanyard } from "@/hooks/useLanyard";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { DynamicLoader } from "./DynamicLoader";
 import { ICONS, Icons } from "./Icons";
 import { Button } from "./ui/button";
-import { Skeleton } from "./ui/skeleton";
 
 export function Contact() {
     const { data, isLoading } = useLanyard();
@@ -17,12 +17,7 @@ export function Contact() {
             </p>
             <div className="grid w-full grid-cols-3 gap-5 self-center md:max-w-2xl md:grid-cols-4">
                 {!data || isLoading ? (
-                    Array.from(
-                        {
-                            length: 8
-                        },
-                        (_, i) => <Skeleton key={i} className="aspect-square h-auto w-full" />
-                    )
+                    <DynamicLoader count={8} />
                 ) : (
                     <>
                         {(
