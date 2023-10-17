@@ -3,6 +3,7 @@ import { Config } from "tailwindcss/types";
 const config: Config = {
     darkMode: ["class"],
     content: ["./src/**/*.{ts,tsx}"],
+    important: true,
     theme: {
         extend: {
             fontFamily: {
@@ -14,7 +15,7 @@ const config: Config = {
             }
         }
     },
-    plugins: [require("tailwindcss-animate")]
+    plugins: []
 };
 
 export default config;
