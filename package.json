@@ -31,21 +31,23 @@
     },
     "dependencies": {
         "@radix-ui/react-avatar": "^1.0.3",
-        "@radix-ui/react-dialog": "^1.0.4",
+        "@radix-ui/react-dialog": "^1.0.5",
+        "@radix-ui/react-label": "^2.0.2",
         "@radix-ui/react-separator": "^1.0.3",
         "@radix-ui/react-slot": "^1.0.2",
-        "@radix-ui/react-tabs": "^1.0.4",
         "class-variance-authority": "^0.7.0",
         "clsx": "^2.0.0",
         "next": "13.4.19",
         "next-pwa": "^5.6.0",
         "next-themes": "^0.2.1",
+        "notion-client": "^6.16.0",
+        "notion-utils": "^6.16.0",
         "react": "18.2.0",
         "react-dom": "18.2.0",
         "react-icons": "^4.11.0",
+        "react-notion-x": "^6.16.0",
         "swr": "^2.2.2",
-        "tailwind-merge": "^1.14.0",
-        "tailwindcss-animate": "^1.0.7"
+        "tailwind-merge": "^1.14.0"
     },
     "devDependencies": {
         "@types/node": "20.5.7",
@@ -56,10 +58,16 @@
         "eslint-config-next": "13.4.19",
         "eslint-config-prettier": "^9.0.0",
         "eslint-plugin-prettier": "^5.0.0",
+        "notion-types": "^6.16.0",
         "postcss": "8.4.29",
         "prettier": "^3.0.3",
         "prettier-plugin-tailwindcss": "^0.5.3",
         "tailwindcss": "3.3.3",
         "typescript": "5.2.2"
+    },
+    "pnpm": {
+        "overrides": {
+            "keyv": "npm:@keyvhq/core"
+        }
     }
 }
