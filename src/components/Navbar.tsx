@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 import { useTheme } from "next-themes";
 import Link from "next/link";
 import { useState } from "react";
-import { ICONS, Icons } from "./Icons";
+import { ICONS, Icons } from "./utils/Icons";
 import { Button } from "./ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "./ui/dialog";
 

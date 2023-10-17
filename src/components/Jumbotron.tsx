@@ -3,9 +3,7 @@ import { MyAvatar } from "./MyAvatar";
 export function Jumbotron() {
     return (
         <div className="flex flex-col items-center justify-center gap-16">
-            <div className="aspect-square w-36">
-                <MyAvatar />
-            </div>
+            <MyAvatar />
             <div className="flex flex-col gap-6">
                 <div className="flex flex-col gap-3">
                     <div className="flex flex-col">

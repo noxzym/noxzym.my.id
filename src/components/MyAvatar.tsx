@@ -7,7 +7,7 @@ export function MyAvatar() {
     const { data } = useLanyard();
 
     return (
-        <Avatar className="h-full w-full rounded-lg">
+        <Avatar className="aspect-square h-full w-36 rounded-lg">
             {data && (
                 <AvatarImage
                     src={`https://cdn.discordapp.com/avatars/${data?.data.discord_user.id}/${data?.data.discord_user.avatar}.png?size=512`}

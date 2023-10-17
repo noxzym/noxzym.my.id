@@ -1,6 +1,6 @@
 "use client";
 
-import { ICONS, Icons } from "./Icons";
+import { ICONS, Icons } from "./utils/Icons";
 import { Button } from "./ui/button";
 
 const EXPERIENCES: { name: string; icon: (keyof typeof ICONS)[] }[] = [

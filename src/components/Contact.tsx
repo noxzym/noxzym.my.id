@@ -3,8 +3,8 @@
 import { useLanyard } from "@/hooks/useLanyard";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { DynamicLoader } from "./DynamicLoader";
-import { ICONS, Icons } from "./Icons";
+import { DynamicLoader } from "./utils/DynamicLoader";
+import { ICONS, Icons } from "./utils/Icons";
 import { Button } from "./ui/button";
 
 export function Contact() {
