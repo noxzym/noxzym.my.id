@@ -1,11 +1,16 @@
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
-import { ThemeProvider } from "@/components/theme-provider";
+import { ThemeProvider } from "@/components/utils/ThemeProvider";
 import { Separator } from "@/components/ui/separator";
 import { fontSans } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
-import "@/styles/globals.css";
 import { Metadata } from "next";
+
+// Global CSS
+import "@/styles/globals.css";
+
+// Notion CSS
+import "react-notion-x/src/styles.css";
 
 const icons = [
     {
@@ -78,7 +83,7 @@ export const metadata: Metadata = {
             default: "Noxzym - Home"
         },
         description: "Noxzym's Personal Website",
-        siteName: "noxzym.my.id",
+        siteName: "Noxzym",
         url: "https://noxzym.my.id",
         images: icons
     },
@@ -99,7 +104,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             >
                 <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
                     <Navbar />
-                    <main className="mx-auto flex max-w-4xl flex-col gap-16 px-7 py-16">
+                    <main className="mx-auto flex min-h-screen max-w-4xl flex-col gap-16 px-7 py-16">
                         {children}
                     </main>
                     <Separator className="mx-auto mt-16 max-w-4xl" />
