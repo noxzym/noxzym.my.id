@@ -59,10 +59,18 @@ export interface IArticle {
     id: string;
     slug: string;
     title: string;
-    date: string;
     tags: string[];
-    cover: string;
+    image: string;
     description: string;
-    published: boolean;
+    isPublished: boolean;
+    publishedTime: string;
+    readTime: string;
     recordMap: ExtendedRecordMap;
 }
+z;
+
+export type PageProps<T extends string | string[]> = {
+    params: {
+        slug: T;
+    };
+};
