@@ -2,17 +2,8 @@ const WithPWA = require("next-pwa");
 
 module.exports = WithPWA({
     dest: "public",
-    register: process.env.NODE_ENV === "production" ? true : false,
-    skipWaiting: true
+    register: process.env.NODE_ENV === "production" ? true : false
 })({
-    reactStrictMode: true,
-    swcMinify: true,
-    images: { domains: ["cdn.discordapp.com"] },
-    modularizeImports: {
-        "@mui/icons-material/?(((\\w*)?/?)*)": {
-            transform: "@mui/icons-material/{{ matches.[1] }}/{{member}}"
-        }
-    },
     async redirects() {
         return [
             {
@@ -27,8 +18,7 @@ module.exports = WithPWA({
             },
             {
                 source: "/spotify",
-                destination:
-                    "https://open.spotify.com/user/21kwa7qnjne3q3w3l3x2jnahi",
+                destination: "https://open.spotify.com/user/21kwa7qnjne3q3w3l3x2jnahi",
                 permanent: true
             },
             {
@@ -43,7 +33,7 @@ module.exports = WithPWA({
             },
             {
                 source: "/linkedin",
-                destination: "https://www.linkedin.com/in/orchitiadi",
+                destination: "https://www.linkedin.com/in/orchit",
                 permanent: true
             }
         ];

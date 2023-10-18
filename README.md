@@ -5,9 +5,11 @@
 <h3 align="center">A weebs who simping to shipgirl ⚓</h3>
 
 ## Activity
+
 [![Discord Presence](https://lanyard.cnrad.dev/api/243728573624614912?hideDiscrim=true)](https://discord.com/users/243728573624614912)
 
 ## Programming Statistics
+
 <details>
   <summary>GitHub</summary>
   <a href="https://github.com/noxzym"><img src="https://github-readme-stats.vercel.app/api?username=noxzym&show_icons=true&count_private=true&include_all_commits=true&count_private=true&theme=react " alt="GitHub Stats" /></a>
