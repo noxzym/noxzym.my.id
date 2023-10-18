@@ -17,7 +17,7 @@ export default async function ArticlePage({ params: { slug } }: PageProps<string
                     <AvatarImage src={page.image} alt={page.title} className="object-cover" />
                     <AvatarFallback />
                 </Avatar>
-                <p className="px-4 text-black/80 dark:text-white/80">{page.description}</p>
+                <p className="text-black/80 dark:text-white/80">{page.description}</p>
                 <Separator />
             </div>
             <NotionRenderer recordMap={page.recordMap} />

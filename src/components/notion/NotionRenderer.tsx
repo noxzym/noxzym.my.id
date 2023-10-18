@@ -24,7 +24,7 @@ export const NotionRenderer: FC<NotionRendererProps> = ({ recordMap }) => {
             components={{
                 Collection: () => null
             }}
-            className="m-0 font-sans"
+            className="m-0 p-0 font-sans"
         />
     );
 };
