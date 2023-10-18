@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import { SVGProps, createElement } from "react";
 import { IoBrush, IoClose } from "react-icons/io5";
-import { BiHomeAlt2, BiPaperclip, BiUser } from "react-icons/bi";
+import { BiHomeAlt2, BiPaperclip, BiSolidCalendar, BiSolidTime, BiUser } from "react-icons/bi";
 import { HiExternalLink, HiOutlineMail } from "react-icons/hi";
 import { PiCommand, PiNewspaperLight } from "react-icons/pi";
 import {
@@ -50,7 +50,9 @@ export const ICONS = {
     user: ["User", BiUser],
     paperclip: ["Paperclip", BiPaperclip],
     newspaper: ["Newspaper Clip", PiNewspaperLight],
-    external_link: ["External Link", HiExternalLink]
+    external_link: ["External Link", HiExternalLink],
+    calendar: ["Calendar", BiSolidCalendar],
+    time: ["Time", BiSolidTime]
 };
 
 export function Icons(props: SVGProps<SVGSVGElement> & { icon: keyof typeof ICONS }) {
