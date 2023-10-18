@@ -1,7 +1,7 @@
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
-import { ThemeProvider } from "@/components/utils/ThemeProvider";
 import { Separator } from "@/components/ui/separator";
+import { ThemeProvider } from "@/components/utils/ThemeProvider";
 import { fontSans } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
 import { Metadata } from "next";
