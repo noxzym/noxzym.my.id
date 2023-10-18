@@ -67,6 +67,9 @@ export const metadata: Metadata = {
     ],
     colorScheme: "dark light",
     manifest: "/manifest.webmanifest",
+    metadataBase: new URL(
+        process.env.NODE_ENV === "production" ? "https://noxzym.my.id" : "localhost:3000"
+    ),
     icons,
     keywords:
         "noxzym, orchit, orchitiadi, orchitiadi ismaulana putra, orchit07, mahasiswa gunadarma",
