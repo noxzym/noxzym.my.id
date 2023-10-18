@@ -1,9 +1,22 @@
-import { MyAvatar } from "./MyAvatar";
+"use client";
+
+import { useLanyard } from "@/hooks/useLanyard";
+import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
 export function Jumbotron() {
+    const { data } = useLanyard();
+
     return (
         <div className="flex flex-col items-center justify-center gap-16">
-            <MyAvatar />
+            <Avatar className="aspect-square h-full w-36 rounded-lg">
+                {data && (
+                    <AvatarImage
+                        src={`https://cdn.discordapp.com/avatars/${data?.data.discord_user.id}/${data?.data.discord_user.avatar}.png?size=512`}
+                        alt="@noxzym"
+                    />
+                )}
+                <AvatarFallback />
+            </Avatar>
             <div className="flex flex-col gap-6">
                 <div className="flex flex-col gap-3">
                     <div className="flex flex-col">
