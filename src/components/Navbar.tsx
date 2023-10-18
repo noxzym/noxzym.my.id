@@ -45,12 +45,12 @@ export function Navbar() {
         <main
             id="navbar"
             className={cn(
-                scrollPosition && "bg-[#E8E9E9]/30 backdrop-blur-md dark:bg-[#0A0C0C]/30",
-                "sticky top-0 z-50 mx-auto max-w-4xl px-7 py-3"
+                scrollPosition && "bg-light/40 backdrop-blur-md dark:bg-dark/40",
+                "sticky top-0 z-50 w-full"
             )}
         >
             <Dialog open={open} onOpenChange={setOpen}>
-                <div className="flex items-center justify-between">
+                <div className="mx-auto flex max-w-4xl items-center justify-between px-7 py-3">
                     <Button variant="ghost" size="sm" asChild>
                         <Link href="/">
                             <p className="text-sm font-bold text-black/80 dark:text-white/80">
