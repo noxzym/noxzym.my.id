@@ -2,10 +2,11 @@
 
 import { useLanyard } from "@/hooks/useLanyard";
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
 import Link from "next/link";
+import { Button } from "./ui/button";
 import { DynamicLoader } from "./utils/DynamicLoader";
 import { ICONS, Icons } from "./utils/Icons";
-import { Button } from "./ui/button";
 
 export function Contact() {
     const { data, isLoading } = useLanyard();
@@ -27,43 +28,57 @@ export function Contact() {
                                 "email"
                             ] as (keyof typeof ICONS)[]
                         ).map((item, i) => (
-                            <Button
+                            <motion.div
                                 key={i}
-                                variant="outline"
-                                asChild
-                                className="group relative flex aspect-square h-auto w-full items-center gap-5 rounded-md px-3 py-2"
+                                initial={{
+                                    opacity: 0
+                                }}
+                                animate={{
+                                    opacity: 1,
+                                    transition: {
+                                        delay: i * 0.09
+                                    }
+                                }}
                             >
-                                <Link
-                                    href={item === "email" ? "mailto:me@noxzym.my.id" : `/${item}`}
-                                    target="_blank"
-                                    rel="external noreferrer noopener"
+                                <Button
+                                    variant="outline"
+                                    asChild
+                                    className="group relative flex aspect-square h-auto w-full items-center gap-5 rounded-md px-3 py-2"
                                 >
-                                    <div className="absolute bottom-0 left-0 flex w-full items-center justify-between p-2 text-black/80 dark:text-white/80">
-                                        <p className="text-xs font-medium capitalize">
-                                            {ICONS[item][0]}
-                                        </p>
-                                        <Icons
-                                            icon="external_link"
-                                            className="hidden h-3 w-3 group-hover:block"
-                                        />
-                                    </div>
-                                    <Icons
-                                        icon={
-                                            ICONS[item]
-                                                ? item
-                                                : item === "discord"
-                                                ? "discord"
-                                                : "email"
+                                    <Link
+                                        href={
+                                            item === "email" ? "mailto:me@noxzym.my.id" : `/${item}`
                                         }
-                                        className={cn(
-                                            "h-10 w-10 rounded-md",
-                                            item === "email"
-                                                ? "stroke-black/80 dark:stroke-white/80"
-                                                : "fill-black/80 dark:fill-white/80"
-                                        )}
-                                    />
-                                </Link>
-                            </Button>
+                                        target="_blank"
+                                        rel="external noreferrer noopener"
+                                    >
+                                        <div className="absolute bottom-0 left-0 flex w-full items-center justify-between p-2 text-black/80 dark:text-white/80">
+                                            <p className="text-xs font-medium capitalize">
+                                                {ICONS[item][0]}
+                                            </p>
+                                            <Icons
+                                                icon="external_link"
+                                                className="hidden h-3 w-3 group-hover:block"
+                                            />
+                                        </div>
+                                        <Icons
+                                            icon={
+                                                ICONS[item]
+                                                    ? item
+                                                    : item === "discord"
+                                                    ? "discord"
+                                                    : "email"
+                                            }
+                                            className={cn(
+                                                "h-10 w-10 rounded-md",
+                                                item === "email"
+                                                    ? "stroke-black/80 dark:stroke-white/80"
+                                                    : "fill-black/80 dark:fill-white/80"
+                                            )}
+                                        />
+                                    </Link>
+                                </Button>
+                            </motion.div>
                         ))}
                     </>
                 )}
