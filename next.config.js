@@ -33,7 +33,7 @@ module.exports = WithPWA({
             },
             {
                 source: "/linkedin",
-                destination: "https://www.linkedin.com/in/orchitiadi",
+                destination: "https://www.linkedin.com/in/orchit",
                 permanent: true
             }
         ];
