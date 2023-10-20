@@ -69,5 +69,5 @@ jobs:
               env:
                   NEXT_PUBLIC_NOTION_ACTIVE_USER: ${{ secrets.NEXT_PUBLIC_NOTION_ACTIVE_USER }}
                   NEXT_PUBLIC_NOTION_DATABASE_ID: ${{ secrets.NEXT_PUBLIC_NOTION_DATABASE_ID }}
-                  NEXT_PUBLIC_NOTION_TOKEN: ${{ secrets.NEXT_PUBLIC_NOTION_TOKEN }}
+                  NEXT_PUBLIC_NOTION_TOKENV2: ${{ secrets.NEXT_PUBLIC_NOTION_TOKENV2 }}
               run: pnpm build && rm -rf .next
