@@ -1,10 +1,9 @@
+import { fetcher } from "@/lib/fetcher";
 import { ILanyard } from "@/types";
 import useSWR from "swr";
 
 export const useLanyard = () => {
-    const { data, error } = useSWR<ILanyard>("/api/lanyard", (args: string) =>
-        fetch(args).then(res => res.json())
-    );
+    const { data, error } = useSWR<ILanyard>("/api/lanyard", fetcher);
 
     return {
         data,
