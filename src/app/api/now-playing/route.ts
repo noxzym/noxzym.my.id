@@ -12,7 +12,7 @@ export async function GET() {
         cache: "no-cache"
     }).catch(() => null);
 
-    const data = response && nowPlayingDataSelector(response);
+    const data = response ? nowPlayingDataSelector(response) : null;
 
     if (!data || !data.isPlaying) {
         return Response.json({
@@ -20,5 +20,5 @@ export async function GET() {
         });
     }
 
-    return Response.json(nowPlayingDataSelector(response));
+    return Response.json(data);
 }
