@@ -13,7 +13,7 @@ export function Footer() {
                     <Icons icon="spotify" className="h-5 w-5 fill-[#1DB954]" />
                     {data?.isPlaying ? (
                         <p className="text-sm font-medium text-black/80 dark:text-white/80">
-                            Listening to {data.artist} - {data.title}
+                            Listening to {data.title} by {data.artist}
                         </p>
                     ) : (
                         <p className="text-sm font-medium text-black/80 dark:text-white/80">
