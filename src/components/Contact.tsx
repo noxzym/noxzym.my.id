@@ -51,6 +51,7 @@ export function Contact() {
                                         }
                                         target="_blank"
                                         rel="external noreferrer noopener"
+                                        prefetch={false}
                                     >
                                         <div className="absolute bottom-0 left-0 flex w-full items-center justify-between p-2 text-black/80 dark:text-white/80">
                                             <p className="text-xs font-medium capitalize">
