@@ -1,21 +1,24 @@
-import { fetchNowPlaying } from "@/lib/spotify";
-import { GetNowPlayingTransformed } from "@/types";
-import { NextResponse } from "next/server";
+import { fetcher } from "@/lib/fetcher";
+import { getAccessToken, nowPlayingDataSelector } from "@/lib/spotify";
+import { GetNowPlayingResponse } from "@/types";
 
+const SPOTIFY_NOW_PLAYING_ENDPOINT = `https://api.spotify.com/v1/me/player/currently-playing`;
 export async function GET() {
-    try {
-        const response = await fetchNowPlaying();
+    const { access_token: accessToken } = await getAccessToken();
+    const response = await fetcher<GetNowPlayingResponse>(SPOTIFY_NOW_PLAYING_ENDPOINT, {
+        headers: {
+            Authorization: `Bearer ${accessToken}`
+        },
+        cache: "no-cache"
+    }).catch(() => null);
 
-        if (!response.isPlaying) {
-            return NextResponse.json<GetNowPlayingTransformed>({
-                isPlaying: false
-            });
-        }
+    const data = response && nowPlayingDataSelector(response);
 
-        return NextResponse.json<GetNowPlayingTransformed>(response);
-    } catch {
-        return NextResponse.json<GetNowPlayingTransformed>({
+    if (!data || !data.isPlaying) {
+        return Response.json({
             isPlaying: false
         });
     }
+
+    return Response.json(nowPlayingDataSelector(response));
 }
