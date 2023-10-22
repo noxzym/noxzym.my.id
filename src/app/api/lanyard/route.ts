@@ -1,14 +1,13 @@
-import { ILanyard } from "@/types";
-import { NextResponse } from "next/server";
+import { fetcher } from "@/lib/fetcher";
 
 export async function GET() {
-    const lanyard = await fetch(
+    const lanyard = await fetcher(
         `https://api.lanyard.rest/v1/users/${process.env.NEXT_PUBLIC_DISCORD_USER_ID}`
     ).catch(() => null);
 
     if (!lanyard) {
-        return NextResponse.error();
+        return Response.error();
     }
 
-    return NextResponse.json<ILanyard>(await lanyard.json());
+    return Response.json(lanyard);
 }
