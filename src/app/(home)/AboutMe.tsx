@@ -2,11 +2,9 @@ import Link from "next/link";
 
 export function AboutMe() {
     return (
-        <div id="about" className="flex flex-col gap-8 pt-16">
-            <p className="text-center font-sans text-2xl font-bold text-black/80 dark:text-white/80">
-                About Me
-            </p>
-            <div className="flex flex-col gap-3 font-sans font-medium text-black/60 dark:text-white/60">
+        <section id="about" className="flex flex-col gap-8 py-8 md:py-16">
+            <p className="text-center text-2xl font-bold">About Me</p>
+            <div className="flex flex-col gap-3 font-medium text-black/60 dark:text-white/60">
                 <p>
                     Halo, saya Orchitiadi Ismaulana Putra, seorang mahasiswa informatika di
                     Universitas Gunadarma. Saya terus belajar dalam pemrograman. Saya memiliki
@@ -33,6 +31,6 @@ export function AboutMe() {
                     if you have any questions.
                 </p>
             </div>
-        </div>
+        </section>
     );
 }

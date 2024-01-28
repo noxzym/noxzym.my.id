@@ -1,119 +1,67 @@
 import { Footer } from "@/components/Footer";
-import { Navbar } from "@/components/Navbar";
-import { Separator } from "@/components/ui/separator";
+import { Navigation } from "@/components/Navigation";
 import { ThemeProvider } from "@/components/utils/ThemeProvider";
-import { fontSans } from "@/lib/fonts";
+import {
+    DescriptionTemplate,
+    OpenGraphMetadata,
+    TitleTemplate,
+    TwitterMetadata,
+    WebIcons
+} from "@/lib/constants";
 import { cn } from "@/lib/utils";
-import { Metadata } from "next";
+import { Metadata, Viewport } from "next";
+import { Inter } from "next/font/google";
 
-// Global CSS
-import "@/styles/globals.css";
+// Import Global and Notion CSS
+// import "react-notion-x/src/styles.css";
+import "./globals.css";
 
-// Notion CSS
-import "react-notion-x/src/styles.css";
-
-const icons = [
-    {
-        url: "/icons/icon-72x72.png",
-        width: 72,
-        height: 72
-    },
-    {
-        url: "/icons/icon-96x96.png",
-        width: 96,
-        height: 96
-    },
-    {
-        url: "/icons/icon-128x128.png",
-        width: 129,
-        height: 129
-    },
-    {
-        url: "/icons/icon-144x144.png",
-        width: 144,
-        height: 144
-    },
-    {
-        url: "/icons/icon-152x152.png",
-        width: 152,
-        height: 152
-    },
-    {
-        url: "/icons/icon-192x192.png",
-        width: 192,
-        height: 192
-    },
-    {
-        url: "/icons/icon-384x384.png",
-        width: 384,
-        height: 384
-    },
-    {
-        url: "/icons/icon-512x512.png",
-        width: 512,
-        height: 512
-    }
-].reverse();
-
-export const metadata: Metadata = {
-    title: {
-        template: "Noxzym - %s",
-        default: "Noxzym - Home"
-    },
-    description: "Noxzym's Personal Website",
-    themeColor: [
-        { media: "(prefers-color-scheme: light)", color: "white" },
-        { media: "(prefers-color-scheme: dark)", color: "black" }
-    ],
-    colorScheme: "dark light",
-    manifest: "/manifest.webmanifest",
-    metadataBase: new URL(
-        process.env.NODE_ENV === "production" ? "https://noxzym.my.id" : "localhost:3000"
-    ),
-    icons,
-    keywords:
-        "noxzym, orchit, orchitiadi, orchitiadi ismaulana putra, orchit07, mahasiswa gunadarma",
-    viewport: {
-        width: "device-width",
-        initialScale: 1,
-        minimumScale: 1,
-        maximumScale: 3
-    },
-    openGraph: {
-        type: "website",
-        title: {
-            template: "Noxzym - %s",
-            default: "Noxzym - Home"
-        },
-        description: "Noxzym's Personal Website",
-        siteName: "Noxzym",
-        url: "https://noxzym.my.id",
-        images: icons
-    },
-    robots: {
-        index: true,
-        follow: true
-    }
-};
+const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="en" className="scroll-smooth">
             <body
                 className={cn(
-                    "bg-light font-sans text-black transition-colors duration-300 ease-in-out dark:bg-dark dark:text-white",
-                    fontSans.variable
+                    "flex min-h-dvh flex-col items-center justify-between bg-light text-black text-black/80 transition-colors duration-300 ease-in-out dark:bg-dark dark:text-white dark:text-white/80",
+                    inter.className
                 )}
             >
                 <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-                    <Navbar />
-                    <main className="mx-auto flex min-h-screen max-w-4xl flex-col gap-16 px-7 py-16">
-                        {children}
-                    </main>
-                    <Separator className="mx-auto mt-16 max-w-4xl" />
+                    <div>
+                        <Navigation />
+                        <main className="flex max-w-4xl flex-col px-6 py-8 md:py-16">
+                            {children}
+                        </main>
+                    </div>
                     <Footer />
                 </ThemeProvider>
             </body>
         </html>
     );
 }
+
+export const viewport: Viewport = {
+    colorScheme: "light",
+    themeColor: "#0A0C0C",
+    width: "device-width",
+    initialScale: 1
+};
+
+export const metadata: Metadata = {
+    title: TitleTemplate,
+    description: DescriptionTemplate,
+    manifest: "/manifest.webmanifest",
+    metadataBase: new URL(
+        process.env.NODE_ENV === "production" ? "https://stegripe.org" : "localhost:3000"
+    ),
+    icons: WebIcons,
+    keywords:
+        "noxzym, orchit, orchitiadi, orchitiadi ismaulana putra, orchit07, mahasiswa gunadarma",
+    openGraph: OpenGraphMetadata,
+    twitter: TwitterMetadata,
+    robots: {
+        index: true,
+        follow: true
+    }
+};

@@ -5,34 +5,12 @@ import { cn } from "@/lib/utils";
 import { useTheme } from "next-themes";
 import Link from "next/link";
 import { useState } from "react";
-import { ICONS, Icons } from "./utils/Icons";
+import { Icons } from "./utils/Icons";
 import { Button } from "./ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "./ui/dialog";
+import { NavigationList } from "@/lib/constants";
 
-const Navigation: { name: string; link: string; icon: keyof typeof ICONS }[] = [
-    {
-        name: "Home",
-        link: "/",
-        icon: "home"
-    },
-    {
-        name: "About Me",
-        link: "/#about",
-        icon: "user"
-    },
-    {
-        name: "Contact",
-        link: "/#contact",
-        icon: "paperclip"
-    },
-    {
-        name: "Blog",
-        link: "/blog",
-        icon: "newspaper"
-    }
-];
-
-export function Navbar() {
+export function Navigation() {
     const [open, setOpen] = useState(false);
     const { theme, setTheme } = useTheme();
     const scrollPosition = useScrollPosition();
@@ -42,15 +20,15 @@ export function Navbar() {
     };
 
     return (
-        <main
+        <nav
             id="navbar"
             className={cn(
-                scrollPosition && "bg-light/40 backdrop-blur-md dark:bg-dark/40",
-                "sticky top-0 z-50 w-full"
+                "sticky top-0 z-50 w-full text-black/80 dark:text-white/80",
+                scrollPosition && "bg-light/40 backdrop-blur-md dark:bg-dark/40"
             )}
         >
             <Dialog open={open} onOpenChange={setOpen}>
-                <div className="mx-auto flex max-w-4xl items-center justify-between px-7 py-3">
+                <div className="flex max-w-4xl items-center justify-between py-3">
                     <Button variant="ghost" size="sm" asChild>
                         <Link href="/">
                             <p className="text-sm font-bold text-black/80 dark:text-white/80">
@@ -59,7 +37,7 @@ export function Navbar() {
                         </Link>
                     </Button>
                     <div className="flex flex-row items-center gap-3">
-                        {Navigation.map(({ link, name }, i) => (
+                        {NavigationList.map(({ link, name }, i) => (
                             <Button
                                 aria-label={name}
                                 key={i}
@@ -106,7 +84,7 @@ export function Navbar() {
                         </DialogTitle>
                     </DialogHeader>
                     <div className="flex flex-col gap-2">
-                        {Navigation.map(({ icon, link, name }, i) => (
+                        {NavigationList.map(({ icon, link, name }, i) => (
                             <Button
                                 key={i}
                                 variant="ghost"
@@ -124,6 +102,6 @@ export function Navbar() {
                     </div>
                 </DialogContent>
             </Dialog>
-        </main>
+        </nav>
     );
 }

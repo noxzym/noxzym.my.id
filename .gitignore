@@ -38,5 +38,10 @@ next-env.d.ts
 
 public/sitemap.xml
 public/robots.txt
-public/sw*
-public/workbox*
+**/public/serwist**
+**/public/sw**
+**/public/worker**
+**/public/fallback**
+**/public/precache**
+
+.contentlayer

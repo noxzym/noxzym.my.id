@@ -19,9 +19,19 @@
             }
         ],
         "paths": {
-            "@/*": ["./src/*"]
+            "@/*": ["./src/*"],
+            "contentlayer/generated": ["./.contentlayer/generated"]
         }
     },
-    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+    "include": [
+        "next-env.d.ts",
+        "**/*.ts",
+        "**/*.tsx",
+        ".next/types/**/*.ts",
+        ".contentlayer/generated",
+        "src/app/blog/[...slug]/page",
+        "src/components/notion/NotionRenderer",
+        "src/lib/notion"
+    ],
     "exclude": ["node_modules"]
 }

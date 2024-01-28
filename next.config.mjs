@@ -1,9 +1,15 @@
-const WithPWA = require("next-pwa");
+import withSerwistInit from "@serwist/next";
+import { withContentlayer } from "next-contentlayer";
 
-module.exports = WithPWA({
-    dest: "public",
-    register: process.env.NODE_ENV === "production" ? true : false
-})({
+const withSerwist = withSerwistInit({
+    swSrc: "src/app/sw.ts",
+    swDest: "public/sw.js"
+});
+
+/**
+ * @type {import('next').NextConfig}
+ */
+const NextConfig = {
     async redirects() {
         return [
             {
@@ -38,4 +44,6 @@ module.exports = WithPWA({
             }
         ];
     }
-});
+};
+
+export default withSerwist(withContentlayer(NextConfig));
