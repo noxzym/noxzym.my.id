@@ -21,9 +21,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={cn(inter.className, montserrat.variable)}>
-                {children}
-            </body>
+            <body className={cn(inter.className, montserrat.variable)}>{children}</body>
         </html>
     );
 }
