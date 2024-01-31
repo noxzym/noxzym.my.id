@@ -1,3 +1,4 @@
+import ThemeProvider from "@/components/ThemeProvider";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Inter, Montserrat } from "next/font/google";
@@ -21,7 +22,11 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={cn(inter.className, montserrat.variable)}>{children}</body>
+            <body className={cn(inter.className, montserrat.variable)}>
+                <ThemeProvider attribute="class" defaultTheme="dark">
+                    {children}
+                </ThemeProvider>
+            </body>
         </html>
     );
 }
