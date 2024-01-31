@@ -18,6 +18,9 @@ const config = {
             }
         },
         extend: {
+            fontFamily: {
+                heading: ["var(--font-montserrat)"]
+            },
             colors: {
                 border: "hsl(var(--border))",
                 input: "hsl(var(--input))",
