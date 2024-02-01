@@ -61,6 +61,9 @@ const config = {
                 md: "calc(var(--radius) - 2px)",
                 sm: "calc(var(--radius) - 4px)"
             },
+            lineHeight: {
+                0: "0"
+            },
             keyframes: {
                 "accordion-down": {
                     from: { height: "0" },
@@ -77,7 +80,7 @@ const config = {
             }
         }
     },
-    plugins: [require("tailwindcss-animate")]
+    plugins: [require("tailwindcss-animate"), require("tailwindcss-opentype")]
 } satisfies Config;
 
 export default config;
