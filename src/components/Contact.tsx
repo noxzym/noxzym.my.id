@@ -55,7 +55,7 @@ export function Contact() {
                                     >
                                         <div className="absolute bottom-0 left-0 flex w-full items-center justify-between p-2 text-black/80 dark:text-white/80">
                                             <p className="text-xs font-medium capitalize">
-                                                {ICONS[item][0]}
+                                                {ICONS[item][0].toString()}
                                             </p>
                                             <Icons
                                                 icon="external_link"
@@ -67,8 +67,8 @@ export function Contact() {
                                                 ICONS[item]
                                                     ? item
                                                     : item === "discord"
-                                                    ? "discord"
-                                                    : "email"
+                                                      ? "discord"
+                                                      : "email"
                                             }
                                             className={cn(
                                                 "h-10 w-10 rounded-md",

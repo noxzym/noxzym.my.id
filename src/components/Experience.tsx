@@ -41,7 +41,7 @@ export function Experience() {
                         >
                             <div className="absolute bottom-0 left-0 flex w-full items-end justify-between p-2">
                                 <p className="text-xs font-medium capitalize text-black/80 dark:text-white/80">
-                                    {ICONS[skill][0]}
+                                    {ICONS[skill][0].toString()}
                                 </p>
                             </div>
                             <Icons
