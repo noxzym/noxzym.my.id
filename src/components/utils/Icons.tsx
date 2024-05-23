@@ -57,7 +57,7 @@ export const ICONS = {
 
 export function Icons(props: SVGProps<SVGSVGElement> & { icon: keyof typeof ICONS }) {
     return createElement(ICONS[props.icon][1], {
-        title: ICONS[props.icon][0],
+        title: String(ICONS[props.icon][0]),
         className: cn("pointer-events-none", props.className)
     });
 }
