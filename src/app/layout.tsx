@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { cn } from "@/lib/utils";
+import Footer from "@/components/Footer";
+import Navigation from "@/components/Navigation";
 import ThemeProvider from "@/components/ThemeProvider";
 import "./globals.css";
 
@@ -18,9 +20,11 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={cn(inter.className)}>
+            <body className={cn(inter.className, "container")}>
                 <ThemeProvider attribute="class" defaultTheme="dark">
+                    <Navigation />
                     {children}
+                    <Footer />
                 </ThemeProvider>
             </body>
         </html>
