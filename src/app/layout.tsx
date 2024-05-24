@@ -19,11 +19,11 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en">
+        <html lang="en" suppressHydrationWarning>
             <body className={cn(inter.className, "container")}>
                 <ThemeProvider attribute="class" defaultTheme="dark">
                     <Navigation />
-                    {children}
+                    <main className="my-6 flex flex-col gap-12 py-12">{children}</main>
                     <Footer />
                 </ThemeProvider>
             </body>
