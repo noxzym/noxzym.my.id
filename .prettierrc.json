@@ -1,8 +1,8 @@
 {
     "arrowParens": "avoid",
     "plugins": [
-        "prettier-plugin-tailwindcss",
-        "@trivago/prettier-plugin-sort-imports"
+        "@trivago/prettier-plugin-sort-imports",
+        "prettier-plugin-tailwindcss"
     ],
     "printWidth": 100,
     "tabWidth": 4,
