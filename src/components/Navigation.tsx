@@ -12,7 +12,7 @@ export default function Navigation() {
                     <Link href="/">Home</Link>
                 </Button>
                 <Button asChild variant="ghost" size="sm" className="font-semibold">
-                    <Link href="#">About</Link>
+                    <Link href="/about">About</Link>
                 </Button>
                 <Button asChild variant="ghost" size="sm" className="font-semibold">
                     <Link href="#">Articles</Link>
