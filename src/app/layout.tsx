@@ -21,7 +21,10 @@ export default function RootLayout({
     return (
         <html lang="en" suppressHydrationWarning>
             <body
-                className={cn(inter.className, "container flex min-h-dvh flex-col justify-between")}
+                className={cn(
+                    inter.className,
+                    "container flex min-h-dvh max-w-screen-xl flex-col justify-between"
+                )}
             >
                 <ThemeProvider attribute="class" defaultTheme="dark">
                     <div>
