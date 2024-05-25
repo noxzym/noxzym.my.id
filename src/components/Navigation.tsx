@@ -18,7 +18,7 @@ export default function Navigation() {
                     <Link href="/articles">Articles</Link>
                 </Button>
                 <Button asChild variant="ghost" size="sm" className="font-semibold">
-                    <Link href="#">Projects</Link>
+                    <Link href="/projects">Projects</Link>
                 </Button>
             </div>
         </nav>
