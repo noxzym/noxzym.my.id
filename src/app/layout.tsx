@@ -20,10 +20,14 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" suppressHydrationWarning>
-            <body className={cn(inter.className, "container")}>
+            <body
+                className={cn(inter.className, "container flex min-h-dvh flex-col justify-between")}
+            >
                 <ThemeProvider attribute="class" defaultTheme="dark">
-                    <Navigation />
-                    <main className="my-6 flex flex-col gap-12 py-12">{children}</main>
+                    <div>
+                        <Navigation />
+                        <main className="my-6 flex flex-col gap-12 py-12">{children}</main>
+                    </div>
                     <Footer />
                 </ThemeProvider>
             </body>
