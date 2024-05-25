@@ -28,21 +28,21 @@ export default function Jumbotron() {
                     <Button
                         asChild
                         variant="ghost"
-                        className="text-base font-semibold dark:bg-foreground/5"
+                        className="bg-foreground/5 text-base font-semibold"
                     >
                         <Link href="#">Learn about me</Link>
                     </Button>
                     <Button
                         asChild
                         variant="ghost"
-                        className="text-base font-semibold dark:bg-foreground/5"
+                        className="bg-foreground/5 text-base font-semibold"
                     >
                         <Link href="#">Read my article</Link>
                     </Button>
                     <Button
                         asChild
                         variant="ghost"
-                        className="text-base font-semibold dark:bg-foreground/5"
+                        className="bg-foreground/5 text-base font-semibold"
                     >
                         <Link href="#">Explore my project</Link>
                     </Button>
@@ -64,7 +64,7 @@ export default function Jumbotron() {
             </div>
             {ref.current && (
                 <span
-                    className="rounded-2xl dark:bg-foreground/5"
+                    className="rounded-2xl bg-foreground/5"
                     style={{
                         height: `${offsetHeight}px`,
                         width: `${offsetHeight}px`
