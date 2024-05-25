@@ -20,7 +20,7 @@ export default function Jumbotron() {
                 <div>
                     <p className="text-4xl font-semibold">Hello, I am</p>
                     <p className="text-6xl font-bold">Orchitiadi Ismaulana Putra</p>
-                    <p className="text-xl font-medium">
+                    <p className="text-xl font-medium text-foreground/90">
                         A Full Stack Developer who is familiar with using React and NodeJS.
                     </p>
                 </div>
@@ -48,15 +48,15 @@ export default function Jumbotron() {
                     </Button>
                 </div>
                 <div className="flex gap-4">
-                    <Link href="#" className="flex items-center gap-2">
+                    <Link href="#" className="flex items-center gap-2 text-foreground/85">
                         <span className="h-5 w-5 rounded-md bg-foreground/10" />
                         Resume
                     </Link>
-                    <Link href="#" className="flex items-center gap-2">
+                    <Link href="#" className="flex items-center gap-2 text-foreground/85">
                         <span className="h-5 w-5 rounded-md bg-foreground/10" />
                         Linkedin
                     </Link>
-                    <Link href="#" className="flex items-center gap-2">
+                    <Link href="#" className="flex items-center gap-2 text-foreground/85">
                         <span className="h-5 w-5 rounded-md bg-foreground/10" />
                         Github
                     </Link>
