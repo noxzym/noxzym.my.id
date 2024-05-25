@@ -47,19 +47,25 @@ export default function Jumbotron() {
                         <Link href="/projects">Explore my project</Link>
                     </Button>
                 </div>
-                <div className="flex gap-4">
-                    <Link href="#" className="flex items-center gap-2 text-foreground/85">
-                        <span className="h-5 w-5 rounded-md bg-foreground/10" />
-                        Resume
-                    </Link>
-                    <Link href="#" className="flex items-center gap-2 text-foreground/85">
-                        <span className="h-5 w-5 rounded-md bg-foreground/10" />
-                        Linkedin
-                    </Link>
-                    <Link href="#" className="flex items-center gap-2 text-foreground/85">
-                        <span className="h-5 w-5 rounded-md bg-foreground/10" />
-                        Github
-                    </Link>
+                <div className="flex gap-2">
+                    <Button asChild size="sm" variant="ghost">
+                        <Link href="#" className="text-foreground/85">
+                            <span className="mr-2 h-5 w-5 rounded-md bg-foreground/10" />
+                            Resume
+                        </Link>
+                    </Button>
+                    <Button asChild size="sm" variant="ghost">
+                        <Link href="#" className="text-foreground/85">
+                            <span className="mr-2 h-5 w-5 rounded-md bg-foreground/10" />
+                            LinkedIn
+                        </Link>
+                    </Button>
+                    <Button asChild size="sm" variant="ghost">
+                        <Link href="#" className="text-foreground/85">
+                            <span className="mr-2 h-5 w-5 rounded-md bg-foreground/10" />
+                            Github
+                        </Link>
+                    </Button>
                 </div>
             </div>
             {ref.current && (
