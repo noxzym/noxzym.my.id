@@ -27,21 +27,21 @@ export default function Jumbotron() {
                 <div className="flex gap-4">
                     <Button
                         asChild
-                        variant="ghost"
+                        variant="secondary"
                         className="bg-foreground/5 text-base font-semibold"
                     >
                         <Link href="/about">Learn about me</Link>
                     </Button>
                     <Button
                         asChild
-                        variant="ghost"
+                        variant="secondary"
                         className="bg-foreground/5 text-base font-semibold"
                     >
                         <Link href="/articles">Read my article</Link>
                     </Button>
                     <Button
                         asChild
-                        variant="ghost"
+                        variant="secondary"
                         className="bg-foreground/5 text-base font-semibold"
                     >
                         <Link href="/projects">Explore my project</Link>
