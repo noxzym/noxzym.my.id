@@ -6,7 +6,7 @@ export default function ArticlesPage() {
         <section className="flex flex-col gap-4">
             <div className="flex flex-col">
                 <p className="text-5xl font-bold">Articles</p>
-                <p className="text-xl font-medium">
+                <p className="text-xl font-medium text-foreground/85">
                     The following are some of the articles I have written on.
                 </p>
             </div>
