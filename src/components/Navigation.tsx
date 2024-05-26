@@ -8,16 +8,16 @@ export default function Navigation() {
                 <Link href="/">Orchit.</Link>
             </Button>
             <div className="flex gap-4">
-                <Button asChild variant="ghost" size="sm" className="font-semibold">
+                <Button asChild size="sm" variant="ghost" className="font-semibold">
                     <Link href="/">Home</Link>
                 </Button>
-                <Button asChild variant="ghost" size="sm" className="font-semibold">
+                <Button asChild size="sm" variant="ghost" className="font-semibold">
                     <Link href="/about">About</Link>
                 </Button>
-                <Button asChild variant="ghost" size="sm" className="font-semibold">
+                <Button asChild size="sm" variant="ghost" className="font-semibold">
                     <Link href="/articles">Articles</Link>
                 </Button>
-                <Button asChild variant="ghost" size="sm" className="font-semibold">
+                <Button asChild size="sm" variant="ghost" className="font-semibold">
                     <Link href="/projects">Projects</Link>
                 </Button>
             </div>
