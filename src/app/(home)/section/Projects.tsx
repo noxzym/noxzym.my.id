@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { FaArrowRight } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 import Card from "@/components/Card";
 
@@ -9,9 +10,9 @@ export default function Projects() {
                 <div className="flex items-center justify-between">
                     <p className="text-5xl font-bold">Projects</p>
                     <Link href="/projects" className="text-foreground/85">
-                        <Button variant="ghost">
+                        <Button size="sm" variant="ghost">
                             View all
-                            <span className="ml-2 h-5 w-5 rounded-md bg-foreground/10" />
+                            <FaArrowRight size="20px" className="ml-2" />
                         </Button>
                     </Link>
                 </div>

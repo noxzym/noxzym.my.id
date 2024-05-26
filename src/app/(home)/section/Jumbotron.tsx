@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { SiGithub, SiGoogledocs, SiLinkedin } from "react-icons/si";
 import { Button } from "@/components/ui/button";
 
 export default function Jumbotron() {
@@ -50,19 +51,19 @@ export default function Jumbotron() {
                 <div className="flex gap-2">
                     <Button asChild size="sm" variant="ghost">
                         <Link href="#" className="text-foreground/85">
-                            <span className="mr-2 h-5 w-5 rounded-md bg-foreground/10" />
+                            <SiGoogledocs size="20px" className="mr-2" />
                             Resume
                         </Link>
                     </Button>
                     <Button asChild size="sm" variant="ghost">
                         <Link href="#" className="text-foreground/85">
-                            <span className="mr-2 h-5 w-5 rounded-md bg-foreground/10" />
+                            <SiLinkedin size="20px" className="mr-2" />
                             LinkedIn
                         </Link>
                     </Button>
                     <Button asChild size="sm" variant="ghost">
                         <Link href="#" className="text-foreground/85">
-                            <span className="mr-2 h-5 w-5 rounded-md bg-foreground/10" />
+                            <SiGithub size="20px" className="mr-2" />
                             Github
                         </Link>
                     </Button>
