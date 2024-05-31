@@ -7,7 +7,7 @@ export default function Navigation() {
             <Button asChild variant="ghost" className="text-2xl font-bold">
                 <Link href="/">Orchit.</Link>
             </Button>
-            <div className="flex gap-4">
+            <div className="hidden gap-4 md:flex">
                 <Button asChild size="sm" variant="ghost" className="font-semibold">
                     <Link href="/">Home</Link>
                 </Button>

@@ -6,14 +6,15 @@ export default function Footer() {
     return (
         <footer className="container flex flex-col">
             <Separator />
-            <div className="grid grid-cols-2">
-                <div className="customVerticalSeparator flex aspect-[3/1] h-auto flex-col items-center justify-center gap-2">
+            <div className="grid md:grid-cols-2">
+                <div className="customVerticalSeparator flex aspect-video h-auto flex-col items-center justify-center gap-2">
                     <p className="text-4xl font-bold">Orchit.</p>
                     <p className="text-sm font-bold text-foreground/85">
                         Depok, West Java, Indonesia.
                     </p>
                 </div>
-                <div className="flex aspect-[3/1] h-auto flex-col items-center justify-center gap-2">
+                <Separator className="md:hidden" />
+                <div className="flex aspect-video h-auto flex-col items-center justify-center gap-2">
                     <p className="text-4xl font-bold">Lets Connect!</p>
                     <Button asChild variant="ghost" className="rounded-full bg-foreground/5">
                         <Link href="mailto:me@noxzym.my.id" className="text-foreground/85">
