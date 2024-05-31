@@ -12,8 +12,8 @@ export default function Card({
 }) {
     return (
         <div className="flex flex-col">
-            <div className="flex aspect-video h-auto w-full rounded-xl border-[1px] border-foreground p-2">
-                <span className="h-full w-full rounded-md bg-foreground/10" />
+            <div className="flex h-auto w-full rounded-xl bg-foreground px-8 py-5">
+                <span className="aspect-video h-auto w-full rounded-md bg-background/5 shadow-inner" />
             </div>
             <div className="flex flex-col justify-center gap-4 py-4">
                 <div className="flex flex-col justify-center gap-1">
