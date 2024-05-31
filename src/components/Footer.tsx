@@ -7,7 +7,7 @@ export default function Footer() {
         <footer className="flex flex-col">
             <Separator />
             <div className="grid grid-cols-2">
-                <div className="flex aspect-[3/1] h-auto flex-col items-center justify-center gap-2 border-r-[1px] border-zinc-200 dark:border-zinc-800">
+                <div className="customVerticalSeparator flex aspect-[3/1] h-auto flex-col items-center justify-center gap-2">
                     <p className="text-4xl font-bold">Orchit.</p>
                     <p className="text-sm font-bold text-foreground/85">
                         Depok, West Java, Indonesia.

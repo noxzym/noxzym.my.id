@@ -63,3 +63,7 @@
         text-wrap: balance;
     }
 }
+
+.customVerticalSeparator {
+    @apply border-zinc-200 dark:border-zinc-800 md:border-r-[1px];
+}
