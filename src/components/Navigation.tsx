@@ -3,7 +3,7 @@ import { Button } from "./ui/button";
 
 export default function Navigation() {
     return (
-        <nav className="sticky top-0 z-50 flex items-center justify-between bg-background py-5">
+        <nav className="container sticky top-0 z-50 flex items-center justify-between bg-background py-5">
             <Button asChild variant="ghost" className="text-2xl font-bold">
                 <Link href="/">Orchit.</Link>
             </Button>
