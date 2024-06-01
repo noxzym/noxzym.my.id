@@ -26,8 +26,8 @@ export default function Card({
                             key={i}
                             asChild
                             size="sm"
-                            variant="ghost"
-                            className="bg-foreground/5 text-xs font-medium text-foreground/85"
+                            variant="secondary"
+                            className="text-xs font-medium"
                         >
                             <Link href="#">{tag}</Link>
                         </Button>

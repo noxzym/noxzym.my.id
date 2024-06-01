@@ -16,51 +16,49 @@ export default function Footer() {
                 <Separator className="md:hidden" />
                 <div className="flex aspect-video h-auto flex-col items-center justify-center gap-2">
                     <p className="text-4xl font-bold">Lets Connect!</p>
-                    <Button asChild variant="ghost" className="rounded-full bg-foreground/5">
-                        <Link href="mailto:me@noxzym.my.id" className="text-foreground/85">
-                            me@noxzym.my.id
-                        </Link>
+                    <Button asChild variant="secondary" className="rounded-full">
+                        <Link href="mailto:me@noxzym.my.id">me@noxzym.my.id</Link>
                     </Button>
                     <div className="flex gap-2">
                         <Button
                             asChild
-                            variant="ghost"
-                            className="aspect-square h-auto w-10 rounded-full bg-foreground/5"
+                            variant="secondary"
+                            className="aspect-square h-auto w-10 rounded-full"
                         >
                             <Link href="#"></Link>
                         </Button>
                         <Button
                             asChild
-                            variant="ghost"
-                            className="aspect-square h-auto w-10 rounded-full bg-foreground/5"
+                            variant="secondary"
+                            className="aspect-square h-auto w-10 rounded-full"
                         >
                             <Link href="#"></Link>
                         </Button>
                         <Button
                             asChild
-                            variant="ghost"
-                            className="aspect-square h-auto w-10 rounded-full bg-foreground/5"
+                            variant="secondary"
+                            className="aspect-square h-auto w-10 rounded-full"
                         >
                             <Link href="#"></Link>
                         </Button>
                         <Button
                             asChild
-                            variant="ghost"
-                            className="aspect-square h-auto w-10 rounded-full bg-foreground/5"
+                            variant="secondary"
+                            className="aspect-square h-auto w-10 rounded-full"
                         >
                             <Link href="#"></Link>
                         </Button>
                         <Button
                             asChild
-                            variant="ghost"
-                            className="aspect-square h-auto w-10 rounded-full bg-foreground/5"
+                            variant="secondary"
+                            className="aspect-square h-auto w-10 rounded-full"
                         >
                             <Link href="#"></Link>
                         </Button>
                         <Button
                             asChild
-                            variant="ghost"
-                            className="aspect-square h-auto w-10 rounded-full bg-foreground/5"
+                            variant="secondary"
+                            className="aspect-square h-auto w-10 rounded-full"
                         >
                             <Link href="#"></Link>
                         </Button>
