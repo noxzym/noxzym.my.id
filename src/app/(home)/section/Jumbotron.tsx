@@ -16,34 +16,34 @@ export default function Jumbotron() {
     }, []);
 
     return (
-        <section className="flex items-center justify-between py-12">
+        <section className="items-center justify-between py-12">
             <div ref={ref} className="flex flex-col gap-4">
                 <div>
-                    <p className="text-4xl font-semibold">Hello, I am</p>
-                    <p className="text-6xl font-bold">Orchitiadi Ismaulana Putra</p>
-                    <p className="text-xl font-medium text-foreground/90">
+                    <p className="text-xl font-semibold md:text-4xl">Hello, I am</p>
+                    <p className="text-4xl font-bold md:text-6xl">Orchitiadi Ismaulana Putra</p>
+                    <p className="text-sm font-medium text-foreground/90 md:text-xl">
                         A Full Stack Developer who is familiar with using React and NodeJS.
                     </p>
                 </div>
-                <div className="flex gap-4">
+                <div className="flex flex-wrap gap-4">
                     <Button
                         asChild
                         variant="secondary"
-                        className="bg-foreground/5 text-base font-semibold"
+                        className="flex-grow bg-foreground/5 text-base font-semibold md:flex-grow-0"
                     >
                         <Link href="/about">Learn about me</Link>
                     </Button>
                     <Button
                         asChild
                         variant="secondary"
-                        className="bg-foreground/5 text-base font-semibold"
+                        className="flex-grow bg-foreground/5 text-base font-semibold md:flex-grow-0"
                     >
                         <Link href="/articles">Read my article</Link>
                     </Button>
                     <Button
                         asChild
                         variant="secondary"
-                        className="bg-foreground/5 text-base font-semibold"
+                        className="flex-grow bg-foreground/5 text-base font-semibold md:flex-grow-0"
                     >
                         <Link href="/projects">Explore my project</Link>
                     </Button>

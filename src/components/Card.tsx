@@ -17,8 +17,8 @@ export default function Card({
             </div>
             <div className="flex flex-col justify-center gap-4 py-4">
                 <div className="flex flex-col justify-center gap-1">
-                    <p className="text-3xl font-bold">{title}</p>
-                    <p className="text-xs font-medium text-foreground/85">{subTitle}</p>
+                    <p className="text-4xl font-bold">{title}</p>
+                    <p className="text-sm font-medium text-foreground/85">{subTitle}</p>
                 </div>
                 <div className="flex flex-wrap gap-2">
                     {tags.map((tag, i) => (
