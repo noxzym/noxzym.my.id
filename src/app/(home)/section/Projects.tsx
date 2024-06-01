@@ -1,8 +1,8 @@
-import BaseLayout from "./BaseLayout";
+import ArticlesProjectsLayout from "@/components/ArticlesProjectsLayout";
 
 export default function Projects() {
     return (
-        <BaseLayout
+        <ArticlesProjectsLayout
             title="Projects"
             description="Here's a glimpse into my project experience."
             href="/projects"
@@ -11,6 +11,6 @@ export default function Projects() {
                 subTitle: "Apr. 20, 2024 - Role",
                 tags: ["Some Tags", "Some Tags", "Some Tags"]
             })}
-        ></BaseLayout>
+        ></ArticlesProjectsLayout>
     );
 }

@@ -1,6 +1,6 @@
-import Articles from "./section/Articles-Projects/Articles";
-import Projects from "./section/Articles-Projects/Projects";
+import Articles from "./section/Articles";
 import Jumbotron from "./section/Jumbotron";
+import Projects from "./section/Projects";
 
 export default function HomePage() {
     return (
