@@ -29,9 +29,7 @@ export default function RootLayout({
                 <ThemeProvider attribute="class" defaultTheme="dark">
                     <div className="contents">
                         <Navigation />
-                        <main className="container my-6 flex flex-col gap-12 py-12">
-                            {children}
-                        </main>
+                        <main className="container flex flex-col">{children}</main>
                     </div>
                     <Footer />
                 </ThemeProvider>
