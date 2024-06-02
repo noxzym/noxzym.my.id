@@ -23,7 +23,7 @@ export default function AboutMe() {
                         discussing exciting new projects!
                     </p>
                 </div>
-                <span className="order-first mb-20 h-56 w-56 rounded-2xl bg-secondary md:order-last md:mb-0" />
+                <span className="hidden h-56 w-56 rounded-2xl bg-secondary md:block" />
             </div>
         </section>
     );
