@@ -21,15 +21,12 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body
-                className={cn(
-                    inter.className,
-                    "mx-auto flex min-h-dvh max-w-screen-xl flex-col justify-between"
-                )}
+                className={cn(inter.className, "mx-auto flex min-h-dvh flex-col justify-between")}
             >
                 <ThemeProvider attribute="class" defaultTheme="dark">
                     <div>
                         <Navigation />
-                        <main className="container flex flex-col">{children}</main>
+                        <main className="container flex max-w-screen-xl flex-col">{children}</main>
                     </div>
                     <Footer />
                 </ThemeProvider>

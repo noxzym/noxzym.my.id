@@ -4,7 +4,7 @@ import { Separator } from "./ui/separator";
 
 export default function Footer() {
     return (
-        <footer className="container flex flex-col">
+        <footer className="container flex max-w-screen-xl flex-col">
             <Separator />
             <div className="grid md:grid-cols-2">
                 <div className="customVerticalSeparator flex aspect-video h-auto flex-col items-center justify-center gap-2">
