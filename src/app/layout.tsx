@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { cn } from "@/lib/utils";
 import Footer from "@/components/Footer";
-import Navigation from "@/components/Navigation";
+import { BottomStickyNavigation, TopStickyNavigation } from "@/components/Navigation";
 import ThemeProvider from "@/components/ThemeProvider";
 import "./globals.css";
 
@@ -21,14 +21,15 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body
-                className={cn(inter.className, "mx-auto flex min-h-dvh flex-col justify-between")}
+                className={cn(inter.className, "mx-auto grid min-h-dvh grid-rows-[auto,1fr,auto]")}
             >
                 <ThemeProvider attribute="class" defaultTheme="dark">
-                    <div>
-                        <Navigation />
-                        <main className="container flex max-w-screen-xl flex-col">{children}</main>
-                    </div>
+                    <TopStickyNavigation />
+                    <main className="container flex max-w-screen-xl flex-1 flex-col">
+                        {children}
+                    </main>
                     <Footer />
+                    <BottomStickyNavigation />
                 </ThemeProvider>
             </body>
         </html>
