@@ -59,7 +59,6 @@ export default function Jumbotron() {
                     </Button>
                 </div>
             </div>
-            <span className="aspect-square h-full w-auto bg-red-600" />
             <span className="order-first mb-20 h-56 w-56 rounded-2xl bg-secondary md:order-last md:mb-0" />
         </section>
     );
