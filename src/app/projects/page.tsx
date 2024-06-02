@@ -1,8 +1,8 @@
-import ArticlesProjectsLayout from "@/components/ArticlesProjectsLayout";
+import APLayout from "@/components/APLayout";
 
 export default function ProjectsPage() {
     return (
-        <ArticlesProjectsLayout
+        <APLayout
             title="Projects"
             description="Here's a glimpse into my project experience."
             href="/projects"

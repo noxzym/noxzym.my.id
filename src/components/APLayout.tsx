@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 
-export default function ArticlesProjectsLayout({
+export default function APLayout({
     title,
     description,
     href,

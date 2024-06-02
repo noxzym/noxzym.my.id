@@ -1,8 +1,8 @@
-import ArticlesProjectsLayout from "@/components/ArticlesProjectsLayout";
+import APLayout from "@/components/APLayout";
 
 export default function Projects() {
     return (
-        <ArticlesProjectsLayout
+        <APLayout
             title="Projects"
             description="Here's a glimpse into my project experience."
             href="/projects"
@@ -11,6 +11,6 @@ export default function Projects() {
                 subTitle: "Apr. 20, 2024 - Role",
                 tags: ["Some Tags", "Some Tags", "Some Tags"]
             })}
-        ></ArticlesProjectsLayout>
+        ></APLayout>
     );
 }
