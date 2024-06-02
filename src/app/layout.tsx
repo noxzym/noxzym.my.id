@@ -27,7 +27,7 @@ export default function RootLayout({
                 )}
             >
                 <ThemeProvider attribute="class" defaultTheme="dark">
-                    <div className="contents">
+                    <div>
                         <Navigation />
                         <main className="container flex flex-col">{children}</main>
                     </div>
