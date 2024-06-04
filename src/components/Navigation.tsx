@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { useTheme } from "next-themes";
-import { FaLeaf, FaPaintBrush, FaRocket, FaUser } from "react-icons/fa";
-import { FaHouse } from "react-icons/fa6";
+import { FaPaintBrush } from "react-icons/fa";
+import { NavigationLinks } from "@/lib/constants";
 import { Button } from "./ui/button";
 
 export function TopStickyNavigation() {
@@ -16,18 +16,19 @@ export function TopStickyNavigation() {
                 </Button>
                 <div className="flex gap-4">
                     <div className="hidden gap-4 md:flex">
-                        <Button asChild size="sm" variant="link" className="font-semibold">
-                            <Link href="/">Home</Link>
-                        </Button>
-                        <Button asChild size="sm" variant="link" className="font-semibold">
-                            <Link href="/about">About</Link>
-                        </Button>
-                        <Button asChild size="sm" variant="link" className="font-semibold">
-                            <Link href="/articles">Articles</Link>
-                        </Button>
-                        <Button asChild size="sm" variant="link" className="font-semibold">
-                            <Link href="/projects">Projects</Link>
-                        </Button>
+                        {NavigationLinks("Home", "About", "Articles", "Projects").map(
+                            (link, index) => (
+                                <Button
+                                    key={index}
+                                    asChild
+                                    size="sm"
+                                    variant="link"
+                                    className="font-semibold"
+                                >
+                                    <Link href={link.url}>{link.to}</Link>
+                                </Button>
+                            )
+                        )}
                     </div>
                     <Button
                         onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
@@ -45,26 +46,13 @@ export function BottomStickyNavigation() {
     return (
         <nav className="bg-secondary/70 sticky bottom-5 z-50 mx-8 mt-5 rounded-xl backdrop-blur-xl md:hidden">
             <div className="text-foreground/85 flex items-center justify-center">
-                <Button asChild variant="ghost" className="flex-grow">
-                    <Link href="/">
-                        <FaHouse size="20px" />
-                    </Link>
-                </Button>
-                <Button asChild variant="ghost" className="flex-grow">
-                    <Link href="/articles">
-                        <FaLeaf size="20px" />
-                    </Link>
-                </Button>
-                <Button asChild variant="ghost" className="flex-grow">
-                    <Link href="/projects">
-                        <FaRocket size="20px" />
-                    </Link>
-                </Button>
-                <Button asChild variant="ghost" className="flex-grow">
-                    <Link href="/about">
-                        <FaUser size="20px" />
-                    </Link>
-                </Button>
+                {NavigationLinks("Home", "Articles", "Projects", "About").map((link, index) => (
+                    <Button key={index} asChild variant="ghost" className="flex-grow">
+                        <Link href={link.url}>
+                            <link.icon size="20px" />
+                        </Link>
+                    </Button>
+                ))}
             </div>
         </nav>
     );

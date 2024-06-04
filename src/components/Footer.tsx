@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ExternalLinks } from "@/lib/constants";
 import { Button } from "./ui/button";
 import { Separator } from "./ui/separator";
 
@@ -20,57 +21,33 @@ export default function Footer() {
                         <Link href="mailto:me@noxzym.my.id">me@noxzym.my.id</Link>
                     </Button>
                     <div className="flex gap-2">
-                        <Button
-                            asChild
-                            variant="secondary"
-                            className="aspect-square h-auto w-10 rounded-full"
-                        >
-                            <Link href="#"></Link>
-                        </Button>
-                        <Button
-                            asChild
-                            variant="secondary"
-                            className="aspect-square h-auto w-10 rounded-full"
-                        >
-                            <Link href="#"></Link>
-                        </Button>
-                        <Button
-                            asChild
-                            variant="secondary"
-                            className="aspect-square h-auto w-10 rounded-full"
-                        >
-                            <Link href="#"></Link>
-                        </Button>
-                        <Button
-                            asChild
-                            variant="secondary"
-                            className="aspect-square h-auto w-10 rounded-full"
-                        >
-                            <Link href="#"></Link>
-                        </Button>
-                        <Button
-                            asChild
-                            variant="secondary"
-                            className="aspect-square h-auto w-10 rounded-full"
-                        >
-                            <Link href="#"></Link>
-                        </Button>
-                        <Button
-                            asChild
-                            variant="secondary"
-                            className="aspect-square h-auto w-10 rounded-full"
-                        >
-                            <Link href="#"></Link>
-                        </Button>
+                        {ExternalLinks(
+                            "Github",
+                            "Linkedin",
+                            "Discord",
+                            "Instagram",
+                            "Spotify",
+                            "Twitter"
+                        ).map((link, index) => (
+                            <Button
+                                key={index}
+                                asChild
+                                size="icon"
+                                variant="secondary"
+                                className="rounded-full"
+                            >
+                                <Link href={link.url} target="_blank">
+                                    <link.icon size="20px" />
+                                </Link>
+                            </Button>
+                        ))}
                     </div>
                 </div>
             </div>
             <Separator />
-            <div className="mx-auto py-6">
-                <p className="text-foreground/85 text-sm font-bold">
-                    Copyright &copy; 2024 Noxzym.
-                </p>
-            </div>
+            <p className="text-foreground/85 py-6 text-center text-sm font-bold">
+                Copyright &copy; 2024 Noxzym.
+            </p>
         </footer>
     );
 }

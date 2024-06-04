@@ -1,7 +1,5 @@
-"use client";
-
 import Link from "next/link";
-import { SiGithub, SiGoogledocs, SiLinkedin } from "react-icons/si";
+import { ExternalLinks, NavigationLinks } from "@/lib/constants";
 import { Button } from "@/components/ui/button";
 
 export default function Jumbotron() {
@@ -16,35 +14,25 @@ export default function Jumbotron() {
                     </p>
                 </div>
                 <div className="flex flex-wrap gap-4">
-                    <Button asChild className="flex-grow text-base font-semibold md:flex-grow-0">
-                        <Link href="/about">Learn about me</Link>
-                    </Button>
-                    <Button asChild className="flex-grow text-base font-semibold md:flex-grow-0">
-                        <Link href="/articles">Read my article</Link>
-                    </Button>
-                    <Button asChild className="flex-grow text-base font-semibold md:flex-grow-0">
-                        <Link href="/projects">Explore my project</Link>
-                    </Button>
+                    {NavigationLinks("About", "Articles", "Projects").map((link, index) => (
+                        <Button
+                            key={index}
+                            asChild
+                            className="flex-grow text-base font-semibold md:flex-grow-0"
+                        >
+                            <Link href={link.url}>{link.text}</Link>
+                        </Button>
+                    ))}
                 </div>
                 <div className="flex gap-2">
-                    <Button asChild size="sm" variant="link">
-                        <Link href="#" className="text-foreground/85">
-                            <SiGoogledocs size="20px" className="mr-2" />
-                            Resume
-                        </Link>
-                    </Button>
-                    <Button asChild size="sm" variant="link">
-                        <Link href="#" className="text-foreground/85">
-                            <SiLinkedin size="20px" className="mr-2" />
-                            LinkedIn
-                        </Link>
-                    </Button>
-                    <Button asChild size="sm" variant="link">
-                        <Link href="#" className="text-foreground/85">
-                            <SiGithub size="20px" className="mr-2" />
-                            Github
-                        </Link>
-                    </Button>
+                    {ExternalLinks("Resume", "Linkedin", "Github").map((link, index) => (
+                        <Button key={index} asChild size="sm" variant="link">
+                            <Link href={link.url} target="_blank" className="text-foreground/85">
+                                <link.icon size="20px" className="mr-2" />
+                                {link.to}
+                            </Link>
+                        </Button>
+                    ))}
                 </div>
             </div>
             <span className="bg-secondary order-first mb-20 h-56 w-56 rounded-2xl md:order-last md:mb-0" />
