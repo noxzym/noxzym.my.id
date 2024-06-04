@@ -37,27 +37,27 @@ export default function APLayout({
                         {title}
                     </p>
                     {!isCurrentPath() && (
-                        <Link href={href} className="hidden text-foreground/85 md:block">
-                            <Button size="sm" variant="ghost">
+                        <Link href={href} className="hidden md:block">
+                            <Button size="sm" variant="link">
                                 View all
                                 <FaArrowRight size="20px" className="ml-2" />
                             </Button>
                         </Link>
                     )}
                 </div>
-                <p className="font-medium text-foreground/85">{description}</p>
+                <p className="text-foreground/85 font-medium">{description}</p>
             </div>
             {isCurrentPath() && <Input placeholder={`Search ${title}...`} />}
             <div className="grid gap-3 md:grid-cols-3 md:gap-5">
                 {items.map((item, i) => (
                     <div key={i} className="flex flex-col">
-                        <div className="flex h-auto w-full rounded-xl bg-foreground px-8 py-5">
-                            <span className="aspect-video h-auto w-full rounded-md bg-background/5 shadow-inner" />
+                        <div className="bg-secondary flex h-auto w-full rounded-xl px-8 py-5">
+                            <span className="bg-primary aspect-video h-auto w-full rounded-md shadow-inner" />
                         </div>
                         <div className="flex flex-col justify-center gap-4 py-4">
                             <div className="flex flex-col justify-center gap-1">
                                 <p className="text-2xl font-bold">{item.title}</p>
-                                <p className="font-medium text-foreground/85">{item.subTitle}</p>
+                                <p className="text-foreground/85 font-medium">{item.subTitle}</p>
                             </div>
                             <div className="flex flex-wrap gap-2">
                                 {item.tags.map((tag, i) => (

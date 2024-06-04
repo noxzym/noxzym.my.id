@@ -32,7 +32,6 @@ export function TopStickyNavigation() {
                     <Button
                         onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
                         size="icon"
-                        variant="secondary"
                     >
                         <FaPaintBrush size="20px" />
                     </Button>
