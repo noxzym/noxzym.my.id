@@ -25,7 +25,7 @@ export default function RootLayout({
             >
                 <ThemeProvider attribute="class" defaultTheme="dark">
                     <TopStickyNavigation />
-                    <main className="container flex max-w-screen-xl flex-1 flex-col">
+                    <main className="container mb-12 flex max-w-screen-xl flex-1 flex-col">
                         {children}
                     </main>
                     <Footer />

@@ -10,7 +10,7 @@ export default function AboutMe() {
                     </p>
                     <p>
                         My expertise lies in both back-end and front-end development, wielding tools
-                        like Node.js, Golang, Typescript, Next.js, Tailwind CSS, and more to build
+                        like Node.js, Golang, TypeScript, Next.js, Tailwind CSS, and more to build
                         impactful applications.
                     </p>
                     <p>
@@ -23,7 +23,7 @@ export default function AboutMe() {
                         discussing exciting new projects!
                     </p>
                 </div>
-                <span className="bg-secondary hidden h-56 w-56 rounded-2xl md:block" />
+                <span className="hidden h-56 w-56 rounded-2xl bg-secondary md:block" />
             </div>
         </section>
     );
