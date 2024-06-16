@@ -1,5 +1,8 @@
+import Link from "next/link";
 import { IProject } from "@/types";
+import { FaArrowRight } from "react-icons/fa";
 import { getBlobs } from "@/lib/getBlobs";
+import { Button } from "@/components/ui/button";
 import ProjectCard from "@/components/ProjectCard";
 
 export default async function Projects() {
@@ -8,7 +11,15 @@ export default async function Projects() {
     return (
         <section className="flex flex-col gap-5 py-12 md:gap-4">
             <div className="flex flex-col">
-                <p className="text-3xl font-bold">Projects</p>
+                <div className="flex items-center justify-between">
+                    <p className="text-3xl font-bold">Projects</p>
+                    <Link href="/projects" className="hidden md:block">
+                        <Button size="sm" variant="link">
+                            View all
+                            <FaArrowRight size="20px" className="ml-2" />
+                        </Button>
+                    </Link>
+                </div>
                 <p className="font-medium text-foreground/85">
                     Here&apos;s a glimpse into my project experience.
                 </p>
@@ -26,6 +37,12 @@ export default async function Projects() {
                         <ProjectCard key={i} project={item} />
                     ))}
             </div>
+            <Link href="/projects" className="text-foreground/85 md:hidden">
+                <Button variant="secondary" className="w-full">
+                    View all
+                    <FaArrowRight size="20px" className="ml-2" />
+                </Button>
+            </Link>
         </section>
     );
 }
