@@ -4,12 +4,12 @@ import { Button } from "@/components/ui/button";
 
 export default function Jumbotron() {
     return (
-        <section className="flex flex-col items-center justify-between py-12 md:flex-row">
+        <section className="flex flex-col items-center justify-between py-12 md:mt-12 md:flex-row">
             <div className="flex flex-col gap-4">
                 <div>
                     <p className="text-xl font-semibold md:text-4xl">Hello, I am</p>
                     <p className="text-4xl font-bold md:text-6xl">Orchitiadi Ismaulana Putra</p>
-                    <p className="text-foreground/90 text-sm font-medium md:text-xl">
+                    <p className="text-sm font-medium text-foreground/90 md:text-xl">
                         A Full Stack Developer who is familiar with using React and NodeJS.
                     </p>
                 </div>
@@ -35,7 +35,7 @@ export default function Jumbotron() {
                     ))}
                 </div>
             </div>
-            <span className="bg-secondary order-first mb-20 h-56 w-56 rounded-2xl md:order-last md:mb-0" />
+            <span className="order-first mb-20 h-56 w-56 rounded-2xl bg-secondary md:order-last md:mb-0" />
         </section>
     );
 }
