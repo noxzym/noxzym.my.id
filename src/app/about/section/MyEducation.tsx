@@ -1,6 +1,6 @@
 import { sql } from "@vercel/postgres";
 import { generateDateFormat } from "@/lib/utils";
-import SectionLayout from "./SectionLayout";
+import SectionLayout from "../_components/SectionLayout";
 
 export default async function MyEducation() {
     const { rows } = await sql<IEducation>`SELECT * FROM education`;
