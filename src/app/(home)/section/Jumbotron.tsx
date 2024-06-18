@@ -63,7 +63,7 @@ export default async function Jumbotron() {
                     ))}
                 </div>
             </div>
-            <ProfilePicture pictures={[profilePicture, discordAvatar, githubAvatar]} />
+            <ProfilePicture pictures={[profilePicture, githubAvatar, discordAvatar]} />
         </section>
     );
 }
