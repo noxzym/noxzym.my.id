@@ -31,3 +31,34 @@ export function parseFrontmatter(fileContent: string) {
 
     return { metadata, content };
 }
+
+export function isArticle(obj: any): boolean {
+    const metadata = obj.metadata;
+    const content = obj.content;
+
+    const isArticleMetadata =
+        typeof metadata === "object" &&
+        typeof metadata.date === "object" &&
+        typeof Array.isArray(metadata.tags);
+
+    const isArticleContent = typeof content === "string";
+
+    return isArticleMetadata && isArticleContent;
+}
+
+export function isProject(obj: any): boolean {
+    const metadata = obj.metadata;
+    const content = obj.content;
+
+    const isProjectMetadata =
+        typeof metadata === "object" &&
+        typeof metadata.date === "object" &&
+        typeof Array.isArray(metadata.tags) &&
+        typeof metadata.role === "string" &&
+        typeof metadata.discontinued === "string" &&
+        typeof metadata.url === "string";
+
+    const isProjectContent = typeof content === "string";
+
+    return isProjectMetadata && isProjectContent;
+}
