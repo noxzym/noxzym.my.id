@@ -53,6 +53,9 @@ const config: Config = {
                     foreground: "hsl(var(--card-foreground), <alpha-value>)"
                 }
             },
+            borderWidth: {
+                1: "1px"
+            },
             borderRadius: {
                 lg: "var(--radius)",
                 md: "calc(var(--radius) - 2px)",
@@ -74,7 +77,7 @@ const config: Config = {
             }
         }
     },
-    plugins: [require("tailwindcss-animate")]
+    plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")]
 };
 
 export default config;
