@@ -3,7 +3,9 @@ import { IProject } from "@/types";
 import { FaArrowRight } from "react-icons/fa";
 import { getBlobs } from "@/lib/getBlobs";
 import { Button } from "@/components/ui/button";
+import MDXRemote from "@/components/MDXRemote";
 import ProjectCard from "@/components/ProjectCard";
+import ResponsiveDialog from "@/components/ResponsiveDialog";
 
 export default async function Projects() {
     const projects = await getBlobs<IProject[]>("projects");
@@ -34,7 +36,13 @@ export default async function Projects() {
                     })
                     .slice(0, 3)
                     .map((item, i) => (
-                        <ProjectCard key={i} project={item} />
+                        <ResponsiveDialog<IProject>
+                            key={i}
+                            obj={item}
+                            trigger={<ProjectCard project={item} />}
+                        >
+                            <MDXRemote project={item} />
+                        </ResponsiveDialog>
                     ))}
             </div>
             <Link href="/projects" className="text-foreground/85 md:hidden">

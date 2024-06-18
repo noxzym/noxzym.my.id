@@ -1,9 +1,9 @@
 import { IProject } from "@/types";
 import { getBlobs } from "@/lib/getBlobs";
 import { Input } from "@/components/ui/input";
+import MDXRemote from "@/components/MDXRemote";
 import ProjectCard from "@/components/ProjectCard";
-
-export const revalidate = 60;
+import ResponsiveDialog from "@/components/ResponsiveDialog";
 
 export default async function ProjectsPage() {
     const projects = await getBlobs<IProject[]>("projects");
@@ -26,7 +26,13 @@ export default async function ProjectsPage() {
                         return dateB.getTime() - dateA.getTime();
                     })
                     .map((item, i) => (
-                        <ProjectCard key={i} project={item} />
+                        <ResponsiveDialog<IProject>
+                            key={i}
+                            obj={item}
+                            trigger={<ProjectCard project={item} />}
+                        >
+                            <MDXRemote project={item} />
+                        </ResponsiveDialog>
                     ))}
             </div>
         </section>
