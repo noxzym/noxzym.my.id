@@ -8,6 +8,7 @@ import useMediaQuery from "@/hooks/useMediaQuery";
 import { Button } from "./ui/button";
 import {
     Dialog,
+    DialogClose,
     DialogContent,
     DialogDescription,
     DialogFooter,
@@ -79,7 +80,12 @@ export default function ResponsiveDialog<T extends IProject | IArticle>({
                     <DialogDescription>{obj.metadata.description}</DialogDescription>
                 </DialogHeader>
                 {children}
-                <DialogFooter>{visitProjectButton}</DialogFooter>
+                <DialogFooter className="!grid grid-cols-2">
+                    {visitProjectButton}
+                    <DialogClose asChild>
+                        <Button className="flex-grow">Close</Button>
+                    </DialogClose>
+                </DialogFooter>
             </DialogContent>
         </Dialog>
     );
