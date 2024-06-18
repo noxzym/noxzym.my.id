@@ -19,7 +19,7 @@ export interface IProject extends IArticle {
         date: Date;
         tags: string[];
         role: string;
-        discontinue: string;
+        discontinued: string;
         url: string;
     };
 }
