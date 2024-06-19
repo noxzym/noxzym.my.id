@@ -9,7 +9,7 @@ import { Button } from "./ui/button";
 export function TopStickyNavigation() {
     const { resolvedTheme, setTheme } = useTheme();
     return (
-        <nav className="bg-background/70 sticky top-0 z-50 py-5 backdrop-blur-xl">
+        <nav className="sticky top-0 z-50 bg-background/70 py-5 backdrop-blur-xl">
             <div className="container flex max-w-screen-xl items-center justify-between">
                 <Button asChild variant="link" className="text-2xl font-bold">
                     <Link href="/">Orchit.</Link>
@@ -44,10 +44,15 @@ export function TopStickyNavigation() {
 
 export function BottomStickyNavigation() {
     return (
-        <nav className="bg-secondary/70 sticky bottom-5 z-50 mx-8 mt-5 rounded-xl backdrop-blur-xl md:hidden">
-            <div className="text-foreground/85 flex items-center justify-center">
+        <nav className="sticky bottom-12 z-50 m-6 overflow-hidden rounded-xl bg-secondary/70 backdrop-blur-xl md:hidden">
+            <div className="flex items-center justify-center text-foreground/85">
                 {NavigationLinks("Home", "Articles", "Projects", "About").map((link, index) => (
-                    <Button key={index} asChild variant="ghost" className="flex-grow">
+                    <Button
+                        key={index}
+                        asChild
+                        variant="ghost"
+                        className="aspect-video h-auto flex-grow rounded-xl"
+                    >
                         <Link href={link.url}>
                             <link.icon size="20px" />
                         </Link>
