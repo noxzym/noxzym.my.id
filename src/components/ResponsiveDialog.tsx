@@ -41,10 +41,6 @@ export default function ResponsiveDialog<T extends IProject | IArticle>({
     const [snap, setSnap] = useState<number | string | null>(0.6);
     const isDesktop = useMediaQuery("(min-width: 768px)");
 
-    useEffect(() => {
-        console.log(snap);
-    }, [snap]);
-
     const visitProjectButton = isProject(obj) && (
         <Button asChild className="flex-grow">
             <Link href={(obj as IProject).metadata.url} target="_blank">
