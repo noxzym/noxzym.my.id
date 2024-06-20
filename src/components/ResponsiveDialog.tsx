@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Link from "next/link";
 import { IArticle, IProject } from "@/types";
 import { isProject } from "@/lib/utils";
@@ -38,7 +38,6 @@ export default function ResponsiveDialog<T extends IProject | IArticle>({
     trigger,
     children
 }: props<T>) {
-    const [snap, setSnap] = useState<number | string | null>(0.6);
     const isDesktop = useMediaQuery("(min-width: 768px)");
 
     const visitProjectButton = isProject(obj) && (
@@ -51,7 +50,7 @@ export default function ResponsiveDialog<T extends IProject | IArticle>({
 
     if (!isDesktop) {
         return (
-            <Drawer snapPoints={[0.6, 1]} activeSnapPoint={snap} setActiveSnapPoint={setSnap}>
+            <Drawer>
                 <DrawerTrigger>{trigger}</DrawerTrigger>
                 <DrawerContent className="max-h-[80%] min-h-[80%]">
                     <div className="container overflow-y-auto">
