@@ -21,7 +21,7 @@ export default function MDXRemote({ project }: props) {
                     width={400}
                     height={225}
                     priority
-                    className="border-1 my-0 aspect-video h-auto w-full rounded-xl"
+                    className="my-0 aspect-video h-auto w-full rounded-xl border-1"
                 />
             )
         },

@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { IArticle, IProject } from "@/types";
 import { isProject } from "@/lib/utils";
@@ -38,7 +38,12 @@ export default function ResponsiveDialog<T extends IProject | IArticle>({
     trigger,
     children
 }: props<T>) {
+    const [snap, setSnap] = useState<number | string | null>(0.6);
     const isDesktop = useMediaQuery("(min-width: 768px)");
+
+    useEffect(() => {
+        console.log(snap);
+    }, [snap]);
 
     const visitProjectButton = isProject(obj) && (
         <Button asChild className="flex-grow">
@@ -50,22 +55,22 @@ export default function ResponsiveDialog<T extends IProject | IArticle>({
 
     if (!isDesktop) {
         return (
-            <Drawer>
+            <Drawer snapPoints={[0.6, 1]} activeSnapPoint={snap} setActiveSnapPoint={setSnap}>
                 <DrawerTrigger>{trigger}</DrawerTrigger>
-                <DrawerContent className="max-h-[80%]">
+                <DrawerContent className="max-h-[80%] min-h-[80%]">
                     <div className="container overflow-y-auto">
                         <DrawerHeader className="px-0 text-left">
                             <DrawerTitle>{obj.metadata.title}</DrawerTitle>
                             <DrawerDescription>{obj.metadata.description}</DrawerDescription>
                         </DrawerHeader>
                         {children}
-                        <DrawerFooter className="px-0">
-                            {visitProjectButton}
-                            <DrawerClose asChild>
-                                <Button>Close</Button>
-                            </DrawerClose>
-                        </DrawerFooter>
                     </div>
+                    <DrawerFooter>
+                        {visitProjectButton}
+                        <DrawerClose asChild>
+                            <Button>Close</Button>
+                        </DrawerClose>
+                    </DrawerFooter>
                 </DrawerContent>
             </Drawer>
         );
@@ -73,7 +78,7 @@ export default function ResponsiveDialog<T extends IProject | IArticle>({
 
     return (
         <Dialog>
-            <DialogTrigger>{trigger}</DialogTrigger>
+            <DialogTrigger asChild>{trigger}</DialogTrigger>
             <DialogContent className="max-w-screen-sm overflow-auto md:max-h-[calc(80vh)]">
                 <DialogHeader>
                     <DialogTitle>{obj.metadata.title}</DialogTitle>
