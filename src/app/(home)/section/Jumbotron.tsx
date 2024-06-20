@@ -55,7 +55,12 @@ export default async function Jumbotron() {
                 <div className="flex gap-2">
                     {ExternalLinks("Resume", "Linkedin", "Github").map((link, index) => (
                         <Button key={index} asChild size="sm" variant="link">
-                            <Link href={link.url} target="_blank" className="text-foreground/85">
+                            <Link
+                                href={link.url}
+                                prefetch={false}
+                                target="_blank"
+                                className="text-foreground/85"
+                            >
                                 <link.icon size="20px" className="mr-2" />
                                 {link.to}
                             </Link>

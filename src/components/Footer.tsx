@@ -10,7 +10,7 @@ export default function Footer() {
             <div className="grid md:grid-cols-2">
                 <div className="separator flex aspect-video h-auto flex-col items-center justify-center gap-2">
                     <p className="text-4xl font-bold">Orchit.</p>
-                    <p className="text-foreground/85 text-sm font-bold">
+                    <p className="text-sm font-bold text-foreground/85">
                         Depok, West Java, Indonesia.
                     </p>
                 </div>
@@ -36,7 +36,7 @@ export default function Footer() {
                                 variant="secondary"
                                 className="rounded-full"
                             >
-                                <Link href={link.url} target="_blank">
+                                <Link href={link.url} prefetch={false} target="_blank">
                                     <link.icon size="20px" />
                                 </Link>
                             </Button>
@@ -45,7 +45,7 @@ export default function Footer() {
                 </div>
             </div>
             <Separator />
-            <p className="text-foreground/85 py-6 text-center text-sm font-bold">
+            <p className="py-6 text-center text-sm font-bold text-foreground/85">
                 Copyright &copy; 2024 Noxzym.
             </p>
         </footer>
