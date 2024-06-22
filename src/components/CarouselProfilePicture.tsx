@@ -9,7 +9,7 @@ interface props {
     pictures: (string | null)[];
 }
 
-export default function ProfilePicture({ pictures }: props) {
+export default function CarouselProfilePicture({ pictures }: props) {
     const plugin = useRef(Autoplay());
 
     return (
@@ -17,7 +17,7 @@ export default function ProfilePicture({ pictures }: props) {
             plugins={[plugin.current]}
             onMouseEnter={plugin.current.stop}
             onMouseLeave={plugin.current.reset}
-            className="border-1 order-first mb-20 aspect-square w-56 rounded-xl md:order-last md:mb-0"
+            className="order-first mb-20 aspect-square w-56 rounded-xl border-1 md:order-last md:mb-0"
         >
             <CarouselContent>
                 {Array.from(pictures)
