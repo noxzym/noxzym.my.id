@@ -42,7 +42,7 @@ export default async function Jumbotron() {
                     </p>
                 </div>
                 <div className="flex flex-wrap gap-4">
-                    {NavigationLinks("About", "Articles", "Projects").map((link, index) => (
+                    {NavigationLinks("About", "Blog", "Projects").map((link, index) => (
                         <Button
                             key={index}
                             asChild

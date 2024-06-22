@@ -16,19 +16,17 @@ export function TopStickyNavigation() {
                 </Button>
                 <div className="flex gap-4">
                     <div className="hidden gap-4 md:flex">
-                        {NavigationLinks("Home", "About", "Articles", "Projects").map(
-                            (link, index) => (
-                                <Button
-                                    key={index}
-                                    asChild
-                                    size="sm"
-                                    variant="link"
-                                    className="font-semibold"
-                                >
-                                    <Link href={link.url}>{link.to}</Link>
-                                </Button>
-                            )
-                        )}
+                        {NavigationLinks("Home", "About", "Blog", "Projects").map((link, index) => (
+                            <Button
+                                key={index}
+                                asChild
+                                size="sm"
+                                variant="link"
+                                className="font-semibold"
+                            >
+                                <Link href={link.url}>{link.to}</Link>
+                            </Button>
+                        ))}
                     </div>
                     <Button
                         onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
@@ -46,7 +44,7 @@ export function BottomStickyNavigation() {
     return (
         <nav className="sticky bottom-12 z-50 m-6 overflow-hidden rounded-xl bg-secondary/70 backdrop-blur-xl md:hidden">
             <div className="flex items-center justify-center text-foreground/85">
-                {NavigationLinks("Home", "Articles", "Projects", "About").map((link, index) => (
+                {NavigationLinks("Home", "Blog", "Projects", "About").map((link, index) => (
                     <Button
                         key={index}
                         asChild

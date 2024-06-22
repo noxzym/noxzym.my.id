@@ -25,8 +25,8 @@ export const NavigationLinks = (...get: string[]) => {
             icon: FaUser
         },
         {
-            to: "Articles",
-            url: "/articles",
+            to: "Blog",
+            url: "/blog",
             text: "Read my article",
             icon: FaLeaf
         },
