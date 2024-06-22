@@ -4,7 +4,7 @@ import { ListBlobResultBlob } from "@vercel/blob";
 import { ExternalLinks, NavigationLinks } from "@/lib/constants";
 import { getBlobs } from "@/lib/getBlobs";
 import { Button } from "@/components/ui/button";
-import ProfilePicture from "../_components/ProfilePicture";
+import CarouselProfilePicture from "@/components/CarouselProfilePicture";
 
 export default async function Jumbotron() {
     const blobs = await getBlobs<ListBlobResultBlob[]>("images", "images/profile.png");
@@ -68,7 +68,7 @@ export default async function Jumbotron() {
                     ))}
                 </div>
             </div>
-            <ProfilePicture pictures={[profilePicture, githubAvatar, discordAvatar]} />
+            <CarouselProfilePicture pictures={[profilePicture, githubAvatar, discordAvatar]} />
         </section>
     );
 }

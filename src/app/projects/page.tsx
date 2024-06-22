@@ -31,7 +31,7 @@ export default async function ProjectsPage() {
                             obj={item}
                             trigger={<ProjectCard project={item} />}
                         >
-                            <MDXRemote project={item} />
+                            <MDXRemote mdx={item} />
                         </ResponsiveDialog>
                     ))}
             </div>
