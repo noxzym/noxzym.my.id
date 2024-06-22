@@ -1,22 +1,22 @@
 import Image from "next/image";
 import Link from "next/link";
-import { IProject } from "@/types";
+import { IArticle, IProject } from "@/types";
 import { MDXRemote as MDXRemotePrimitive, MDXRemoteProps } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 
 interface props {
-    project: IProject;
+    mdx: IArticle | IProject;
 }
 
-export default function MDXRemote({ project }: props) {
+export default function MDXRemote({ mdx }: props) {
     const props: MDXRemoteProps = {
-        source: project.content,
+        source: mdx.content,
         components: {
             a: props => <Link href={props.href!} target="_blank" {...props} />,
             Cover: _ => (
                 <Image
-                    src={project.metadata.image!}
-                    alt={project.metadata.title}
+                    src={mdx.metadata.image!}
+                    alt={mdx.metadata.title}
                     sizes="100vw"
                     width={400}
                     height={225}
