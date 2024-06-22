@@ -68,7 +68,10 @@ export default async function Jumbotron() {
                     ))}
                 </div>
             </div>
-            <CarouselProfilePicture pictures={[profilePicture, githubAvatar, discordAvatar]} />
+            <CarouselProfilePicture
+                pictures={[profilePicture, githubAvatar, discordAvatar]}
+                className="order-first mb-20 md:order-last md:mb-0"
+            />
         </section>
     );
 }

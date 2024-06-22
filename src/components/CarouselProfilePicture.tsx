@@ -3,13 +3,15 @@
 import { useRef } from "react";
 import Image from "next/image";
 import Autoplay from "embla-carousel-autoplay";
+import { cn } from "@/lib/utils";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 
 interface props {
     pictures: (string | null)[];
+    className?: string;
 }
 
-export default function CarouselProfilePicture({ pictures }: props) {
+export default function CarouselProfilePicture({ pictures, className }: props) {
     const plugin = useRef(Autoplay());
 
     return (
@@ -17,7 +19,7 @@ export default function CarouselProfilePicture({ pictures }: props) {
             plugins={[plugin.current]}
             onMouseEnter={plugin.current.stop}
             onMouseLeave={plugin.current.reset}
-            className="order-first mb-20 aspect-square w-56 rounded-xl border-1 md:order-last md:mb-0"
+            className={cn("aspect-square w-56 rounded-xl border-1", className)}
         >
             <CarouselContent>
                 {Array.from(pictures)

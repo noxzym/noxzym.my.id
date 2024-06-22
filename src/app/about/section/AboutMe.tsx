@@ -52,7 +52,10 @@ export default async function AboutMe() {
                         discussing exciting new projects!
                     </p>
                 </div>
-                <CarouselProfilePicture pictures={[profilePicture, githubAvatar, discordAvatar]} />
+                <CarouselProfilePicture
+                    pictures={[profilePicture, githubAvatar, discordAvatar]}
+                    className="hidden md:block"
+                />
             </div>
         </section>
     );
