@@ -4,20 +4,17 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FaArrowRight } from "react-icons/fa";
 import { cn } from "@/lib/utils";
-import { Button } from "./ui/button";
-import { Input } from "./ui/input";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
-export default function APLayout({
-    title,
-    description,
-    href,
-    items
-}: {
-    title: string;
+interface props {
+    title: "Articles" | "Projects";
     description: string;
     href: string;
-    items: IBaseLayoutItem[];
-}) {
+    items: JSX.Element[];
+}
+
+export default function APLayout({ title, description, href, items }: props) {
     const pathname = usePathname();
 
     function isCurrentPath() {
@@ -45,37 +42,10 @@ export default function APLayout({
                         </Link>
                     )}
                 </div>
-                <p className="text-foreground/85 font-medium">{description}</p>
+                <p className="font-medium text-foreground/85">{description}</p>
             </div>
             {isCurrentPath() && <Input placeholder={`Search ${title}...`} />}
-            <div className="grid gap-3 md:grid-cols-3 md:gap-5">
-                {items.map((item, i) => (
-                    <div key={i} className="flex flex-col">
-                        <div className="bg-secondary flex h-auto w-full rounded-xl px-8 py-5">
-                            <span className="bg-primary aspect-video h-auto w-full rounded-md shadow-inner" />
-                        </div>
-                        <div className="flex flex-col justify-center gap-4 py-4">
-                            <div className="flex flex-col justify-center gap-1">
-                                <p className="text-2xl font-bold">{item.title}</p>
-                                <p className="text-foreground/85 font-medium">{item.subTitle}</p>
-                            </div>
-                            <div className="flex flex-wrap gap-2">
-                                {item.tags.map((tag, i) => (
-                                    <Button
-                                        key={i}
-                                        asChild
-                                        size="sm"
-                                        variant="secondary"
-                                        className="text-xs font-medium"
-                                    >
-                                        <Link href="#">{tag}</Link>
-                                    </Button>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                ))}
-            </div>
+            <div className="grid gap-3 md:grid-cols-2 md:gap-5 lg:grid-cols-3">{items}</div>
             {!isCurrentPath() && (
                 <Link href={href} className="text-foreground/85 md:hidden">
                     <Button variant="secondary" className="w-full">
@@ -86,10 +56,4 @@ export default function APLayout({
             )}
         </section>
     );
-}
-
-interface IBaseLayoutItem {
-    title: string;
-    subTitle: string;
-    tags: string[];
 }
