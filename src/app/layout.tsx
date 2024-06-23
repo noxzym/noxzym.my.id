@@ -27,7 +27,7 @@ export default function RootLayout({
                     <TopStickyNavigation />
                     <main
                         vaul-drawer-wrapper=""
-                        className="container mb-12 flex max-w-screen-xl flex-1 flex-col"
+                        className="container mb-12 flex max-w-screen-xl flex-1 flex-col bg-background"
                     >
                         {children}
                     </main>
