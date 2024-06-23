@@ -6,6 +6,8 @@ import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import MDXRemote from "@/components/MDXRemote";
 
+export const revalidate = 60;
+
 interface props {
     params: {
         slug: string;
@@ -13,23 +15,23 @@ interface props {
 }
 
 export default async function ArticlePage({ params }: props) {
-    const blogs = await getBlobs<IArticle[]>("articles");
-    const blog = blogs.find(
-        blog => blog.metadata.title.split(" ").join("-").toLowerCase() === params.slug
+    const articles = await getBlobs<IArticle[]>({ prefix: "articles" });
+    const article = articles.find(
+        article => article.metadata.title.toLowerCase().split(" ").join("-") === params.slug
     );
 
-    if (!blog) return notFound();
+    if (!article) return notFound();
 
     return (
         <article className="mx-auto flex max-w-screen-lg flex-col gap-5 py-12 md:gap-10">
             <div className="flex flex-col gap-5">
-                <h1 className="text-3xl font-bold">{blog.metadata.title}</h1>
+                <h1 className="text-3xl font-bold">{article.metadata.title}</h1>
                 <p className="text-sm font-medium text-foreground/85">
-                    Published on {generateDateFormat(blog.metadata.date)}
+                    Published on {generateDateFormat(article.metadata.date)}
                 </p>
                 <div className="flex flex-col gap-5">
                     <div className="flex flex-wrap gap-2">
-                        {blog.metadata.tags.map((tag, i) => (
+                        {article.metadata.tags.map((tag, i) => (
                             <Badge key={i} variant="secondary">
                                 #{tag}
                             </Badge>
@@ -38,7 +40,7 @@ export default async function ArticlePage({ params }: props) {
                 </div>
             </div>
             <Separator />
-            <MDXRemote mdx={blog} />
+            <MDXRemote mdx={article} />
         </article>
     );
 }
