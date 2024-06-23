@@ -1,16 +1,11 @@
-import APLayout from "@/components/APLayout";
+import { IArticle } from "@/types";
+import { getBlobs } from "@/lib/getBlobs";
+import ArticlesSection from "@/components/ArticlesSection";
 
-export default async function BlogPage() {
-    return (
-        <APLayout
-            title="Articles"
-            description="The following are some of the articles I have written on."
-            href="/blog"
-            items={new Array(3).fill({
-                title: "Article Title",
-                subTitle: "Apr. 20, 2024 - 3 min read",
-                tags: ["Some Tags", "Some Tags", "Some Tags"]
-            })}
-        />
-    );
+export const revalidate = 60;
+
+export default async function ArticlesPage() {
+    const articles = await getBlobs<IArticle[]>({ prefix: "articles" });
+
+    return <ArticlesSection articles={articles} />;
 }
