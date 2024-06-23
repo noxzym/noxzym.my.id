@@ -29,8 +29,9 @@ export function TopStickyNavigation() {
                         ))}
                     </div>
                     <Button
-                        onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
                         size="icon"
+                        onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+                        aria-label="Toggle Theme"
                     >
                         <FaPaintBrush size="20px" />
                     </Button>
@@ -51,7 +52,7 @@ export function BottomStickyNavigation() {
                         variant="ghost"
                         className="aspect-video h-auto flex-grow rounded-xl"
                     >
-                        <Link href={link.url}>
+                        <Link href={link.url} aria-label={link.to}>
                             <link.icon size="20px" />
                         </Link>
                     </Button>

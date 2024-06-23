@@ -36,7 +36,12 @@ export default function Footer() {
                                 variant="secondary"
                                 className="rounded-full"
                             >
-                                <Link href={link.url} prefetch={false} target="_blank">
+                                <Link
+                                    href={link.url}
+                                    prefetch={false}
+                                    target="_blank"
+                                    aria-label={link.to}
+                                >
                                     <link.icon size="20px" />
                                 </Link>
                             </Button>
