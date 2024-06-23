@@ -50,7 +50,7 @@ export default function ResponsiveDialog<T extends IProject | IArticle>({
 
     if (!isDesktop) {
         return (
-            <Drawer>
+            <Drawer noBodyStyles shouldScaleBackground={false}>
                 <DrawerTrigger>{trigger}</DrawerTrigger>
                 <DrawerContent className="max-h-[80%] min-h-[80%]">
                     <div className="container overflow-y-auto">
