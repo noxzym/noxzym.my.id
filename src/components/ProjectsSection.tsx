@@ -21,15 +21,18 @@ export default async function ProjectsSection({ projects }: props) {
 
                     return dateB.getTime() - dateA.getTime();
                 })
-                .map((item, i) => (
-                    <ResponsiveDialog<IProject>
-                        key={i}
-                        obj={item as IProject}
-                        trigger={<APCard data={item} />}
-                    >
-                        <MDXRemote mdx={item} />
-                    </ResponsiveDialog>
-                ))}
+                .map((item, i) => ({
+                    metadata: item.metadata,
+                    element: (
+                        <ResponsiveDialog<IProject>
+                            key={i}
+                            obj={item as IProject}
+                            trigger={<APCard data={item} />}
+                        >
+                            <MDXRemote mdx={item} />
+                        </ResponsiveDialog>
+                    )
+                }))}
         />
     );
 }
