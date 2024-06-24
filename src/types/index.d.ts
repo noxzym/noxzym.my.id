@@ -1,4 +1,37 @@
-import { ExtendedRecordMap } from "notion-types";
+export interface IMetadata {
+    title: string;
+    description: string;
+    date: string;
+    tags: string;
+    image?: string;
+}
+
+export interface IArticle {
+    metadata: IMetadata & {
+        date: Date;
+        tags: string[];
+    };
+    content: string;
+}
+
+export interface IProject extends IArticle {
+    metadata: IMetadata & {
+        date: Date;
+        tags: string[];
+        role: string;
+        discontinued: string;
+        url: string;
+    };
+}
+
+export interface OGImageDescriptor {
+    url: string | URL;
+    secureUrl?: string | URL;
+    alt?: string;
+    type?: string;
+    width?: string | number;
+    height?: string | number;
+}
 
 export interface ILanyard {
     success: boolean;
@@ -55,61 +88,6 @@ export interface ILanyard {
     };
 }
 
-export interface IArticle {
-    id: string;
-    slug: string;
-    title: string;
-    tags: string[];
-    image: string;
-    description: string;
-    isPublished: boolean;
-    publishedTime: string;
-    readTime: string;
-    recordMap: ExtendedRecordMap;
+export interface IGithub {
+    avatar_url: string;
 }
-z;
-
-export type PageProps<T extends string | string[]> = {
-    params: {
-        slug: T;
-    };
-};
-
-type SongImage = {
-    url: string;
-};
-
-type SongArtist = {
-    name: string;
-};
-
-type SongAlbum = {
-    name: string;
-    artists: Array<SongArtist>;
-    images: Array<SongImage>;
-};
-
-type ExternalUrl = {
-    spotify: string;
-};
-
-type SongItem = {
-    name: string;
-    album: SongAlbum;
-    external_urls: ExternalUrl;
-};
-
-export type GetNowPlayingResponse = {
-    is_playing: boolean;
-    item: SongItem;
-    currently_playing_type: string;
-};
-
-export type GetNowPlayingTransformed = {
-    isPlaying?: boolean;
-    album?: string;
-    artist?: string;
-    title?: string;
-    url?: string;
-    artworkUrl?: string;
-};

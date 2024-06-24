@@ -1,6 +1,6 @@
 {
     "name": "noxzym",
-    "version": "2.0.0",
+    "version": "3.0.0",
     "private": true,
     "scripts": {
         "build": "next build",
@@ -8,69 +8,43 @@
         "lint": "next lint",
         "start": "next start"
     },
-    "prettier": {
-        "arrowParens": "avoid",
-        "plugins": [
-            "prettier-plugin-tailwindcss"
-        ],
-        "printWidth": 100,
-        "tabWidth": 4,
-        "trailingComma": "none"
-    },
-    "eslintConfig": {
-        "parserOptions": {
-            "project": "tsconfig.json"
-        },
-        "plugins": [
-            "prettier"
-        ],
-        "extends": [
-            "next/core-web-vitals",
-            "prettier"
-        ]
-    },
     "dependencies": {
-        "@radix-ui/react-avatar": "^1.0.4",
         "@radix-ui/react-dialog": "^1.0.5",
-        "@radix-ui/react-label": "^2.0.2",
         "@radix-ui/react-separator": "^1.0.3",
         "@radix-ui/react-slot": "^1.0.2",
+        "@tailwindcss/typography": "^0.5.13",
+        "@vercel/blob": "^0.23.3",
+        "@vercel/postgres": "^0.8.0",
         "class-variance-authority": "^0.7.0",
         "clsx": "^2.1.1",
-        "framer-motion": "^11.2.9",
+        "embla-carousel-autoplay": "^8.1.5",
+        "embla-carousel-react": "^8.1.5",
         "next": "14.2.3",
-        "next-pwa": "^5.6.0",
+        "next-mdx-remote": "^5.0.0",
         "next-themes": "^0.3.0",
-        "notion-client": "^6.16.0",
-        "notion-utils": "^6.16.0",
         "react": "18.3.1",
         "react-dom": "18.3.1",
         "react-icons": "^5.2.1",
-        "react-notion-x": "^6.16.0",
-        "swr": "^2.2.5",
+        "remark-gfm": "^4.0.0",
+        "sharp": "^0.33.4",
         "tailwind-merge": "^2.3.0",
-        "tailwindcss-animate": "^1.0.7"
+        "tailwindcss-animate": "^1.0.7",
+        "vaul": "^0.9.1"
     },
     "devDependencies": {
-        "@types/node": "20.12.13",
-        "@types/react": "18.3.3",
+        "@trivago/prettier-plugin-sort-imports": "^4.3.0",
+        "@types/node": "20.12.12",
+        "@types/react": "18.3.2",
         "@types/react-dom": "18.3.0",
         "autoprefixer": "10.4.19",
         "eslint": "8.57.0",
         "eslint-config-next": "14.2.4",
         "eslint-config-prettier": "^9.1.0",
         "eslint-plugin-prettier": "^5.1.3",
-        "notion-types": "^6.16.0",
         "postcss": "8.4.38",
         "prettier": "^3.2.5",
         "prettier-plugin-tailwindcss": "^0.5.14",
         "tailwindcss": "3.4.3",
         "typescript": "5.4.5"
-    },
-    "pnpm": {
-        "overrides": {
-            "keyv": "npm:@keyvhq/core"
-        }
-    },
-    "packageManager": "pnpm@9.1.3"
+    }
 }

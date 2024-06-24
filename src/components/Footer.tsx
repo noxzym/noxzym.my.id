@@ -1,44 +1,58 @@
-"use client";
+import Link from "next/link";
+import { ExternalLinks } from "@/lib/constants";
+import { Button } from "./ui/button";
+import { Separator } from "./ui/separator";
 
-import { useSpotifyNowplaying } from "@/hooks/useSpotifyNowPlaying";
-import { Icons } from "./utils/Icons";
-
-export function Footer() {
-    const { data } = useSpotifyNowplaying();
-
+export default function Footer() {
     return (
-        <div className="mx-auto flex max-w-4xl flex-col justify-between gap-5 px-7 py-10 md:flex-row">
-            <div className="flex flex-col gap-5">
-                <div className="flex items-center gap-2">
-                    <Icons icon="spotify" className="h-5 w-5 fill-[#1DB954]" />
-                    {data?.isPlaying ? (
-                        <p className="text-sm font-medium text-black/80 dark:text-white/80">
-                            Listening to {data.title} by {data.artist}
-                        </p>
-                    ) : (
-                        <p className="text-sm font-medium text-black/80 dark:text-white/80">
-                            Not Listening
-                        </p>
-                    )}
+        <footer className="container flex max-w-screen-xl flex-col">
+            <Separator />
+            <div className="grid md:grid-cols-2">
+                <div className="separator flex aspect-video h-auto flex-col items-center justify-center gap-2">
+                    <p className="text-4xl font-bold">Orchit.</p>
+                    <p className="text-sm font-bold text-foreground/85">
+                        Depok, West Java, Indonesia.
+                    </p>
                 </div>
-                <div className="flex flex-col gap-2">
-                    <div>
-                        <p className="text-xl font-bold text-black/80 dark:text-white/80">
-                            Noxzym();
-                        </p>
-                    </div>
-                    <div>
-                        <p className="text-sm font-medium text-black/80 dark:text-white/80">
-                            Depok, West Java, Indonesia
-                        </p>
+                <Separator className="md:hidden" />
+                <div className="flex aspect-video h-auto flex-col items-center justify-center gap-2">
+                    <p className="text-4xl font-bold">Lets Connect!</p>
+                    <Button asChild variant="secondary" className="rounded-full">
+                        <Link href="mailto:me@noxzym.my.id">me@noxzym.my.id</Link>
+                    </Button>
+                    <div className="flex gap-2">
+                        {ExternalLinks(
+                            "Github",
+                            "Linkedin",
+                            "Discord",
+                            "Instagram",
+                            "Spotify",
+                            "Twitter"
+                        ).map((link, index) => (
+                            <Button
+                                key={index}
+                                asChild
+                                size="icon"
+                                variant="secondary"
+                                className="rounded-full"
+                            >
+                                <Link
+                                    href={link.url}
+                                    prefetch={false}
+                                    target="_blank"
+                                    aria-label={link.to}
+                                >
+                                    <link.icon size="20px" />
+                                </Link>
+                            </Button>
+                        ))}
                     </div>
                 </div>
             </div>
-            <div className="md:self-end">
-                <p className="text-sm font-medium text-black/80 dark:text-white/80">
-                    &copy; {new Date().getFullYear()} - Noxzym
-                </p>
-            </div>
-        </div>
+            <Separator />
+            <p className="py-6 text-center text-sm font-bold text-foreground/85">
+                Copyright &copy; 2024 Noxzym.
+            </p>
+        </footer>
     );
 }
