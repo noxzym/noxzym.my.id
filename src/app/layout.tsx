@@ -21,7 +21,10 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body
-                className={cn(inter.className, "mx-auto grid min-h-dvh grid-rows-[auto,1fr,auto]")}
+                className={cn(
+                    inter.className,
+                    "mx-auto grid min-h-dvh grid-rows-[auto,1fr,auto] bg-background text-foreground"
+                )}
             >
                 <ThemeProvider attribute="class" defaultTheme="dark">
                     <TopStickyNavigation />
