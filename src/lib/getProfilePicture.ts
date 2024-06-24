@@ -11,7 +11,7 @@ export default async function getProfilePicture() {
     const profilePicture = profilePictureBlob?.url ?? null;
 
     const lanyardRequest = await fetch(
-        "https://api.lanyard.rest/v1/users/243728573624614912"
+        `https://api.lanyard.rest/v1/users/${process.env.DISCORD_USER_ID}`
     ).catch(() => null);
 
     const lanyardData: ILanyard | null = lanyardRequest?.ok
@@ -19,7 +19,7 @@ export default async function getProfilePicture() {
         : null;
 
     const discordAvatar = lanyardData?.success
-        ? `https://cdn.discordapp.com/avatars/243728573624614912/${lanyardData?.data.discord_user.avatar}.png?size=512`
+        ? `https://cdn.discordapp.com/avatars/${process.env.DISCORD_USER_ID}/${lanyardData?.data.discord_user.avatar}.png?size=512`
         : null;
 
     const githubResult = await fetch("https://api.github.com/users/noxzym").catch(() => null);
