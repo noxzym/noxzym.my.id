@@ -7,12 +7,6 @@ interface props {
     data: IArticle | IProject;
 }
 
-enum ROLE {
-    FullStack = 0,
-    FrontEnd = 1,
-    BackEnd = 2
-}
-
 export default function APCard({ data }: props) {
     return (
         <div className="group flex cursor-pointer flex-col overflow-hidden rounded-xl border-1 transition-all duration-300 hover:scale-105">
@@ -55,4 +49,10 @@ export default function APCard({ data }: props) {
             </div>
         </div>
     );
+}
+
+enum ROLE {
+    FullStack = 0,
+    FrontEnd = 1,
+    BackEnd = 2
 }
