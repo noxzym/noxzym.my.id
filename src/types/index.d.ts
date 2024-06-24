@@ -24,6 +24,15 @@ export interface IProject extends IArticle {
     };
 }
 
+export interface OGImageDescriptor {
+    url: string | URL;
+    secureUrl?: string | URL;
+    alt?: string;
+    type?: string;
+    width?: string | number;
+    height?: string | number;
+}
+
 export interface ILanyard {
     success: boolean;
     data: {
