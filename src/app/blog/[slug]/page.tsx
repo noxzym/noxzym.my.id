@@ -1,5 +1,7 @@
+import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { IArticle } from "@/types";
+import { baseURL } from "@/lib/constants";
 import { getBlobs } from "@/lib/getBlobs";
 import { generateDateFormat } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
@@ -43,4 +45,43 @@ export default async function ArticlePage({ params }: props) {
             <MDXRemote mdx={article} />
         </article>
     );
+}
+
+export async function generateMetadata({ params }: props): Promise<Metadata> {
+    const articles = await getBlobs<IArticle[]>({ prefix: "articles" });
+    const article = articles.find(
+        article => article.metadata.title.toLowerCase().split(" ").join("-") === params.slug
+    );
+
+    if (!article) return notFound();
+
+    const metadata: Metadata = {
+        title: {
+            absolute: article.metadata.title
+        },
+        description: article.metadata.description,
+        authors: { name: "noxzym", url: baseURL },
+        openGraph: {
+            type: "article",
+            title: {
+                absolute: article.metadata.title
+            },
+            description: article.metadata.description,
+            siteName: "Noxzym",
+            url: `${baseURL}/blog/${params.slug}`,
+            tags: article.metadata.tags,
+            authors: "noxzym",
+            publishedTime: article.metadata.date
+        }
+    };
+
+    if (article.metadata.image) {
+        metadata.openGraph!.images = {
+            url: article.metadata.image,
+            alt: article.metadata.title,
+            type: "image/png"
+        };
+    }
+
+    return metadata;
 }

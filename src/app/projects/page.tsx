@@ -1,4 +1,6 @@
+import { Metadata } from "next";
 import { IProject } from "@/types";
+import { DefaultMetadata } from "@/lib/constants";
 import { getBlobs } from "@/lib/getBlobs";
 import ProjectsSection from "@/components/ProjectsSection";
 
@@ -9,3 +11,16 @@ export default async function ProjectsPage() {
 
     return <ProjectsSection projects={projects} />;
 }
+
+export const metadata: Metadata = {
+    title: "Projects",
+    openGraph: {
+        ...DefaultMetadata.openGraph,
+        title: "Projects",
+        url: `${DefaultMetadata.openGraph.url}/projects`
+    },
+    twitter: {
+        ...DefaultMetadata.twitter,
+        title: "Projects"
+    }
+};
