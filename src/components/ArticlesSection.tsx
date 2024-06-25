@@ -20,14 +20,17 @@ export default async function ArticlesSection({ articles }: props) {
 
                     return dateB.getTime() - dateA.getTime();
                 })
-                .map((item, i) => (
-                    <Link
-                        key={i}
-                        href={`/blog/${item.metadata.title.toLowerCase().split(" ").join("-")}`}
-                    >
-                        <APCard data={item} />
-                    </Link>
-                ))}
+                .map((item, i) => ({
+                    metadata: item.metadata,
+                    element: (
+                        <Link
+                            key={i}
+                            href={`/blog/${item.metadata.title.toLowerCase().split(" ").join("-")}`}
+                        >
+                            <APCard data={item} />
+                        </Link>
+                    )
+                }))}
         />
     );
 }

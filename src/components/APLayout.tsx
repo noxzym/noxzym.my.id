@@ -1,7 +1,9 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { IArticle, IProject } from "@/types";
 import { FaArrowRight } from "react-icons/fa";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -11,11 +13,18 @@ interface props {
     title: "Articles" | "Projects";
     description: string;
     href: string;
-    items: JSX.Element[];
+    items: { metadata: IArticle["metadata"] | IProject["metadata"]; element: JSX.Element }[];
 }
 
 export default function APLayout({ title, description, href, items }: props) {
+    const [query, setQuery] = useState<string>("");
     const pathname = usePathname();
+
+    function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
+        const value = event.target.value;
+
+        setQuery(value.length ? value : "");
+    }
 
     function isCurrentPath() {
         return pathname === href;
@@ -44,8 +53,33 @@ export default function APLayout({ title, description, href, items }: props) {
                 </div>
                 <p className="font-medium text-foreground/85">{description}</p>
             </div>
-            {isCurrentPath() && <Input placeholder={`Search ${title}...`} />}
-            <div className="grid gap-3 md:grid-cols-2 md:gap-5 lg:grid-cols-3">{items}</div>
+            {isCurrentPath() && (
+                <Input
+                    placeholder={`Search ${title}...`}
+                    value={query}
+                    onChange={handleInputChange}
+                />
+            )}
+            <div className="grid gap-3 md:grid-cols-2 md:gap-5 lg:grid-cols-3">
+                {items
+                    .filter(item => {
+                        let data = [item.metadata.title, ...item.metadata.tags]
+                            .join(" ")
+                            .toLowerCase();
+
+                        if (title === "Projects") {
+                            const role =
+                                ROLE[
+                                    Number((item.metadata as unknown as IProject["metadata"]).role)
+                                ].toLowerCase();
+
+                            data += " ".concat(role);
+                        }
+
+                        return query.length ? data.includes(query.toLowerCase()) : true;
+                    })
+                    .map(item => item.element)}
+            </div>
             {!isCurrentPath() && (
                 <Link href={href} className="text-foreground/85 md:hidden">
                     <Button variant="secondary" className="w-full">
@@ -56,4 +90,10 @@ export default function APLayout({ title, description, href, items }: props) {
             )}
         </section>
     );
+}
+
+enum ROLE {
+    FullStack = 0,
+    FrontEnd = 1,
+    BackEnd = 2
 }

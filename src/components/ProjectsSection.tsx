@@ -16,20 +16,33 @@ export default async function ProjectsSection({ projects }: props) {
             href="/projects"
             items={projects
                 .sort((a, b) => {
+                    const isDiscontinuedA = a.metadata.discontinued === "true";
+                    const isDiscontinuedB = b.metadata.discontinued === "true";
                     const dateA = new Date(a.metadata.date);
                     const dateB = new Date(b.metadata.date);
 
-                    return dateB.getTime() - dateA.getTime();
+                    if (isDiscontinuedA && isDiscontinuedB) {
+                        return dateB.getTime() - dateA.getTime();
+                    } else if (isDiscontinuedA) {
+                        return 1;
+                    } else if (isDiscontinuedB) {
+                        return -1;
+                    } else {
+                        return dateB.getTime() - dateA.getTime();
+                    }
                 })
-                .map((item, i) => (
-                    <ResponsiveDialog<IProject>
-                        key={i}
-                        obj={item as IProject}
-                        trigger={<APCard data={item} />}
-                    >
-                        <MDXRemote mdx={item} />
-                    </ResponsiveDialog>
-                ))}
+                .map((item, i) => ({
+                    metadata: item.metadata,
+                    element: (
+                        <ResponsiveDialog<IProject>
+                            key={i}
+                            obj={item as IProject}
+                            trigger={<APCard data={item} />}
+                        >
+                            <MDXRemote mdx={item} />
+                        </ResponsiveDialog>
+                    )
+                }))}
         />
     );
 }
