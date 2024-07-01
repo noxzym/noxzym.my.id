@@ -35,6 +35,7 @@ export default async function Jumbotron() {
                                 href={link.url}
                                 prefetch={false}
                                 target="_blank"
+                                rel="nofollow noopener noreferrer"
                                 className="text-foreground/85"
                             >
                                 <link.icon size="20px" className="mr-2" />
