@@ -40,6 +40,7 @@ export default function Footer() {
                                     href={link.url}
                                     prefetch={false}
                                     target="_blank"
+                                    rel="nofollow noopener noreferrer"
                                     aria-label={link.to}
                                 >
                                     <link.icon size="20px" />
