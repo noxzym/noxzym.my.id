@@ -38,7 +38,9 @@ next-env.d.ts
 
 public/sitemap.xml
 public/robots.txt
-public/sw*
-public/workbox*
 
 local_blobs
+
+# Serwist
+public/sw*
+public/swe-worker*

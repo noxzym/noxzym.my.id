@@ -12,6 +12,7 @@
         "@radix-ui/react-dialog": "^1.0.5",
         "@radix-ui/react-separator": "^1.0.3",
         "@radix-ui/react-slot": "^1.0.2",
+        "@serwist/next": "^9.0.5",
         "@tailwindcss/typography": "^0.5.13",
         "@vercel/blob": "^0.23.3",
         "@vercel/postgres": "^0.8.0",
@@ -44,6 +45,7 @@
         "postcss": "8.4.38",
         "prettier": "^3.2.5",
         "prettier-plugin-tailwindcss": "^0.5.14",
+        "serwist": "^9.0.5",
         "tailwindcss": "3.4.3",
         "typescript": "5.5.4"
     }
