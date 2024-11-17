@@ -23,19 +23,23 @@ export default async function ProjectsSection({ projects }: props) {
 
                     if (isDiscontinuedA && isDiscontinuedB) {
                         return dateB.getTime() - dateA.getTime();
-                    } else if (isDiscontinuedA) {
-                        return 1;
-                    } else if (isDiscontinuedB) {
-                        return -1;
-                    } else {
-                        return dateB.getTime() - dateA.getTime();
                     }
+
+                    if (isDiscontinuedA) {
+                        return 1;
+                    }
+
+                    if (isDiscontinuedB) {
+                        return -1;
+                    }
+
+                    return dateB.getTime() - dateA.getTime();
                 })
                 .map((item, i) => ({
                     metadata: item.metadata,
                     element: (
                         <ResponsiveDialog<IProject>
-                            key={i}
+                            key={i.toString()}
                             obj={item as IProject}
                             trigger={<APCard data={item} />}
                         >

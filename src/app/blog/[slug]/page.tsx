@@ -1,12 +1,12 @@
-import { Metadata } from "next";
-import { notFound } from "next/navigation";
-import { IArticle } from "@/types";
+import MDXRemote from "@/components/MDXRemote";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
 import { baseURL } from "@/lib/constants";
 import { getBlobs } from "@/lib/getBlobs";
 import { generateDateFormat } from "@/lib/utils";
-import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
-import MDXRemote from "@/components/MDXRemote";
+import { IArticle } from "@/types";
+import { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 export const revalidate = 60;
 
@@ -34,7 +34,7 @@ export default async function ArticlePage({ params }: props) {
                 <div className="flex flex-col gap-5">
                     <div className="flex flex-wrap gap-2">
                         {article.metadata.tags.map((tag, i) => (
-                            <Badge key={i} variant="secondary">
+                            <Badge key={i.toString()} variant="secondary">
                                 #{tag}
                             </Badge>
                         ))}

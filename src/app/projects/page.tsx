@@ -1,8 +1,8 @@
-import { Metadata } from "next";
-import { IProject } from "@/types";
+import ProjectsSection from "@/components/ProjectsSection";
 import { DefaultMetadata } from "@/lib/constants";
 import { getBlobs } from "@/lib/getBlobs";
-import ProjectsSection from "@/components/ProjectsSection";
+import { IProject } from "@/types";
+import { Metadata } from "next";
 
 export const revalidate = 60;
 

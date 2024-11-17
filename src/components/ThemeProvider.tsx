@@ -1,8 +1,8 @@
 "use client";
 
-import * as React from "react";
-import dynamic from "next/dynamic";
 import type { ThemeProviderProps } from "next-themes/dist/types";
+import dynamic from "next/dynamic";
+import * as React from "react";
 
 const NextThemesProvider = dynamic(async () => (await import("next-themes")).ThemeProvider, {
     ssr: false

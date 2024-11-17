@@ -1,7 +1,7 @@
-import { IArticle, IProject } from "@/types";
-import { getBlobs } from "@/lib/getBlobs";
 import ArticlesSection from "@/components/ArticlesSection";
 import ProjectsSection from "@/components/ProjectsSection";
+import { getBlobs } from "@/lib/getBlobs";
+import { IArticle, IProject } from "@/types";
 import Jumbotron from "./section/Jumbotron";
 
 export const revalidate = 60;

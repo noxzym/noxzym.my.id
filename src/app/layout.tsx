@@ -1,10 +1,10 @@
-import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
-import { DefaultMetadata, baseURL } from "@/lib/constants";
-import { cn } from "@/lib/utils";
 import Footer from "@/components/Footer";
 import { BottomStickyNavigation, TopStickyNavigation } from "@/components/Navigation";
 import ThemeProvider from "@/components/ThemeProvider";
+import { DefaultMetadata, baseURL } from "@/lib/constants";
+import { cn } from "@/lib/utils";
+import type { Metadata, Viewport } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });

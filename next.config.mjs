@@ -9,6 +9,9 @@ const withSerwist = withSerwistInit({
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    eslint: {
+        ignoreDuringBuilds: true
+    },
     transpilePackages: ["next-mdx-remote"],
     images: {
         remotePatterns: [

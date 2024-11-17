@@ -1,7 +1,7 @@
-import Image from "next/image";
-import Link from "next/link";
 import { IArticle, IProject } from "@/types";
 import { MDXRemote as MDXRemotePrimitive, MDXRemoteProps } from "next-mdx-remote/rsc";
+import Image from "next/image";
+import Link from "next/link";
 import remarkGfm from "remark-gfm";
 
 interface props {

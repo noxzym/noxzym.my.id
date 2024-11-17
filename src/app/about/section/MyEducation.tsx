@@ -1,5 +1,5 @@
-import { sql } from "@vercel/postgres";
 import { generateDateFormat } from "@/lib/utils";
+import { sql } from "@vercel/postgres";
 import SectionLayout from "../_components/SectionLayout";
 
 export default async function MyEducation() {

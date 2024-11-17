@@ -1,10 +1,10 @@
 "use client";
 
-import React from "react";
-import Link from "next/link";
-import { IArticle, IProject } from "@/types";
-import { isProject } from "@/lib/utils";
 import useMediaQuery from "@/hooks/useMediaQuery";
+import { isProject } from "@/lib/utils";
+import { IArticle, IProject } from "@/types";
+import Link from "next/link";
+import React from "react";
 import { Button } from "./ui/button";
 import {
     Dialog,

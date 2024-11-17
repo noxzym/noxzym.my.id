@@ -12,8 +12,8 @@ export default function SectionLayout({ title, description, items }: props) {
                 <p className="font-medium text-foreground/85">{description}</p>
             </div>
             <div className="flex flex-col gap-3 md:gap-4">
-                {items.map((item, index) => (
-                    <div key={index} className="flex flex-col justify-between md:flex-row">
+                {items.map((item, i) => (
+                    <div key={i.toString()} className="flex flex-col justify-between md:flex-row">
                         <div className="flex md:w-1/2">
                             <span className="mx-5 mt-1 hidden h-4 w-4 flex-none rounded-full bg-foreground md:block" />
                             <div className="flex flex-col">

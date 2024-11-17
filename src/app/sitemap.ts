@@ -1,5 +1,5 @@
-import { MetadataRoute } from "next";
 import { baseURL } from "@/lib/constants";
+import { MetadataRoute } from "next";
 
 export default async function Sitemap(): Promise<MetadataRoute.Sitemap> {
     const path = ["/", "/about", "/blog", "/projects"];

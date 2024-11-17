@@ -1,5 +1,5 @@
 import { ListBlobResultBlob, list } from "@vercel/blob";
-import { isArticle, isProject, parseFrontmatter } from "./utils";
+import { parseFrontmatter } from "./utils";
 
 interface props {
     prefix?: "articles" | "images" | "projects";

@@ -1,9 +1,9 @@
 "use client";
 
-import Link from "next/link";
-import { useTheme } from "next-themes";
-import { FaPaintBrush } from "react-icons/fa";
 import { NavigationLinks } from "@/lib/constants";
+import { useTheme } from "next-themes";
+import Link from "next/link";
+import { FaPaintBrush } from "react-icons/fa";
 import { Button } from "./ui/button";
 
 export function TopStickyNavigation() {
@@ -16,9 +16,9 @@ export function TopStickyNavigation() {
                 </Button>
                 <div className="flex gap-4">
                     <div className="hidden gap-4 md:flex">
-                        {NavigationLinks("Home", "About", "Blog", "Projects").map((link, index) => (
+                        {NavigationLinks("Home", "About", "Blog", "Projects").map((link, i) => (
                             <Button
-                                key={index}
+                                key={i.toString()}
                                 asChild
                                 size="sm"
                                 variant="link"
@@ -45,9 +45,9 @@ export function BottomStickyNavigation() {
     return (
         <nav className="sticky bottom-12 z-50 m-6 overflow-hidden rounded-xl bg-secondary/70 backdrop-blur-xl md:hidden">
             <div className="flex items-center justify-center text-foreground/85">
-                {NavigationLinks("Home", "Blog", "Projects", "About").map((link, index) => (
+                {NavigationLinks("Home", "Blog", "Projects", "About").map((link, i) => (
                     <Button
-                        key={index}
+                        key={i.toString()}
                         asChild
                         variant="ghost"
                         className="aspect-video h-auto flex-grow rounded-xl"

@@ -1,10 +1,10 @@
 "use client";
 
-import { useRef } from "react";
-import Image from "next/image";
-import Autoplay from "embla-carousel-autoplay";
-import { cn } from "@/lib/utils";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import { cn } from "@/lib/utils";
+import Autoplay from "embla-carousel-autoplay";
+import Image from "next/image";
+import { useRef } from "react";
 
 interface props {
     pictures: (string | null)[];
@@ -24,8 +24,8 @@ export default function CarouselProfilePicture({ pictures, className }: props) {
             <CarouselContent>
                 {Array.from(pictures)
                     .filter(Boolean)
-                    .map((_, index) => (
-                        <CarouselItem key={index}>
+                    .map((_, i) => (
+                        <CarouselItem key={i.toString()}>
                             <Image
                                 src={_!}
                                 alt="Profile Picture"

@@ -1,8 +1,8 @@
-import Link from "next/link";
+import CarouselProfilePicture from "@/components/CarouselProfilePicture";
+import { Button } from "@/components/ui/button";
 import { ExternalLinks, NavigationLinks } from "@/lib/constants";
 import getProfilePicture from "@/lib/getProfilePicture";
-import { Button } from "@/components/ui/button";
-import CarouselProfilePicture from "@/components/CarouselProfilePicture";
+import Link from "next/link";
 
 export default async function Jumbotron() {
     const [profilePicture, githubAvatar, discordAvatar] = await getProfilePicture();
@@ -18,9 +18,9 @@ export default async function Jumbotron() {
                     </p>
                 </div>
                 <div className="flex flex-wrap gap-4">
-                    {NavigationLinks("About", "Blog", "Projects").map((link, index) => (
+                    {NavigationLinks("About", "Blog", "Projects").map((link, i) => (
                         <Button
-                            key={index}
+                            key={i.toString()}
                             asChild
                             className="flex-grow text-base font-semibold md:flex-grow-0"
                         >
@@ -29,8 +29,8 @@ export default async function Jumbotron() {
                     ))}
                 </div>
                 <div className="flex gap-2">
-                    {ExternalLinks("Resume", "Linkedin", "Github").map((link, index) => (
-                        <Button key={index} asChild size="sm" variant="link">
+                    {ExternalLinks("Resume", "Linkedin", "Github").map((link, i) => (
+                        <Button key={i.toString()} asChild size="sm" variant="link">
                             <Link
                                 href={link.url}
                                 prefetch={false}

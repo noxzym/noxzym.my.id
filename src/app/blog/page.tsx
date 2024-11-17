@@ -1,8 +1,8 @@
-import { Metadata } from "next";
-import { IArticle } from "@/types";
+import ArticlesSection from "@/components/ArticlesSection";
 import { DefaultMetadata } from "@/lib/constants";
 import { getBlobs } from "@/lib/getBlobs";
-import ArticlesSection from "@/components/ArticlesSection";
+import { IArticle } from "@/types";
+import { Metadata } from "next";
 
 export const revalidate = 60;
 

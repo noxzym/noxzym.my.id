@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { ExternalLinks } from "@/lib/constants";
+import Link from "next/link";
 import { Button } from "./ui/button";
 import { Separator } from "./ui/separator";
 
@@ -28,9 +28,9 @@ export default function Footer() {
                             "Instagram",
                             "Spotify",
                             "Twitter"
-                        ).map((link, index) => (
+                        ).map((link, i) => (
                             <Button
-                                key={index}
+                                key={i.toString()}
                                 asChild
                                 size="icon"
                                 variant="secondary"

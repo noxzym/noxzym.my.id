@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { IArticle } from "@/types";
+import Link from "next/link";
 import APCard from "./APCard";
 import APLayout from "./APLayout";
 
@@ -24,7 +24,7 @@ export default async function ArticlesSection({ articles }: props) {
                     metadata: item.metadata,
                     element: (
                         <Link
-                            key={i}
+                            key={i.toString()}
                             href={`/blog/${item.metadata.title.toLowerCase().split(" ").join("-")}`}
                         >
                             <APCard data={item} />

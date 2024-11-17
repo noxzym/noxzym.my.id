@@ -1,3 +1,4 @@
+import { OGImageDescriptor } from "@/types";
 import {
     IconDescriptor,
     Robots,
@@ -5,7 +6,6 @@ import {
 } from "next/dist/lib/metadata/types/metadata-types";
 import { OpenGraph } from "next/dist/lib/metadata/types/opengraph-types";
 import { Twitter } from "next/dist/lib/metadata/types/twitter-types";
-import { OGImageDescriptor } from "@/types";
 import { FaLeaf, FaRocket, FaUser } from "react-icons/fa";
 import { FaHouse } from "react-icons/fa6";
 import {

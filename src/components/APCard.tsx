@@ -1,7 +1,7 @@
-import Image from "next/image";
-import { IArticle, IProject } from "@/types";
-import { FaArrowRight } from "react-icons/fa";
 import { isProject } from "@/lib/utils";
+import { IArticle, IProject } from "@/types";
+import Image from "next/image";
+import { FaArrowRight } from "react-icons/fa";
 
 interface props {
     data: IArticle | IProject;
@@ -41,7 +41,7 @@ export default function APCard({ data }: props) {
                 <p className="line-clamp-2 text-foreground/80">{data.metadata.description}</p>
                 <div className="flex flex-wrap gap-2">
                     {data.metadata.tags.map((item, i) => (
-                        <p key={i} className="text-xs text-foreground/80">
+                        <p key={i.toString()} className="text-xs text-foreground/80">
                             #{item}
                         </p>
                     ))}

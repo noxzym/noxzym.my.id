@@ -1,5 +1,5 @@
-import getProfilePicture from "@/lib/getProfilePicture";
 import CarouselProfilePicture from "@/components/CarouselProfilePicture";
+import getProfilePicture from "@/lib/getProfilePicture";
 
 export default async function AboutMe() {
     const [profilePicture, githubAvatar, discordAvatar] = await getProfilePicture();

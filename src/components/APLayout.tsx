@@ -1,13 +1,13 @@
 "use client";
 
-import { useState } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { IArticle, IProject } from "@/types";
-import { FaArrowRight } from "react-icons/fa";
-import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { cn } from "@/lib/utils";
+import { IArticle, IProject } from "@/types";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useState } from "react";
+import { FaArrowRight } from "react-icons/fa";
 
 interface props {
     title: "Articles" | "Projects";
