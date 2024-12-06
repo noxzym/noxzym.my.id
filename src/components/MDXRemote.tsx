@@ -33,7 +33,7 @@ export default function MDXRemote({ mdx }: props) {
     };
 
     return (
-        <div className="prose prose-zinc max-w-none dark:prose-invert">
+        <div className="prose prose-zinc dark:prose-invert max-w-none">
             <MDXRemotePrimitive {...props} />
         </div>
     );

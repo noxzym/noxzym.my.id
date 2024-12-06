@@ -11,9 +11,9 @@ export default async function Jumbotron() {
         <section className="flex flex-col items-center justify-between py-12 md:mt-12 md:flex-row">
             <div className="flex flex-col gap-4">
                 <div>
-                    <p className="text-xl font-semibold md:text-4xl">Hello, I am</p>
-                    <p className="text-4xl font-bold md:text-6xl">Orchitiadi Ismaulana Putra</p>
-                    <p className="text-sm font-medium text-foreground/90 md:text-xl">
+                    <p className="font-semibold text-xl md:text-4xl">Hello, I am</p>
+                    <p className="font-bold text-4xl md:text-6xl">Orchitiadi Ismaulana Putra</p>
+                    <p className="font-medium text-foreground/90 text-sm md:text-xl">
                         A Full Stack Developer who is familiar with using React and NodeJS.
                     </p>
                 </div>
@@ -22,7 +22,7 @@ export default async function Jumbotron() {
                         <Button
                             key={i.toString()}
                             asChild
-                            className="flex-grow text-base font-semibold md:flex-grow-0"
+                            className="flex-grow font-semibold text-base md:flex-grow-0"
                         >
                             <Link href={link.url}>{link.text}</Link>
                         </Button>

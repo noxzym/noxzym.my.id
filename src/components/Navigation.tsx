@@ -11,7 +11,7 @@ export function TopStickyNavigation() {
     return (
         <nav className="sticky top-0 z-50 bg-background/70 py-5 backdrop-blur-xl">
             <div className="container flex max-w-screen-xl items-center justify-between">
-                <Button asChild variant="link" className="text-2xl font-bold">
+                <Button asChild variant="link" className="font-bold text-2xl">
                     <Link href="/">Orchit.</Link>
                 </Button>
                 <div className="flex gap-4">

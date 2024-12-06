@@ -27,8 +27,8 @@ export default async function ArticlePage({ params }: props) {
     return (
         <article className="mx-auto flex max-w-screen-lg flex-col gap-5 py-12 md:gap-10">
             <div className="flex flex-col gap-5">
-                <h1 className="text-3xl font-bold">{article.metadata.title}</h1>
-                <p className="text-sm font-medium text-foreground/85">
+                <h1 className="font-bold text-3xl">{article.metadata.title}</h1>
+                <p className="font-medium text-foreground/85 text-sm">
                     Published on {generateDateFormat(article.metadata.date)}
                 </p>
                 <div className="flex flex-col gap-5">

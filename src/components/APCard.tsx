@@ -28,7 +28,7 @@ export default function APCard({ data }: props) {
                 {isProject(data) &&
                     (data as unknown as IProject).metadata.discontinued === "true" && (
                         <span className="absolute left-0 rounded-br-xl bg-destructive px-2 py-1">
-                            <p className="text-xs font-medium uppercase text-white">Discontinued</p>
+                            <p className="font-medium text-white text-xs uppercase">Discontinued</p>
                         </span>
                     )}
             </span>
@@ -41,7 +41,7 @@ export default function APCard({ data }: props) {
                 <p className="line-clamp-2 text-foreground/80">{data.metadata.description}</p>
                 <div className="flex flex-wrap gap-2">
                     {data.metadata.tags.map((item, i) => (
-                        <p key={i.toString()} className="text-xs text-foreground/80">
+                        <p key={i.toString()} className="text-foreground/80 text-xs">
                             #{item}
                         </p>
                     ))}

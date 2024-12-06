@@ -6,7 +6,7 @@ export default async function AboutMe() {
 
     return (
         <section className="flex flex-col gap-4 py-12 md:gap-5">
-            <p className="text-4xl font-bold md:text-6xl">About me</p>
+            <p className="font-bold text-4xl md:text-6xl">About me</p>
             <div className="flex items-start justify-between">
                 <div className="flex flex-col gap-3 font-medium md:w-1/2">
                     <p>
