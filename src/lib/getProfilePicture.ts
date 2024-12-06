@@ -30,5 +30,5 @@ export default async function getProfilePicture() {
 
     const githubAvatar = githubData?.avatar_url ?? null;
 
-    return [profilePicture, githubAvatar, discordAvatar];
+    return [profilePicture, githubAvatar, ""];
 }
