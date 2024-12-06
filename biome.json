@@ -17,6 +17,16 @@
                 "noNonNullAssertion": "off",
                 "useBlockStatements": "off",
                 "useImportType": "off"
+            },
+            "nursery": {
+                "useSortedClasses": {
+                    "level": "error",
+                    "fix": "safe",
+                    "options": {
+                        "attributes": ["className"],
+                        "functions": ["cn"]
+                    }
+                }
             }
         }
     },
