@@ -1,7 +1,18 @@
+import {
+    Table,
+    TableBody,
+    TableCell,
+    TableHead,
+    TableHeader,
+    TableRow
+} from "@/components/ui/table";
+import { generateDateFormat } from "@/lib/utils";
+import { Certificate, EducationLevel } from "@/types";
+
 interface props {
     title: string;
     description: string;
-    items: IItem[];
+    items: Item[];
 }
 
 export default function SectionLayout({ title, description, items }: props) {
@@ -11,26 +22,87 @@ export default function SectionLayout({ title, description, items }: props) {
                 <p className="font-bold text-3xl">{title}</p>
                 <p className="font-medium text-foreground/85">{description}</p>
             </div>
-            <div className="flex flex-col gap-3 md:gap-4">
-                {items.map((item, i) => (
-                    <div key={i.toString()} className="flex flex-col justify-between md:flex-row">
-                        <div className="flex md:w-1/2">
-                            <span className="mx-5 mt-1 hidden h-4 w-4 flex-none rounded-full bg-foreground md:block" />
-                            <div className="flex flex-col">
-                                <p className="line-clamp-1 font-medium text-xl">{item.title}</p>
-                                <p className="font-medium text-foreground/85">{item.provider}</p>
-                            </div>
-                        </div>
-                        <p className="font-medium text-foreground/85">{item.duration}</p>
-                    </div>
-                ))}
-            </div>
+            <Table>
+                <TableHeader className="hidden md:table-header-group">
+                    <TableRow>
+                        {isEducationLevel(items[0]) ? (
+                            <>
+                                <TableHead>Institution Name</TableHead>
+                                <TableHead>Level</TableHead>
+                                <TableHead>Year Started</TableHead>
+                                <TableHead>Year Graduated</TableHead>
+                            </>
+                        ) : (
+                            <>
+                                <TableHead>Certificate Name</TableHead>
+                                <TableHead>Issue By</TableHead>
+                                <TableHead>Issue Date</TableHead>
+                                <TableHead>Expiration Date</TableHead>
+                            </>
+                        )}
+                    </TableRow>
+                </TableHeader>
+                <TableBody>
+                    {items
+                        .sort((a, b) => {
+                            if (isEducationLevel(a) && isEducationLevel(b)) {
+                                return b.year_started.getTime() - a.year_started.getTime();
+                            }
+
+                            if (isCertificate(a) && isCertificate(b)) {
+                                return a.issue_date.getTime() - b.issue_date.getTime();
+                            }
+
+                            return 0;
+                        })
+                        .map((row, i) => (
+                            <TableRow key={i.toString()}>
+                                <TableCell className="w-1/2 px-0 md:px-4">
+                                    <div className="flex flex-col gap-2">
+                                        <p className="text-lg md:text-base">
+                                            {isEducationLevel(row)
+                                                ? row.institution_name
+                                                : row.certificate_name}
+                                        </p>
+                                        <p className="text-xs md:hidden md:text-base">
+                                            {isEducationLevel(row) ? row.level : row.issued_by}•{" "}
+                                            {generateDateFormat(
+                                                isEducationLevel(row)
+                                                    ? row.year_started
+                                                    : row.issue_date
+                                            )}
+                                        </p>
+                                    </div>
+                                </TableCell>
+                                <TableCell className="hidden md:table-cell">
+                                    {isEducationLevel(row) ? row.level : row.issued_by}
+                                </TableCell>
+                                <TableCell className="hidden md:table-cell">
+                                    {generateDateFormat(
+                                        isEducationLevel(row) ? row.year_started : row.issue_date
+                                    )}
+                                </TableCell>
+                                <TableCell className="hidden md:table-cell">
+                                    {isEducationLevel(row)
+                                        ? new Date(row.year_graduated!).getTime() > Date.now()
+                                            ? "Soon"
+                                            : generateDateFormat(row.year_graduated!)
+                                        : generateDateFormat(row.expiration_date!)}
+                                </TableCell>
+                            </TableRow>
+                        ))}
+                </TableBody>
+            </Table>
         </section>
     );
 }
 
-interface IItem {
-    title: string;
-    provider: string;
-    duration: string;
+type Item = EducationLevel | Certificate;
+
+function isEducationLevel(item: Item): item is EducationLevel {
+    return "institution_name" in item;
+}
+
+function isCertificate(item: Item): item is Certificate {
+    return "certificate_name" in item;
 }

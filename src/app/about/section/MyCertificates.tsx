@@ -1,31 +1,15 @@
-import { generateDateFormat } from "@/lib/utils";
+import { Certificate } from "@/types";
 import { sql } from "@vercel/postgres";
 import SectionLayout from "../_components/SectionLayout";
 
 export default async function MyCertificates() {
-    const { rows } = await sql<ICertificate>`SELECT * FROM certificates`;
+    const { rows } = await sql<Certificate>`SELECT * FROM certificates`;
 
     return (
         <SectionLayout
             title="Certificates"
             description="Here are some of the certificates I've received."
-            items={rows
-                .sort((a, b) => {
-                    return a.given_date.getTime() - b.given_date.getTime();
-                })
-                .map(row => ({
-                    title: row.name,
-                    provider: row.provider,
-                    duration: `${generateDateFormat(row.given_date)} - ${generateDateFormat(row.expiration_date)}`
-                }))}
+            items={rows}
         />
     );
-}
-
-interface ICertificate {
-    id: string;
-    name: string;
-    provider: string;
-    given_date: Date;
-    expiration_date: Date;
 }
