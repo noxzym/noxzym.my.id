@@ -24,6 +24,22 @@ export interface IProject extends IArticle {
     };
 }
 
+export interface EducationLevel {
+    institution_name: string;
+    level: string;
+    city: string;
+    year_started: Date;
+    year_graduated?: Date;
+}
+
+export interface Certificate {
+    certificate_name: string;
+    issued_by: string;
+    issue_date: Date;
+    expiration_date?: Date;
+    description: string;
+}
+
 export interface OGImageDescriptor {
     url: string | URL;
     secureUrl?: string | URL;
