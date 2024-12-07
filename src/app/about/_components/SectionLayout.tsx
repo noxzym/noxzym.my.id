@@ -50,7 +50,7 @@ export default function SectionLayout({ title, description, items }: props) {
                             }
 
                             if (isCertificate(a) && isCertificate(b)) {
-                                return a.issue_date.getTime() - b.issue_date.getTime();
+                                return b.issue_date.getTime() - a.issue_date.getTime();
                             }
 
                             return 0;
@@ -65,12 +65,21 @@ export default function SectionLayout({ title, description, items }: props) {
                                                 : row.certificate_name}
                                         </p>
                                         <p className="text-xs md:hidden md:text-base">
-                                            {isEducationLevel(row) ? row.level : row.issued_by}•{" "}
+                                            {isEducationLevel(row) ? row.level : row.issued_by} •{" "}
                                             {generateDateFormat(
                                                 isEducationLevel(row)
                                                     ? row.year_started
                                                     : row.issue_date
-                                            )}
+                                            )}{" "}
+                                            -{" "}
+                                            {isEducationLevel(row)
+                                                ? new Date(row.year_graduated!).getTime() >
+                                                  Date.now()
+                                                    ? "Soon"
+                                                    : generateDateFormat(row.year_graduated!)
+                                                : row.expiration_date
+                                                  ? generateDateFormat(row.expiration_date)
+                                                  : "Lifetime"}
                                         </p>
                                     </div>
                                 </TableCell>
@@ -87,7 +96,9 @@ export default function SectionLayout({ title, description, items }: props) {
                                         ? new Date(row.year_graduated!).getTime() > Date.now()
                                             ? "Soon"
                                             : generateDateFormat(row.year_graduated!)
-                                        : generateDateFormat(row.expiration_date!)}
+                                        : row.expiration_date
+                                          ? generateDateFormat(row.expiration_date)
+                                          : "Lifetime"}
                                 </TableCell>
                             </TableRow>
                         ))}
