@@ -46,7 +46,7 @@ const nextConfig = {
             {
                 source: "/resume",
                 destination:
-                    "https://drive.google.com/file/d/1_rRlvCXkUKSGcZKoeqj_C9_Hy99H2Kvr/view",
+                    "https://drive.google.com/file/d/119qxsa8T4019T6nslG9cNA6hfeCtcbir/view",
                 permanent: true
             },
             {
